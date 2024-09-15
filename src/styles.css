@@ -1,1 +1,192 @@
-/* You can add global styles to this file, and also import other style files */
+/* Contenedor del inicio de sesión */
+.login-container {
+  background-image: url('assets/images/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor del inicio de sesión */
+.login-box {
+  background: white; /* Fondo blanco */
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10); /* Sombra */
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 20px 20px 20px 40px; /* Ajusta el padding izquierdo */
+
+  width: 90%; /* Ajusta el ancho según sea necesario */
+  max-width: 400px; /* Ajusta el ancho máximo según sea necesario */
+}
+/* Estilo para el contenedor del encabezado de inicio de sesión */
+.login-header {
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-size: 14px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  margin-bottom: 10px; /* Espacio entre el encabezado y el formulario */
+  margin-left: 100px; /* Ajusta el valor según sea necesario */
+
+}
+
+/* Estilo para el subtítulo en el contenedor de inicio de sesión */
+.login-subtitulo {
+  color:  #6C6C6C;
+  font-size: 12px;
+  word-wrap: break-word;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  margin-bottom: 10px; /* Espacio entre el encabezado y el formulario */
+  margin-top: 1px; /* Ajusta el valor según sea necesario */
+  margin-left: 15px; /* Ajusta el margen izquierdo según sea necesario */
+  text-decoration: none; /* Asegura que no haya subrayado */
+  border: none; /* Asegura que no haya borde */
+
+
+}
+
+
+/* Estilo para el título dentro del contenedor de login */
+.title {
+  color: black;
+  font-size: 20px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin-bottom: 10px; /* Espacio entre el título y el formulario */
+  margin-left: -10px; /* Ajusta el valor según sea necesario */
+}
+
+/* Estilos para el formulario */
+.form-group {
+  margin-bottom: 15px;
+  color: #6C6C6C;
+  font-size: 14px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  word-wrap: break-word
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 10px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  word-wrap: break-word
+
+
+}
+
+button.btn {
+  background-color: #35C5DED9;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+  word-wrap: break-word
+}
+
+button.btn:hover {
+  background-color: #355AED; /* Color del botón en hover */
+  color: #080606;
+}
+
+p {
+  margin-top: 10px;
+}
+
+a {
+  color: #B197FC; /* Color del enlace */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* Estilos generales para los elementos del encabezado */
+.header {
+  width: 100%;
+  height: auto;
+  padding: 10px 20px;
+  background: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Contenido del encabezado */
+.header-content {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Elementos del encabezado */
+.header-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Estilos específicos para cada sección del encabezado */
+.header-item .header-text {
+  color: #080606; /* Color predeterminado oscuro */
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+
+
+
+
+}
+
+.header-item.productos .header-text {
+  color: #080606; /* Tono más oscuro */
+}
+
+.header-item.empresa .header-text {
+  color: #333; /* Tono más oscuro */
+}
+
+.header-item.precios .header-text {
+  color: #cc1b1b; /* Tono rojo */
+}
+
+.header-item.comunidad .header-text {
+  color: black; /* Negro */
+  font-size: 20px;
+  font-weight: 500; /* Normal pero más oscuro */
+}
+
+.header-item.quienes-somos .header-text {
+  color: #333; /* Tono más oscuro */
+  font-size: 18px;
+}
+
+.header-item.login .header-text {
+  color: #333; /* Tono más oscuro */
+}
