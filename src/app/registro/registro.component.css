@@ -1,0 +1,198 @@
+/* Estilos del encabezado */
+.header {
+  width: 100%;
+  height: auto;
+  padding: 10px 20px;
+  background: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Contenido del encabezado */
+.header-content {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Estilos específicos para cada sección del encabezado */
+.header-item .header-text {
+  color: #080606; /* Color predeterminado oscuro */
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header-item.productos .header-text {
+  color: #080606; /* Tono más oscuro */
+}
+
+.header-item.empresa .header-text {
+  color: #333; /* Tono más oscuro */
+}
+
+.header-item.precios .header-text {
+  color: #cc1b1b; /* Tono rojo */
+}
+
+.header-item.comunidad .header-text {
+  color: black; /* Negro */
+  font-size: 20px;
+  font-weight: 500; /* Normal pero más oscuro */
+}
+
+.header-item.quienes-somos .header-text {
+  color: #333; /* Tono más oscuro */
+  font-size: 20px;
+}
+
+.header-item.login-text {
+  width: 50%;
+  height: 50%;
+  padding-left: 10px;
+  padding: 12px 5px;
+  padding-right: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #355ADE; /* Fondo azul */
+  border-radius: 20px; /* Bordes redondeados */
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  display: inline-flex; /* Mantener flex y alinear contenido */
+}
+
+.header-item.login-text .header-text {
+  color: #ffffff; /* Color blanco */
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Contenedor del inicio de sesión */
+.login-box {
+  
+  height: 100%; 
+  width: 100%;
+  position: relative;
+  box-shadow: 28px 0px 50.49px rgba(0, 0, 0, 0.17);
+  background-color: #fff;
+  margin: 0;
+  line-height: 40px;
+  padding-left: 10px;
+  align-items: center;
+  top: 50px; 
+  left: 250px;
+}
+
+.title {
+  width: 423.8px;
+  position: relative;
+  font-size: 32px;
+  display: inline-block;
+  font-family: Montserrat;
+  color: #000;
+  text-align: left;
+  height: 49.9px;
+  }
+
+.form-group {
+  width: 173px;
+  position: relative;
+  font-size: 16.16px;
+  font-family: Montserrat;
+  color: #555;
+  text-align: left;
+  display: inline-block;
+  height: 25px;
+}
+
+.form-group label {
+  width: 173px;
+position: relative;
+font-size: 16.16px;
+font-family: Montserrat;
+color: #555;
+text-align: left;
+display: inline-block;
+height: 25px;
+}
+
+.form-group input {
+  width: 100%;
+  position: relative;
+  border-radius: 8.08px;
+  background-color: #eee;
+  height: 52.5px;
+  margin: 0;
+  line-height: normal;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  position: relative;
+  border-radius: 8.08px;
+  background-color: #eee;
+  height: 52.5px;
+  margin: 0;
+  line-height: normal;
+}
+
+.form-container {
+  height: 300px; 
+  width: 400px;
+  display: flex;
+  justify-content: space-between; /* Separar los dos divs de los inputs */
+}
+
+.form-container > div {
+  width: 100%; /* Ajusta el tamaño de los divs */
+}
+
+
+/* Contenedor principal para formulario y la imagen */
+.main-container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  align-items: center;
+  display: flex; /* Hace que los hijos se alineen en una fila */
+  justify-content: space-between; /* Distribuye el espacio entre los elementos */
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
+  gap: 200px; /* Espacio entre el formulario y la imagen */
+}
+
+
+/* Estilos de la imagen */
+.imagen-container {
+  width: 100%;
+  position: relative;
+  border-radius: 11.65px;
+  height: 849px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  margin: 0;
+  line-height: normal;
+  align-items: center;
+}
+
+.imagen-container img {
+  position: relative;
+  top: 70px; 
+  left: 250px;
+}
+
