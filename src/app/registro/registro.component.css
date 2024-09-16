@@ -82,18 +82,16 @@
 
 /* Contenedor del inicio de sesión */
 .login-box {
-  
-  height: 100%; 
-  width: 100%;
   position: relative;
   box-shadow: 28px 0px 50.49px rgba(0, 0, 0, 0.17);
   background-color: #fff;
   margin: 0;
-  line-height: 40px;
-  padding-left: 10px;
+  line-height: 31px;
+  padding-left: 0px;
   align-items: center;
-  top: 50px; 
-  left: 250px;
+  top: 45px;
+  left: 329px;
+  width: 100em;
 }
 
 .title {
@@ -132,9 +130,9 @@ height: 25px;
 .form-group input {
   width: 100%;
   position: relative;
-  border-radius: 8.08px;
+  border-radius: 10px;
   background-color: #eee;
-  height: 52.5px;
+  height: 36.5px;
   margin: 0;
   line-height: normal;
 }
@@ -150,6 +148,23 @@ input[type="password"] {
   line-height: normal;
 }
 
+button.btn {
+  background-color: #35C5DED9;
+  width: 100%;
+  height: 143%;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+  word-wrap: break-word;
+  position: absolute;
+  top: 20px; /* Ajusta la posición vertical */
+  left: 0px; /* Ajusta la posición horizontal */
+}
+
+
 .form-container {
   height: 300px; 
   width: 400px;
@@ -160,21 +175,6 @@ input[type="password"] {
 .form-container > div {
   width: 100%; /* Ajusta el tamaño de los divs */
 }
-
-
-/* Contenedor principal para formulario y la imagen */
-.main-container {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  align-items: center;
-  display: flex; /* Hace que los hijos se alineen en una fila */
-  justify-content: space-between; /* Distribuye el espacio entre los elementos */
-  align-items: flex-start; /* Alinea los elementos en la parte superior */
-  gap: 200px; /* Espacio entre el formulario y la imagen */
-}
-
 
 /* Estilos de la imagen */
 .imagen-container {
@@ -188,11 +188,13 @@ input[type="password"] {
   margin: 0;
   line-height: normal;
   align-items: center;
+  top: 10px; 
+  left: 250px;
 }
 
 .imagen-container img {
   position: relative;
-  top: 70px; 
-  left: 250px;
+  top: -420px;
+  left: 556px;
 }
 
