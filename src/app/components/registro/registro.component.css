@@ -1,0 +1,152 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Contenedor del inicio de sesión */
+.registro-container {
+  display: flex;
+  height: calc(100vh - 60px);
+  width: 100%;
+  justify-content: center; /* Centra horizontalmente los elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+/* Caja de registro */
+.registro-box {
+  background: white;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
+  border-radius: 20px;
+  padding: 40px; /* Aumentar el padding general */
+  width: 80%; /* Cambiar el ancho al 80% para más espacio */
+  max-width: 600px; /* Aumentar el ancho máximo */
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente el contenido */
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between; /* Espacia las columnas */
+  margin-bottom: 20px; /* Espacio entre filas */
+}
+
+.form-group {
+  flex: 1; /* Hace que cada columna ocupe el mismo espacio */
+  margin-right: 15px; /* Espacio entre columnas */
+}
+
+.form-group:last-child {
+  margin-right: 0; /* Elimina el margen derecho en la última columna */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #6C6C6C;
+  font-size: 14px;
+}
+
+
+/* Estilo para el título de registro */
+.title {
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  border-left: 4px solid #35C5DE;
+  padding-left: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"] {
+  width: 100%; /* Asegura que todos los inputs ocupen el 100% del ancho */
+  padding: 10px; /* Espacio interno */
+  border-radius: 5px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde suave */
+  font-size: 14px; /* Tamaño de fuente uniforme */
+  font-family: 'Montserrat', sans-serif; /* Fuente consistente */
+  font-weight: 500; /* Peso de fuente */
+  color: #6C6C6C;
+}
+
+/* Botón */
+.bt {
+  background-color: #35C5DED9;
+  width: 100%;
+  height: 40px; /* Ajusté la altura para mejor apariencia */
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  border: none;
+}
+
+.bt:hover {
+  background-color: #355AED; /* Color del botón en hover */
+  color: #ffffff;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+a {
+  color: #355AED;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Registrarte */
+.registrarte {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.registrarte a {
+  color: #355ADE;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Imagen */
+.imagen-container {
+  width: 50%; /* 50% del ancho */
+  height: 100%;
+  overflow: hidden; /* Oculta el contenido que se desborda */
+  position: relative; /* Posición relativa para el contenido */
+}
+
+.imagen-container img {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra el área */
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px; /* Ajusta el tamaño según sea necesario */
+  height: 20px; /* Ajusta el tamaño según sea necesario */
+}
+
