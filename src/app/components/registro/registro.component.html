@@ -8,107 +8,86 @@
   <title>Registro - CampusRide</title>
 </head>
 <body>
-  <!-- Encabezado -->
-  <header class="header">
-    <div class="header-left">
-      <div class="header-logo">CampusRide</div>
-      <nav class="header-content">
-        <div class="header-item">
-          <div class="login-text2">Productos</div>
-        </div>
-        <div class="header-item">
-          <div class="login-text2">Empresa</div>
-        </div>
-        <div class="header-item">
-          <div class="login-text2">Precios</div>
-        </div>
-        <div class="header-item">
-          <div class="login-text2">Comunidad</div>
-        </div>
-        <div class="header-item">
-          <div class="login-text2">Quienes somos</div>
-        </div>
-
-      </nav>
-    </div>
-    <div class="header-right">
-
-      <div class="header-item">
-        <div class="login-text2">Iniciar sesión </div>
-      </div>
-      <div class="header-item">
-        <div class="login-text">Registrarse </div>
-      </div>
-
-    </div>
-  </header>
 
   <!-- Contenido del registro -->
   <main class="registro-container">
     <div class="registro-box">
       <h1 class="title">CAMPUSRIDE</h1>
 
-      <form>
+      <form [formGroup]="agregarUsuario" (ngSubmit)="onSubmit()">
         <div class="form-row">
           <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+            <input type="text" id="nombre" formControlName="nombre" placeholder="Ingresa tu nombre" required>
           </div>
           <div class="form-group">
             <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido" required>
+            <input type="text" id="apellido" formControlName="apellido" placeholder="Ingresa tu apellido" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="info@xyz.com" required>
+            <label for="correo">Correo electrónico</label>
+            <input type="correo" id="correo" formControlName="correo" placeholder="info@xyz.com" required>
           </div>
           <div class="form-group">
             <label for="telefono">Número de teléfono</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="+57 315 564 7526" required>
+            <input type="tel" id="telefono" formControlName="telefono" placeholder="+57 315 564 7526" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion" placeholder="Ingresa tu dirección" required>
+            <input type="text" id="direccion" formControlName="direccion" placeholder="Ingresa tu dirección" required>
           </div>
           <div class="form-group">
             <label for="fecha-nacimiento">Fecha de nacimiento</label>
-            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+            <input type="date" id="fecha-nacimiento" formControlName="fechaNacimiento" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="contraseña">Contraseña</label>
             <div class="password-container">
-              <input type="password" id="contraseña" name="contraseña" placeholder="Ingresa tu contraseña" required>
-              <img src="assets/images/ojo.png" class="toggle-password" onclick="togglePassword('contraseña')" alt="Mostrar/Ocultar Contraseña">
+              <input
+                [type]="isPasswordVisible ? 'text' : 'password'"
+                id="contraseña"
+                formControlName="contraseña"
+                placeholder="Ingresa tu contraseña"
+                required>
+              <img
+                src="assets/images/ojo_cerrado.png"
+                class="toggle-password"
+                alt="Mostrar/Ocultar Contraseña"
+                (click)="togglePasswordVisibility()"
+                [src]="isPasswordVisible ? 'assets/images/ojo_abierto.png' : 'assets/images/ojo_cerrado.png'">
             </div>
           </div>
           <div class="form-group">
             <label for="confirmar-contraseña">Confirmar Contraseña</label>
             <div class="password-container">
-              <input type="password" id="confirmar-contraseña" name="confirmar-contraseña" placeholder="Confirma tu contraseña" required>
-              <img src="assets/images/ojo.png" class="toggle-password" onclick="togglePassword('confirmar-contraseña')" alt="Mostrar/Ocultar Contraseña">
+              <input
+                [type]="isPasswordVisible ? 'text' : 'password'"
+                id="confirmar-contraseña"
+                formControlName="confirmarContraseña"
+                placeholder="Confirma tu contraseña"
+                required>
+              <img
+                src="assets/images/ojo_cerrado.png"
+                class="toggle-password"
+                alt="Mostrar/Ocultar Contraseña"
+                (click)="togglePasswordVisibility()"
+                [src]="isPasswordVisible ? 'assets/images/ojo_abierto.png' : 'assets/images/ojo_cerrado.png'">
             </div>
           </div>
         </div>
-
-
-
         <div class="form-group">
           <button type="submit" class="bt">Registrarse</button>
         </div>
-        <p>¿Ya tienes una cuenta? <a href="#">Iniciar sesión</a></p>
+        <p>¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
       </form>
-
-
-
     </div>
     <img src="assets/images/fondoRegistro.png" alt="registro" class="imagen-container">
   </main>
-
 </body>
 </html>
