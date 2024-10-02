@@ -45,5 +45,35 @@ router.get('/allUsers', (req, res) => {
 }); // Cierre de la ruta router.get
 
 
+router.post('/login', (req, res) => {
+  const { correo, contraseña } = req.body;
+
+  // Validar que se reciban todos los campos necesarios
+  if (!correo || !contraseña) {
+      return res.status(400).json({ error: 'Por favor, complete todos los campos obligatorios.' });
+  }
+
+  // Consulta SQL para verificar el usuario
+  const query = `
+      SELECT * FROM usuarios WHERE correo = ? AND contraseña = ?
+  `;
+
+  // Ejecutar la consulta
+  connection.query(query, [correo, contraseña], (err, result) => {
+      if (err) {
+          console.error('Error al validar el usuario:', err);
+          return res.status(500).json({ error: 'Error al validar el usuario' });
+      }
+
+      if (result.length > 0) {
+          // El usuario existe
+          res.status(200).json({ message: 'Usuario validado', user: result[0] });
+      } else {
+          // El usuario no existe
+          res.status(401).json({ error: 'Correo o contraseña incorrectos' });
+      }
+  });
+});
+
 
 module.exports = router;

@@ -49,6 +49,7 @@
   color: rgb(255, 255, 255);  /* Cambiado a rojo como solicitado */
   transition: background-color 0.3s ease;
   cursor: pointer;
+  text-decoration: none;
 }
 
 
@@ -66,6 +67,7 @@
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 
@@ -89,4 +91,10 @@
 .header-left .header-content .header-item .login-text2:hover {
   background: #292929;
   color: #ffffff;
+}
+
+
+.error {
+  color: red;
+  font-size: 12px;
 }
