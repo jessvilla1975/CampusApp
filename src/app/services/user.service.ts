@@ -20,4 +20,9 @@ export class UserService {
   getAllUsers(): Observable<any[]> {
     return this.httpClient.get<any[]>(`${this.apiUrl}/allUsers`);
   }
+
+  // Método para logearse
+  ingresarUser(user: { correo: string; contraseña: string }): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/login`, user);
+  }
 }
