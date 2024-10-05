@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet, Router } from '@angular/router'; // Importa Router
 import { HeaderComponent } from "../header/header.component";
-import { UserService } from '../../services/user.service';
+import { ApiService } from '../../api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -15,7 +15,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   ingresoUsuario: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { // Inyecta Router
+  constructor(private fb: FormBuilder, private userService: ApiService, private router: Router) { // Inyecta Router
     this.ingresoUsuario = this.fb.group({
       correo: ['', [Validators.required, Validators.email]],
       contraseña: ['', Validators.required]
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.ingresoUsuario.valid) {
       console.log(this.ingresoUsuario.value);
-      this.userService.ingresarUser(this.ingresoUsuario.value).subscribe(
+      this.userService.login(this.ingresoUsuario.value).subscribe(
         response => {
           console.log('Usuario validado:', response);
           alert('Ingreso exitoso');

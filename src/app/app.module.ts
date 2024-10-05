@@ -7,6 +7,7 @@ import { RegistroComponent } from './components/registro/registro.component'; //
 import { LoginComponent } from './components/login/login.component'; // Asegúrate de la ruta correcta
 import { CommonModule } from '@angular/common';
 import { combineLatest } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
 
@@ -16,7 +17,8 @@ import { combineLatest } from 'rxjs';
     BrowserModule,
     AppRoutes,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
 
 
   ],

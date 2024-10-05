@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserService } from '../../services/user.service';
+import { ApiService } from '../../api.service';
 import { HeaderComponent } from "../header/header.component";
 import { CommonModule } from '@angular/common';
 @Component({
@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class RegistroComponent implements OnInit {
   agregarUsuario: FormGroup;
   isPasswordVisible: boolean = false;
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(private fb: FormBuilder, private userService: ApiService) {
     this.agregarUsuario = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -39,7 +39,7 @@ export class RegistroComponent implements OnInit {
     if (this.agregarUsuario.valid) {
       console.log(this.agregarUsuario.value); // Muestra los datos del formulario en la consola
       // Llama al servicio para registrar el usuario
-      this.userService.crearUsuario(this.agregarUsuario.value).subscribe(
+      this.userService.newUser(this.agregarUsuario.value).subscribe(
         response => {
           console.log('Usuario registrado:', response);
           // Aquí puedes redirigir o mostrar un mensaje de éxito
