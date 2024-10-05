@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="registro.component.css">
+  <title>Registro - CampusRide</title>
+</head>
+<body>
+  <app-header></app-header>
+  <main class="registro-container">
+    <div class="registro-box">
+      <h1 class="title">CAMPUSRIDE</h1>
+
+      <form [formGroup]="agregarUsuario" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" formControlName="nombre" placeholder="Ingresa tu nombre" required>
+            <div *ngIf="agregarUsuario.get('nombre')?.invalid && (agregarUsuario.get('nombre')?.touched || agregarUsuario.get('nombre')?.dirty)">
+              <small class="error">El nombre es obligatorio.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" formControlName="apellido" placeholder="Ingresa tu apellido" required>
+            <div *ngIf="agregarUsuario.get('apellido')?.invalid && (agregarUsuario.get('apellido')?.touched || agregarUsuario.get('apellido')?.dirty)">
+              <small class="error">El apellido es obligatorio.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" formControlName="correo" placeholder="info@xyz.com" required>
+            <div *ngIf="agregarUsuario.get('correo')?.invalid && (agregarUsuario.get('correo')?.touched || agregarUsuario.get('correo')?.dirty)">
+              <small class="error" *ngIf="agregarUsuario.get('correo')?.errors?.['required']">El correo es obligatorio.</small>
+              <small class="error" *ngIf="agregarUsuario.get('correo')?.errors?.['email']">El formato del correo no es válido.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Número de teléfono</label>
+            <input type="tel" id="telefono" formControlName="telefono" placeholder="+57 315 564 7526" required>
+            <div *ngIf="agregarUsuario.get('telefono')?.invalid && (agregarUsuario.get('telefono')?.touched || agregarUsuario.get('telefono')?.dirty)">
+              <small class="error">El número de teléfono es obligatorio.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" formControlName="direccion" placeholder="Ingresa tu dirección" required>
+            <div *ngIf="agregarUsuario.get('direccion')?.invalid && (agregarUsuario.get('direccion')?.touched || agregarUsuario.get('direccion')?.dirty)">
+              <small class="error">La dirección es obligatoria.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fecha-nacimiento">Fecha de nacimiento</label>
+            <input type="date" id="fecha-nacimiento" formControlName="fechaNacimiento" required>
+            <div *ngIf="agregarUsuario.get('fechaNacimiento')?.invalid && (agregarUsuario.get('fechaNacimiento')?.touched || agregarUsuario.get('fechaNacimiento')?.dirty)">
+              <small class="error">La fecha de nacimiento es obligatoria.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contraseña">Contraseña</label>
+            <div class="password-container">
+              <input
+                [type]="isPasswordVisible ? 'text' : 'password'"
+                id="contraseña"
+                formControlName="contraseña"
+                placeholder="Ingresa tu contraseña"
+                required>
+              <img
+                src="assets/images/ojo_cerrado.png"
+                class="toggle-password"
+                alt="Mostrar/Ocultar Contraseña"
+                (click)="togglePasswordVisibility()"
+                [src]="isPasswordVisible ? 'assets/images/ojo_abierto.png' : 'assets/images/ojo_cerrado.png'">
+            </div>
+            <div *ngIf="agregarUsuario.get('contraseña')?.invalid && (agregarUsuario.get('contraseña')?.touched || agregarUsuario.get('contraseña')?.dirty)">
+              <small class="error" *ngIf="agregarUsuario.get('contraseña')?.errors?.['required']">La contraseña es obligatoria.</small>
+              <small class="error" *ngIf="agregarUsuario.get('contraseña')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmar-contraseña">Confirmar Contraseña</label>
+            <div class="password-container">
+              <input
+                [type]="isPasswordVisible ? 'text' : 'password'"
+                id="confirmar-contraseña"
+                formControlName="confirmarContraseña"
+                placeholder="Confirma tu contraseña"
+                required>
+              <img
+                src="assets/images/ojo_cerrado.png"
+                class="toggle-password"
+                alt="Mostrar/Ocultar Contraseña"
+                (click)="togglePasswordVisibility()"
+                [src]="isPasswordVisible ? 'assets/images/ojo_abierto.png' : 'assets/images/ojo_cerrado.png'">
+            </div>
+            <div *ngIf="agregarUsuario.get('confirmarContraseña')?.invalid && (agregarUsuario.get('confirmarContraseña')?.touched || agregarUsuario.get('confirmarContraseña')?.dirty)">
+              <small class="error">Debes confirmar tu contraseña.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="bt">Registrarse</button>
+        </div>
+        <p>¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
+      </form>
+    </div>
+    <img src="assets/images/fondoRegistro.png" alt="registro" class="imagen-container">
+  </main>
+</body>
+</html>
