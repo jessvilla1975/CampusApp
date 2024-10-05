@@ -5,7 +5,8 @@ import { AppRoutes } from './app.routes';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './components/registro/registro.component'; // Asegúrate de la ruta correcta
 import { LoginComponent } from './components/login/login.component'; // Asegúrate de la ruta correcta
-
+import { CommonModule } from '@angular/common';
+import { combineLatest } from 'rxjs';
 @NgModule({
   declarations: [
 
@@ -14,7 +15,9 @@ import { LoginComponent } from './components/login/login.component'; // Asegúra
   imports: [
     BrowserModule,
     AppRoutes,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
+
 
   ],
   providers: [],
