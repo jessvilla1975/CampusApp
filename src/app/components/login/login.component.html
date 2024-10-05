@@ -1,57 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="login.component.css">
+  <title>Login - CampusRide</title>
+</head>
 
-<div class="header">
-  <div class="header-content">
-    <div class="header-item">
-      <div class="header-text">Productos</div>
-    </div>
-    <div class="header-item">
-      <div class="header-text">Empresa</div>
-    </div>
-    <div class="header-item">
-      <div class="header-text">Precios</div>
-    </div>
-    <div class="header-item">
-      <div class="header-text">Comunidad</div>
-    </div>
-    <div class="header-item">
-      <div class="header-text">Quienes somos</div>
-    </div>
-    <div class="header-item login-text">
-      <div class="header-text">Registrarse</div>
-    </div>
-  </div>
-</div>
+<body>
 
-<div class="login-container">
-  <div class="login-box">
-    <div class="title">
-      CAMPUSRIDE
+  <app-header></app-header> <!-- Encabezado común para todas las páginas -->
+  <!-- Contenido del login -->
+  <main class="login-container">
+    <div class="image-container">
+      <img src="assets/images/fondoLogin.jpeg" alt="Fondo de login" class="background-image">
     </div>
-    <div class="login-header">
-      <label>INICIAR SESION</label>
-    </div>
-    <div class="login-subtitulo">
-      Ingrese sus credenciales para acceder a su cuenta
-    </div>
+    <div class="login-box">
+      <h1 class="title">CAMPUSRIDE</h1>
+      <h2 class="login-header">INICIAR SESIÓN</h2>
+      <p class="login-subtitulo">Ingrese sus credenciales para acceder a su cuenta</p>
 
-    <form>
-      <div class="form-group">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+      <form [formGroup]="ingresoUsuario" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" formControlName="correo" placeholder="Ingresa tu correo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" formControlName="contraseña" placeholder="Ingresa tu contraseña" required>
+        </div>
+        <p>¿Olvidaste tu contraseña? <a href="#">Restablecer contraseña</a></p>
+        <div class="form-group">
+          <button type="submit" class="bt">Iniciar sesión</button>
+        </div>
+      </form>
+
+      <div class="registrarte">
+        <a href="/registro">Registrarte</a>
       </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-      </div>
-      <p>¿Olvidaste tu contraseña? <a href="#">Restablecer contraseña</a></p>
-      <div class="form-group">
-        <button type="submit" class="btn">Iniciar sesión</button>
-      </div>
-    </form>
-  <div class="registrarte">
-    <a href="#">Registrarte</a>
-  </div>
-
-  </div>
-</div>
-
+    </div>
+  </main>
+</body>
+</html>

@@ -22,7 +22,8 @@
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.1",
     "bootstrap": "^5.3.3",
-    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "express": "^2.5.11",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
@@ -36,11 +37,11 @@
     "@types/node": "^18.18.0",
     "angular-cli-ghpages": "^2.0.1",
     "jasmine-core": "~5.2.0",
-    "karma": "~6.4.0",
+    "karma": "^6.4.4",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
+    "karma-jasmine": "^4.0.2",
+    "karma-jasmine-html-reporter": "^1.7.0",
     "typescript": "~5.5.2"
   }
 }
