@@ -12,8 +12,14 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   // Método para crear un nuevo usuario
-  crearUsuario(user: { nombre: string; apellido: string; correo: string; telefono?: string; direccion?: string; fecha_nacimiento?: string; contraseña: string }): Observable<any> {
+  crearUsuario(user: { id: number; nombre: string; apellido: string; correo: string; telefono: string; genero: string; direccion: string; fechaNacimiento: string; contraseña: string }): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/newUser`, user);
+  }
+
+  // Método para crear un nuevo conductor
+  crearConductor(conductor: { nombre: string; apellido: string; correo: string; telefono: string; licencia: string; vehiculo: string; contraseña: string 
+  }): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/newConductor`, conductor);
   }
 
   // Método para obtener todos los usuarios
@@ -26,3 +32,4 @@ export class UserService {
     return this.httpClient.post(`${this.apiUrl}/login`, user);
   }
 }
+
