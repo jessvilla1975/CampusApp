@@ -4,13 +4,16 @@ body, html {
   font-family: 'Montserrat', sans-serif;
 }
 
+/* Contenedor del inicio de sesión */
 .registro-container {
   display: flex;
-  height: calc(100vh - 118px);
+  min-height: 100vh;
   width: 100%;
   justify-content: center; /* Centra horizontalmente los elementos */
   align-items: center; /* Centra verticalmente los elementos */
-  padding: 20px; /* Añadir algo de padding para evitar que se pegue a los bordes en pantallas pequeñas */
+  margin-top: -60px;
+  overflow-y: auto;
+
 }
 
 /* Caja de registro */
@@ -18,26 +21,17 @@ body, html {
   background: white;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
   border-radius: 20px;
-  padding: 35px; /* Aumentar el padding general */
-  width: 80%;
-  max-width: 600px; /* Limitar el ancho máximo */
-  max-height: 80vh; /* Altura máxima en función de la altura visible */
-  overflow-y: auto; /* Habilitar scroll vertical si el contenido es más grande */
+  padding: 40px; /* Aumentar el padding general */
+  width: 80%; /* Cambiar el ancho al 80% para más espacio */
+  max-width: 600px; /* Aumentar el ancho máximo */
   z-index: 1;
+  display: flex;
   flex-direction: column;
   justify-content: center; /* Centra verticalmente el contenido */
-  order: 1; /* Orden del formulario */
-  flex: 1;
-}
+  margin-top: 50px;
 
-/* Personalización opcional de la barra de scroll */
-.registro-box::-webkit-scrollbar {
-  width: 8px;
-}
 
-.registro-box::-webkit-scrollbar-thumb {
-  background-color: #185ee0; /* Color de la barra de desplazamiento */
-  border-radius: 10px;
+
 }
 
 .form-row {
@@ -140,8 +134,6 @@ a:hover {
   height: 100%;
   overflow: hidden; /* Oculta el contenido que se desborda */
   position: relative; /* Posición relativa para el contenido */
-  order: 2; /* Orden de la imagen */
-  flex: 1;
 }
 
 .imagen-container img {
@@ -165,17 +157,7 @@ a:hover {
   height: 20px; /* Ajusta el tamaño según sea necesario */
 }
 
-.opcion-group{
-  display: flex; /* Hace que el contenido se muestre en fila */
-  align-items: center; /* Alinea verticalmente */
-}
-
-.tipo-label {
-  margin-bottom: -36px;
-  padding-left: 56px;
-}
-
-/* ------------------------------------------------------------------*/ 
+/* ------------------------------------------------------------------*/
 
 .radio-input input {
   display: none;
@@ -193,7 +175,8 @@ a:hover {
   overflow: hidden;
   border: 1px solid rgba(53, 52, 52, 0.226);
   margin-left: 25px;
-  top: 17px;
+  top: -30px;
+  left: 320px;
 }
 
 .radio-input label {
@@ -238,7 +221,8 @@ a:hover {
   transform: translateX(calc(var(--container_width) * 1/2));
 }
 
-/* ------------------------------------------------------------------*/ 
+/* ------------------------------------------------------------------*/
+/* ------------------------------------------------------------------*/
 
 .tabs {
   display: flex;
@@ -248,6 +232,7 @@ a:hover {
   padding: 0.75rem;
   border-radius: 99px;
   width: 200px; /* Ajuste el tamaño para dos opciones */
+  left: 0px;
 }
 
 .tabs * {
@@ -263,7 +248,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   height: 12px;
-  width: 100px; /* Ajuste el ancho de los radios */
+  width: 200px; /* Ajuste el ancho de los radios */
   font-size: .9rem;
   color: #6C6C6C;
   font-weight: 500;
@@ -302,90 +287,3 @@ a:hover {
     transform: scale(0.8); /* Reducir ligeramente en pantallas pequeñas */
   }
 }
-
-/* ------------------------------------------------------------------*/ 
-.container-btn-file {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  background-color: #185ee0;
-  color: #fff;
-  border-style: none;
-  padding: 10px 33px;
-  border-radius: 0.5em;
-  overflow: hidden;
-  z-index: 1;
-  box-shadow: 4px 8px 10px -3px rgba(0, 0, 0, 0.356);
-  transition: all 250ms;
-}
-.container-btn-file input[type="file"] {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-}
-.container-btn-file > svg {
-  margin-right: 1em;
-}
-.container-btn-file::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 0;
-  border-radius: 0.5em;
-  background-color: #4a71f1;
-  z-index: -1;
-  transition: all 350ms;
-}
-.container-btn-file:hover::before {
-  width: 100%;
-}
-
-/* ------------------------------------------------------------------*/ 
- 
-.number-control {
-  display: flex;
-  align-items: center;
-}
-
-.number-left::before,
-.number-right::after {
-  content: attr(data-content);
-  background-color: #185ee0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #185ee0;
-  width: 31px;
-  color: white;
-  transition: background-color 0.3s;
-  cursor: pointer;
-  margin-bottom: -33px;
-  height: 34px;
-}
-
-.number-left::before {
-  content: "-";
-}
-
-.number-right::after {
-  content: "+";
-}
-
-.number-quantity {
-  padding: 0.25rem;
-  border: 0;
-  width: 196px;
-  -moz-appearance: textfield;
-  border-top: 1px solid #185ee0;
-  border-bottom: 1px solid #185ee0;
-  margin-bottom: -33px;
-}
-
-.number-left:hover::before,
-.number-right:hover::after {
-  background-color: #5c82ff;
-}
-

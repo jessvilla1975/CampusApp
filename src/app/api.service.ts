@@ -27,4 +27,16 @@ export class ApiService {
     return this.http.post(`${this.apiUrl}/login`, credentials);
   }
 
+
+  // Función para agregar conductor
+  addConductor(conductor: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/newConductor`, conductor);
+  }
+
+  // Función para agregar vehículo
+  addVehiculo(vehiculo: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/newVehiculo`, vehiculo);
+  }
+
+
 }
