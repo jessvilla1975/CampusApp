@@ -58,14 +58,7 @@ label {
 
 
 /* Estilo para el título de registro */
-.title {
-  color: black;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  border-left: 4px solid #35C5DE;
-  padding-left: 10px;
-}
+
 
 input[type="text"],
 input[type="email"],
@@ -82,24 +75,6 @@ input[type="date"] {
   color: #6C6C6C;
 }
 
-/* Botón */
-.bt {
-  background-color: #35C5DED9;
-  width: 100%;
-  height: 40px; /* Ajusté la altura para mejor apariencia */
-  border-radius: 50px;
-  cursor: pointer;
-  color: white;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  border: none;
-}
-
-.bt:hover {
-  background-color: #355AED; /* Color del botón en hover */
-  color: #ffffff;
-}
 
 p {
   margin-top: 10px;
@@ -108,7 +83,7 @@ p {
 }
 
 a {
-  color: #355AED;
+  color: #8450E1;   /* Color del texto Reestrablecer contraseña */
   text-decoration: none;
 }
 
@@ -123,10 +98,11 @@ a:hover {
 }
 
 .registrarte a {
-  color: #355ADE;
+  color: #8450E1;  /* Color del texto Registrarte */
   font-size: 14px;
   font-weight: 500;
 }
+
 
 /* Imagen */
 .imagen-container {
@@ -209,7 +185,7 @@ a:hover {
 }
 
 .radio-input label:has(input:checked) ~ .selection {
-  background-color: rgb(11 117 223);
+  background-color: #7145d6;
   display: inline-block;
 }
 
