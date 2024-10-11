@@ -19,7 +19,7 @@
     <div class="login-box">
       <h1 class="title">CAMPUSRIDE</h1>
       <h2 class="login-header">INICIAR SESIÓN</h2>
-      <p class="login-subtitulo">Ingrese sus credenciales para acceder a su cuenta</p>
+      <p class="login-subtitulo">Ingresa el código de verificación que te enviamos por correo electrónico</p>
 
       <form [formGroup]="ingresoUsuario" (ngSubmit)="onSubmit()">
         <div class="form-group">
@@ -31,7 +31,7 @@
           <label for="password">Contraseña</label>
           <input type="password" id="password" formControlName="contraseña" placeholder="Ingresa tu contraseña" required>
         </div>
-        <p>¿Olvidaste tu contraseña? <a href="#">Restablecer contraseña</a></p>
+        <p>¿Olvidaste tu contraseña? <a href="/password-recovery">Restablecer contraseña</a></p>
         <div class="form-group">
           <button type="submit" class="bt">Iniciar sesión</button>
         </div>
