@@ -4,12 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../api.service';
 import { HeaderComponent } from "../header/header.component";
 import { CommonModule } from '@angular/common';
-
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [ReactiveFormsModule, HeaderComponent, CommonModule],
+  imports: [ReactiveFormsModule, HeaderComponent, CommonModule, RouterOutlet, RouterLink],
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
@@ -19,7 +19,7 @@ export class RegistroComponent implements OnInit {
   isPasswordVisible: boolean = false;
   tipoUsuario: string = 'usuario';  // Por defecto es 'usuario'
 
-  constructor(private fb: FormBuilder, private userService: ApiService) {
+  constructor(private fb: FormBuilder, private userService: ApiService, private router: Router) {
     this.agregarUsuario = this.fb.group({
       id: ['', Validators.required],
       genero: ['', Validators.required],
@@ -117,6 +117,7 @@ export class RegistroComponent implements OnInit {
                         vehiculoResponse => {
                             console.log('Vehículo registrado:', vehiculoResponse);
                             alert('Registro de conductor y vehículo exitoso');
+                            this.router.navigate(['/bike']);
                         },
                         error => {
                             console.error('Error al registrar vehículo:', error);

@@ -77,16 +77,17 @@ label {
   font-size: 14px;
 }
 
+input[type="text"],
 input[type="email"],
 input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 10px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 500;
-  word-wrap: break-word;
+  width: 100%; /* Asegura que todos los inputs ocupen el 100% del ancho */
+  padding: 10px; /* Espacio interno */
+  border-radius: 5px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde suave */
+  font-size: 14px; /* Tamaño de fuente uniforme */
+  font-family: 'Montserrat', sans-serif; /* Fuente consistente */
+  font-weight: 500; /* Peso de fuente */
+  color: #6C6C6C;
 }
 
 
@@ -118,4 +119,34 @@ a:hover {
   font-weight: 500;
 }
 
+
+/* Estilos generales */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.password-container img {
+  position: absolute;
+  right: 10px; /* Alinea la imagen a la derecha del input */
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.toggle-password {
+  position: relative;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px; /* Ajusta el tamaño según sea necesario */
+  height: 20px; /* Ajusta el tamaño según sea necesario */
+}
 

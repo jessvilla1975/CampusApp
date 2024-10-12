@@ -29,8 +29,22 @@
 
         <div class="form-group">
           <label for="password">Contraseña</label>
-          <input type="password" id="password" formControlName="contraseña" placeholder="Ingresa tu contraseña" required>
+          <div class="password-container">
+            <input
+              [type]="isPasswordVisible ? 'text' : 'password'"
+              id="password"
+              formControlName="contraseña"
+              placeholder="Ingresa tu contraseña"
+              required>
+            <img
+              src="assets/images/ojo_cerrado.png"
+              class="toggle-password"
+              alt="Mostrar/Ocultar Contraseña"
+              (click)="togglePasswordVisibility()"
+              [src]="isPasswordVisible ? 'assets/images/ojo_abierto.png' : 'assets/images/ojo_cerrado.png'">
+          </div>
         </div>
+
         <p>¿Olvidaste tu contraseña? <a href="/password-recovery">Restablecer contraseña</a></p>
         <div class="form-group">
           <button type="submit" class="bt">Iniciar sesión</button>

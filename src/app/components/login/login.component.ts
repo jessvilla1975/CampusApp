@@ -14,6 +14,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   ingresoUsuario: FormGroup;
+  isPasswordVisible: boolean = false;
 
   constructor(private fb: FormBuilder, private userService: ApiService, private router: Router) { // Inyecta Router
     this.ingresoUsuario = this.fb.group({
@@ -49,5 +50,10 @@ export class LoginComponent implements OnInit {
         }
       });
     }
+  }
+
+  // Método para alternar la visibilidad de la contraseña
+  togglePasswordVisibility() {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 }
