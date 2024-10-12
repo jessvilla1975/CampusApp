@@ -11,13 +11,12 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [HeaderComponent, ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './password-recovery.component.html',
-  styleUrls: ['./password-recovery.component.css'] 
+  styleUrls: ['./password-recovery.component.css']
 })
-export class PasswordRecoveryComponent implements OnInit{
+export class PasswordRecoveryComponent implements OnInit {
   recovery: FormGroup;
   showVerification = false;
-  verificationCode: string = '';
-
+  verification: FormGroup;
 
   recoverySubmitted: boolean = false; // Para el formulario de recuperación de contraseña
   verificationCodeSubmitted: boolean = false; // Para el formulario de verificación de código
@@ -26,7 +25,12 @@ export class PasswordRecoveryComponent implements OnInit{
     this.recovery = this.fb.group({
       correo: ['', [Validators.required, Validators.email]]
     });
+
+    this.verification = this.fb.group({
+      codigo_verificacion: ['', Validators.required]
+    });
   }
+
   ngOnInit(): void {
     // Otras inicializaciones si es necesario
   }
@@ -34,11 +38,10 @@ export class PasswordRecoveryComponent implements OnInit{
   onSubmit() {
     if (this.recovery.valid) {
       console.log(this.recovery.value);
-      this.userService.recuperarContrasena(this.recovery.value).subscribe(//Falta la validacion del correo
+      this.userService.recuperarContrasena(this.recovery.value).subscribe(
         response => {
           console.log('Solicitud de recuperación de contraseña enviada:', response);
           alert('Se enviará un código a tu correo para que restablezcas tu contraseña.');
-          //Falta realizar el envio del codigo al correo
           this.showVerification = true; // Cambia a la vista de ingresar código
         },
         error => {
@@ -57,17 +60,37 @@ export class PasswordRecoveryComponent implements OnInit{
 
   onVerifyCode() {
     this.verificationCodeSubmitted = true;
-    // Validar el código.
-    if (this.verificationCode) {
-      console.log('Código verificado:', this.verificationCode);
-      alert('Código de verificación correcto');
-      this.router.navigate(['/new-password']); // Navega a la página de establecer nueva contraseña
-      
+
+    if (this.verification.valid) {
+      const verificationData = {
+        correo: this.recovery.get('correo')?.value, // Reutiliza el correo del formulario recovery
+        codigo_verificacion: this.verification.get('codigo_verificacion')?.value
+      };
+
+      this.userService.verificarCodigo(verificationData).subscribe(
+        response => {
+          if (response.success) {
+            console.log('Código verificado correctamente:', response);
+            alert('Código de verificación correcto');
+
+            // Navegar a la página de nueva contraseña
+            const correo = this.recovery.get('correo')?.value; // Obtener el correo
+            const codigo_verificacion = this.verification.get('codigo_verificacion')?.value; // Obtener el código
+
+            this.router.navigate(['/new-password', correo]); // Navega a new-password
+          } else {
+            console.error('Código de verificación incorrecto');
+            alert('Código de verificación incorrecto. Inténtalo de nuevo.');
+          }
+        },
+        error => {
+          console.error('Error al verificar el código:', error);
+          alert('Error al verificar el código. Intenta nuevamente.');
+        }
+      );
     } else {
-      console.error('Código de verificación no válido');
+      console.error('Formulario de verificación no válido');
       alert('Por favor, ingresa el código de verificación.');
     }
-    
   }
 }
-

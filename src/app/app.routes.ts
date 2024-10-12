@@ -14,7 +14,7 @@ export const routes: Routes = [
   {path: 'registro', component: RegistroComponent},
   {path: 'bike', component: BikeComponent},
   {path: 'password-recovery', component: PasswordRecoveryComponent},
-  {path: 'new-password', component: NewPasswordComponent},
+  {path: 'new-password/:correo', component: NewPasswordComponent },
   {path: '**', redirectTo: 'login'}
 
 
