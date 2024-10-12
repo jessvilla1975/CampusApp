@@ -6,11 +6,15 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { BikeComponent } from './components/bike/bike.component';
+import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [ReactiveFormsModule, RouterOutlet, CommonModule, RouterLink,
-    LoginComponent, RegistroComponent, HeaderComponent, BikeComponent], // Importa el componente TarjetaComponent aquí
+    LoginComponent, RegistroComponent, HeaderComponent, BikeComponent, 
+    PasswordRecoveryComponent, NewPasswordComponent], // Importa el componente TarjetaComponent aquí
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] // Corregido de styleUrl a styleUrls
 })
