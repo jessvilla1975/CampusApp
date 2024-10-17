@@ -5,11 +5,12 @@ import { ApiService } from '../../api.service';
 import { HeaderComponent } from "../header/header.component";
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet, Router } from '@angular/router';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [ReactiveFormsModule, HeaderComponent, CommonModule, RouterOutlet, RouterLink],
+  imports: [ReactiveFormsModule, HeaderComponent, CommonModule, RouterOutlet, RouterLink, FooterComponent],
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
