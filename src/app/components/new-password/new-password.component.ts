@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
+import { FooterComponent } from "../footer/footer.component";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
 import { RouterLink, RouterOutlet, Router } from '@angular/router';
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-newpassword',
   standalone: true,
-  imports: [HeaderComponent, ReactiveFormsModule, RouterOutlet, RouterLink, CommonModule],
+  imports: [HeaderComponent, ReactiveFormsModule, RouterOutlet, RouterLink, CommonModule, FooterComponent],
   templateUrl: './new-password.component.html',
   styleUrls: ['./new-password.component.css']
 })

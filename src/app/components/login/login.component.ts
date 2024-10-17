@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet, Router } from '@angular/router'; // Importa Router
 import { HeaderComponent } from "../header/header.component";
+import { FooterComponent } from "../footer/footer.component";
 import { ApiService } from '../../api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterOutlet, RouterLink, HeaderComponent],
+  imports: [ReactiveFormsModule, RouterOutlet, RouterLink, HeaderComponent, FooterComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
