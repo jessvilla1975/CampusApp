@@ -1,0 +1,265 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Contenedor del inicio de sesión */
+.registro-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  justify-content: center; /* Centra horizontalmente los elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+  margin-top: -60px;
+  overflow-y: auto;
+
+}
+
+/* Caja de registro */
+.registro-box {
+  background: white;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
+  border-radius: 20px;
+  padding: 40px; /* Aumentar el padding general */
+  width: 80%; /* Cambiar el ancho al 80% para más espacio */
+  max-width: 600px; /* Aumentar el ancho máximo */
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente el contenido */
+  margin-top: 50px;
+
+
+
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between; /* Espacia las columnas */
+  margin-bottom: 20px; /* Espacio entre filas */
+}
+
+.form-group {
+  flex: 1; /* Hace que cada columna ocupe el mismo espacio */
+  margin-right: 15px; /* Espacio entre columnas */
+}
+
+.form-group:last-child {
+  margin-right: 0; /* Elimina el margen derecho en la última columna */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #6C6C6C;
+  font-size: 14px;
+}
+
+
+/* Estilo para el título de registro */
+
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"] {
+  width: 100%; /* Asegura que todos los inputs ocupen el 100% del ancho */
+  padding: 10px; /* Espacio interno */
+  border-radius: 5px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde suave */
+  font-size: 14px; /* Tamaño de fuente uniforme */
+  font-family: 'Montserrat', sans-serif; /* Fuente consistente */
+  font-weight: 500; /* Peso de fuente */
+  color: #6C6C6C;
+}
+
+
+p {
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+a {
+  color: #8450E1;   /* Color del texto Reestrablecer contraseña */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Registrarte */
+.registrarte {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.registrarte a {
+  color: #8450E1;  /* Color del texto Registrarte */
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* Imagen */
+.imagen-container {
+  width: 50%; /* 50% del ancho */
+  height: 100%;
+  overflow: hidden; /* Oculta el contenido que se desborda */
+  position: relative; /* Posición relativa para el contenido */
+}
+
+.imagen-container img {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra el área */
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px; /* Ajusta el tamaño según sea necesario */
+  height: 20px; /* Ajusta el tamaño según sea necesario */
+}
+
+/* ------------------------------------------------------------------*/
+
+.radio-input input {
+  display: none;
+}
+
+.radio-input {
+  --container_width: 165px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000000;
+  width: var(--container_width);
+  overflow: hidden;
+  border: 1px solid rgba(53, 52, 52, 0.226);
+  margin-left: 25px;
+  top: -30px;
+  left: 320px;
+}
+
+.radio-input label {
+  width: 100%;
+  padding: 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 15px;
+  margin-left: -8px;
+}
+
+.selection {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--container_width) / 2);
+  z-index: 0;
+  left: 0;
+  top: 0;
+  transition: .15s ease;
+}
+
+.radio-input label:has(input:checked) {
+  color: #fff;
+}
+
+.radio-input label:has(input:checked) ~ .selection {
+  background-color: #7145d6;
+  display: inline-block;
+}
+
+.radio-input label:nth-child(1):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 0/2));
+}
+
+.radio-input label:nth-child(2):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 1/2));
+}
+
+/* ------------------------------------------------------------------*/
+/* ------------------------------------------------------------------*/
+
+.tabs {
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+  padding: 0.75rem;
+  border-radius: 99px;
+  width: 200px; /* Ajuste el tamaño para dos opciones */
+  left: 0px;
+}
+
+.tabs * {
+  z-index: 2;
+}
+
+.container input[type="radio"] {
+  display: none;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12px;
+  width: 200px; /* Ajuste el ancho de los radios */
+  font-size: .9rem;
+  color: #6C6C6C;
+  font-weight: 500;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: color 0.15s ease-in;
+}
+
+.container input[type="radio"]:checked + label {
+  color: #185ee0;
+}
+
+.container input[id="radio-masculino"]:checked ~ .glider {
+  transform: translateX(0);
+}
+
+.container input[id="radio-femenino"]:checked ~ .glider {
+  transform: translateX(100%);
+}
+
+.glider {
+  position: absolute;
+  display: flex;
+  height: 25px;
+  width: 88px; /* Ajuste para abarcar solo dos opciones */
+  z-index: 1;
+  border-radius: 99px;
+  transition: 0.25s ease-out,opacity 0.25s ease-out;
+  opacity: 0.5;
+  border: 1px solid #185ee0;
+  top: 5px;
+}
+
+@media (max-width: 700px) {
+  .tabs {
+    transform: scale(0.8); /* Reducir ligeramente en pantallas pequeñas */
+  }
+}

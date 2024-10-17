@@ -1,0 +1,152 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Contenedor del inicio de sesión */
+.login-container {
+  position: relative;
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Contenedor de la imagen */
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Asegúrate de que no haya desbordamiento */
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegúrate de que la imagen cubra el área */
+  z-index: -1; /* Mantenemos la imagen detrás del contenido */
+}
+
+/* Caja de login */
+.login-box {
+  background: white;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
+  border-radius: 20px;
+  padding: 20px 40px;
+  width: 90%;
+  max-width: 400px;
+  z-index: 1;
+}
+
+/* Encabezado de login */
+.login-header {
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Subtítulo de login */
+.login-subtitulo {
+  color: #6C6C6C;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Estilo para el título de login */
+
+
+/* Formulario */
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #6C6C6C;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%; /* Asegura que todos los inputs ocupen el 100% del ancho */
+  padding: 10px; /* Espacio interno */
+  border-radius: 5px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde suave */
+  font-size: 14px; /* Tamaño de fuente uniforme */
+  font-family: 'Montserrat', sans-serif; /* Fuente consistente */
+  font-weight: 500; /* Peso de fuente */
+  color: #6C6C6C;
+}
+
+
+
+p {
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+a {
+  color: #8450E1;   /* Color del texto Reestrablecer contraseña */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Registrarte */
+.registrarte {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.registrarte a {
+  color: #8450E1;  /* Color del texto Registrarte */
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* Estilos generales */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.password-container img {
+  position: absolute;
+  right: 10px; /* Alinea la imagen a la derecha del input */
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.toggle-password {
+  position: relative;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px; /* Ajusta el tamaño según sea necesario */
+  height: 20px; /* Ajusta el tamaño según sea necesario */
+}
+
