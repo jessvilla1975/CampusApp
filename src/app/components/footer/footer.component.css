@@ -1,7 +1,6 @@
 footer {
     background: #ffffff;
     min-height: 100px;
-    border-top: 2px solid #000;
     padding: 20px;
 }
 footer p{
@@ -18,4 +17,8 @@ footer p{
 #iconos i {
     margin-left: 50px;
     margin-right: 20px;
+}
+
+footer {
+    background:linear-gradient(#cdbef1 1%, #ffffff);
 }

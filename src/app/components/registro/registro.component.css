@@ -11,8 +11,8 @@ body, html {
   width: 100%;
   justify-content: center; /* Centra horizontalmente los elementos */
   align-items: center; /* Centra verticalmente los elementos */
-  margin-top: -60px;
   overflow-y: auto;
+  background-color: #cdbef1;
 
 }
 
