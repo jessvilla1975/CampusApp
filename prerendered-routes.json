@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "/bike",
+    "/home",
+    "/login",
+    "/password-recovery",
+    "/registro",
+    "/slider"
+  ]
+}
