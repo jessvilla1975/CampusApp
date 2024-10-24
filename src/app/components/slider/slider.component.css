@@ -1,0 +1,18 @@
+.c-img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1);
+}
+.btn {
+  margin-top: 37.5%;
+  border: none;
+  color: #7145d6;
+  background-color: #ffff;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+}
+.btn:hover {
+  background-color: #7145d6;
+  color: white;
+}

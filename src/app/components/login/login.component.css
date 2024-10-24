@@ -33,6 +33,9 @@ body, html {
 
 /* Caja de login */
 .login-box {
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(113, 69, 214);
   background: white;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
   border-radius: 20px;

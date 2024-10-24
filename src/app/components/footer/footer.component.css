@@ -1,0 +1,24 @@
+footer {
+    background: #ffffff;
+    min-height: 100px;
+    padding: 20px;
+}
+footer p{
+    color: rgb(81, 52, 148);
+    text-align:center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#iconos  i {
+    font-size: 26px;
+    color: rgb(81, 52, 148);
+}
+
+#iconos i {
+    margin-left: 50px;
+    margin-right: 20px;
+}
+
+footer {
+    background:linear-gradient(#cdbef1 1%, #ffffff);
+}
