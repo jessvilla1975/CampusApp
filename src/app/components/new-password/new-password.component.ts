@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-newpassword',
   standalone: true,
-  imports: [HeaderComponent, ReactiveFormsModule, RouterOutlet, RouterLink, CommonModule, FooterComponent],
+  imports: [HeaderComponent, ReactiveFormsModule, RouterOutlet, RouterLink, CommonModule, FooterComponent, RouterLink],
   templateUrl: './new-password.component.html',
   styleUrls: ['./new-password.component.css']
 })

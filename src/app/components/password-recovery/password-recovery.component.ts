@@ -3,14 +3,14 @@ import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from '../footer/footer.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-password-recovery',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, ReactiveFormsModule, FormsModule, CommonModule],
+  imports: [HeaderComponent, FooterComponent, ReactiveFormsModule, FormsModule, CommonModule, RouterLink],
   templateUrl: './password-recovery.component.html',
   styleUrls: ['./password-recovery.component.css']
 })

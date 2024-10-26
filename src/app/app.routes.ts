@@ -8,9 +8,7 @@ import { NewPasswordComponent } from './components/new-password/new-password.com
 import { HomeComponent } from './components/home/home.component';
 import { SliderComponent } from './components/slider/slider.component';
 
-
 export const routes: Routes = [
-
   {path: '', pathMatch: 'full', redirectTo: 'login'},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
@@ -20,12 +18,12 @@ export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'slider', component: SliderComponent},
   {path: '**', redirectTo: 'login'}
-
-
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true  // Esto puede ayudar con el enrutamiento en GitHub Pages
+  })],
   exports: [RouterModule]
 })
-export class AppRoutes{}
+export class AppRoutes {}

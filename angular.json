@@ -1,4 +1,5 @@
 {
+
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
@@ -11,11 +12,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/campus-ride",
+            "outputPath": "dist/campusRide",
+
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -30,13 +32,11 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.slim.min.js",
-              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
 
-            ]
-
-
+            ],
+            "server": "src/main.server.ts"
 
           },
           "configurations": {
@@ -49,11 +49,12 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "8kB",
-                  "maximumError": "10kB"
+                  "maximumWarning": "10kB",
+                  "maximumError": "15kB"
                 }
               ],
               "outputHashing": "all"
+
             },
             "development": {
               "optimization": false,
@@ -103,8 +104,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.slim.min.js",
-              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           }
