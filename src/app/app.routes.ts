@@ -9,7 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SliderComponent } from './components/slider/slider.component';
 
 export const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'login'},
+  {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'bike', component: BikeComponent},
@@ -17,7 +17,7 @@ export const routes: Routes = [
   {path: 'new-password/:correo', component: NewPasswordComponent },
   {path: 'home', component: HomeComponent},
   {path: 'slider', component: SliderComponent},
-  {path: '**', redirectTo: 'login'}
+  {path: '**', redirectTo: 'home'}
 ];
 
 @NgModule({
