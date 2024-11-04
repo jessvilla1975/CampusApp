@@ -55,4 +55,11 @@ export class ApiService {
     return this.http.post('https://api-rest-vo9r.onrender.com/api/newPassword', data);
   }
 
+  // Función para enviar solicitud de ayuda
+  // Método para crear una solicitud en la mesa de ayuda
+createHelpDeskRequest(data: { nombre: string; correo: string; telefono?: string; comentario: string }): Observable<any> {
+  return this.http.post(`${this.apiUrl}/helpDesk`, data);
+}
+
+
 }
