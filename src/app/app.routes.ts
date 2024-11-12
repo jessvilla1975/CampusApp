@@ -7,7 +7,8 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
 import { NewPasswordComponent } from './components/new-password/new-password.component';
 import { HomeComponent } from './components/home/home.component';
 import { SliderComponent } from './components/slider/slider.component';
-
+import { HeaderDriverComponent } from './components/header-driver/header-driver.component';
+import { HeaderPassengerComponent } from './components/header-passenger/header-passenger.component';
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'login', component: LoginComponent},
@@ -17,6 +18,8 @@ export const routes: Routes = [
   {path: 'new-password/:correo', component: NewPasswordComponent },
   {path: 'home', component: HomeComponent},
   {path: 'slider', component: SliderComponent},
+  {path: 'driver', component: HeaderDriverComponent},
+  {path: 'pass', component: HeaderPassengerComponent},
   {path: '**', redirectTo: 'home'}
 ];
 
