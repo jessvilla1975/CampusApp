@@ -11,6 +11,7 @@ import { BikeComponent } from './components/bike/bike.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
 import { HomeComponent } from './components/home/home.component';
+import { AuntentucationLoginComponent } from './components/auntentucation-login/auntentucation-login.component';
 import { SliderComponent } from './components/slider/slider.component';
 
 @Component({
@@ -18,7 +19,7 @@ import { SliderComponent } from './components/slider/slider.component';
   standalone: true,
   imports: [ReactiveFormsModule, RouterOutlet, CommonModule, RouterLink,
     LoginComponent, RegistroComponent, HeaderComponent, HeaderPassengerComponent, HeaderDriverComponent, BikeComponent, 
-    PasswordRecoveryComponent, NewPasswordComponent, HomeComponent, SliderComponent], // Importa el componente TarjetaComponent aquí
+    PasswordRecoveryComponent, NewPasswordComponent, HomeComponent, SliderComponent, AuntentucationLoginComponent], // Importa el componente TarjetaComponent aquí
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] // Corregido de styleUrl a styleUrls
 })

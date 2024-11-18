@@ -180,6 +180,24 @@ a:hover {
   transition: .15s ease;
 }
 
+.registarsebtn {
+  background-color: #8550e1;
+  width: 100%;
+  height: 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+  border: none;
+}
+
+.registarsebtn:hover {
+  background-color: #7145d6;
+}
+
 .radio-input label:has(input:checked) {
   color: #fff;
 }
@@ -197,41 +215,119 @@ a:hover {
   transform: translateX(calc(var(--container_width) * 1/2));
 }
 
-/* ------------------------------------------------------------------*/
-/* ------------------------------------------------------------------*/
+/* DIVISOR ---------------------------------------------------------------------------*/
+.divider {
+  height: 2px; /* Altura de la línea */
+  background-color: #bebebe; /* Color de la línea */
+  margin: 20px 0; /* Espaciado arriba y abajo */
+}
 
-.tabs {
+
+/* -ARCHIVO- ---------------------------------------------------------------------------*/
+.container-btn-file {
   display: flex;
   position: relative;
-  background-color: #fff;
-  box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
-  padding: 0.75rem;
-  border-radius: 99px;
-  width: 200px; /* Ajuste el tamaño para dos opciones */
-  left: 0px;
+  width: 100%;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #8550e1;
+  color: #fff;
+  border-style: none; /* Espaciado del botón */
+  border-radius: 0.5em; /* Reduce el redondeo */
+  font-size: 16px; /* Reduce el tamaño del texto */
+  overflow: hidden; /* Oculta el contenido que se desborda */
+  z-index: 1; /* Asegura que el contenido esté sobre el ::before */
+  box-shadow: 4px 8px 10px -3px rgba(0, 0, 0, 0.356);
+  transition: all 250ms;
 }
 
-.tabs * {
-  z-index: 2;
+.container-btn-file input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }
+
+
+.container-btn-file > img {
+  position: absolute;
+  left: 30px; /* Ajusta la posición a la izquierda */
+  top: 50%; /* Centra verticalmente */
+  height: 30px;
+  transform: translateY(-50%); /* Centra verticalmente */
+}
+
+
+.container-btn-file::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0;
+  border-radius: 0.7em; /* Ajusta según el tamaño del botón */
+  background-color: #7145d6;
+  z-index: -1;
+  transition: all 350ms;
+}
+
+
+
+
+.container-btn-file:hover::before {
+  width: 100%;
+}
+  .form-group label {
+    display: block; /* Asegura que cada etiqueta esté en su propia línea */
+    margin-bottom: 10px; /* Espacio debajo de cada etiqueta */
+  }
+
+  .container-btn-file {
+    margin-bottom: 20px; /* Espacio debajo de cada botón */
+  }
+
+
+/* ------------------------------------------------------------------*/
+/* ------------------------------------------------------------------*/
+
+
 
 .container input[type="radio"] {
   display: none;
 }
 
-.tab {
+/* Tabs */
+.tabs {
+  position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 12px;
-  width: 200px; /* Ajuste el ancho de los radios */
-  font-size: .9rem;
-  color: #6C6C6C;
-  font-weight: 500;
-  border-radius: 99px;
-  cursor: pointer;
-  transition: color 0.15s ease-in;
+  gap: 20px;
+  border-bottom: 2px solid #ddd;
+  width: fit-content;
+  padding-bottom: 5px;
 }
+
+/* Ocultar los inputs radio */
+.tabs input[type="radio"] {
+  display: none;
+}
+
+/* Estilo de las etiquetas de los tabs */
+.tabs .tab {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  padding: 2px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* Cambio de color al seleccionar */
+.tabs input[type="radio"]:checked + .tab {
+  color:#8550e1; /* Morado */
+}
+
 
 .container input[type="radio"]:checked + label {
   color: #185ee0;
@@ -245,21 +341,48 @@ a:hover {
   transform: translateX(100%);
 }
 
-.glider {
+.tabs .glider {
   position: absolute;
-  display: flex;
-  height: 25px;
-  width: 88px; /* Ajuste para abarcar solo dos opciones */
-  z-index: 1;
-  border-radius: 99px;
-  transition: 0.25s ease-out,opacity 0.25s ease-out;
-  opacity: 0.5;
-  border: 1px solid #185ee0;
-  top: 5px;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: #8550e1; /* Morado */
+  transition: left 0.3s ease, width 0.3s ease;
 }
+
+
+/* Cambio de color al seleccionar */
+
 
 @media (max-width: 700px) {
   .tabs {
     transform: scale(0.8); /* Reducir ligeramente en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 932px) {
+  .registro-container {
+    flex-direction: column; /* Cambia la dirección a columna */
+  }
+
+
+  .form-row{
+    flex-direction: column;
+    
+  }
+
+  .form-group{
+    margin-bottom: 2px;
+  }
+
+  .container{
+    margin-left: -47px;
+  }
+
+  .radio-input{
+    margin-left: 0px;
+    top: 0px; 
+    left: 0px;
   }
 }
