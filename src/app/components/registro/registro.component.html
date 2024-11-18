@@ -161,6 +161,7 @@
 
           <!-- Campos adicionales del conductor (se mostrarán si el tipo de usuario es 'conductor') -->
           <div *ngIf="tipoUsuario === 'conductor'">
+            <div class="divider"></div>
             <h1 class="title">Licencia</h1>
             <div class="form-row">
               <div class="form-group">
@@ -175,6 +176,7 @@
                 </div>
               </div>
             </div>
+            <div class="divider"></div>
             <h1 class="title">Vehiculo</h1>
             <div class="form-row">
               <div class="form-group">
@@ -214,6 +216,7 @@
               </div>
 
 
+
             </div>
             <div class="form-row">
               <div class="form-group">
@@ -232,19 +235,49 @@
 
               </div>
             </div>
+            <!-- archivos-->
+            <div class="divider"></div>
+            <h1 class="title">Archivos</h1>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Ingrese Foto de Perfil </label>
+                <button class="container-btn-file">
+                  <img src="assets/images/avatar.png" alt="perfil Icon">
+                  <span>Subir</span>
+                  <input class="file" name="text" type="file"/>
+                </button>
+                <label>Ingrese Foto de la Licencia por Lado y Lado</label>
+                <button class="container-btn-file">
+                  <img src="assets/images/documento.png" alt="perfil Icon">
+                  <span style="white-space: nowrap;">Subir PDF</span> <!-- Envuelve el texto en un span -->
+                  <input class="file" name="text" type="file" accept=".pdf" />
+                </button>
+                <label>Ingrese Foto de la Tarjeta de Propiedad por Lado y Lado</label>
+                <button class="container-btn-file">
+                  <img src="assets/images/documento.png" alt="perfil Icon">
+                  <span style="white-space: nowrap;">Subir PDF</span> <!-- Envuelve el texto en un span -->
+                  <input class="file" name="text" type="file" accept=".pdf" />
+                </button>
+                <label>Ingrese Foto de la Cédula por Lado y Lado</label>
+                <button class="container-btn-file">
+                  <img src="assets/images/documento.png" alt="perfil Icon">
+                  <span style="white-space: nowrap;">Subir PDF</span> <!-- Envuelve el texto en un span -->
+                  <input class="file" name="text" type="file" accept=".pdf" />
+                </button>
+              </div>
+              <div class="divider"></div>
+  
 
-
-
-
+            </div>
+            <div class="divider"></div>
             <!-- fin conductor-->
           </div>
 
 
-
         <div class="form-group">
-          <button type="submit" class="bt">Registrarse</button>
+          <button type="submit" class="registarsebtn">Registrarse</button>
         </div>
-        <p>¿Ya tienes una cuenta? <a routerLink="/login">Iniciar sesión</a></p>
+        <p>¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
       </form>
     </div>
     <img src="assets/images/fondoRegistro.png" alt="registro" class="imagen-container">
