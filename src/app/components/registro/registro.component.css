@@ -7,6 +7,7 @@ body, html {
 /* Contenedor del inicio de sesión */
 .registro-container {
   display: flex;
+  flex-direction: row; /* Los elementos se colocan en fila inicialmente */
   min-height: 100vh;
   width: 100%;
   justify-content: center; /* Centra horizontalmente los elementos */
@@ -19,6 +20,8 @@ body, html {
 /* Caja de registro */
 .registro-box {
   background: white;
+  border-style: solid;
+  border-color: rgb(113, 69, 214);
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
   border-radius: 20px;
   padding: 40px; /* Aumentar el padding general */
@@ -341,15 +344,8 @@ a:hover {
   transform: translateX(100%);
 }
 
-.tabs .glider {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  height: 2px;
-  background-color: #8550e1; /* Morado */
-  transition: left 0.3s ease, width 0.3s ease;
-}
+
+
 
 
 /* Cambio de color al seleccionar */
