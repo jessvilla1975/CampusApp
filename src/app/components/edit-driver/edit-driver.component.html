@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="edit-driver.component.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+  <title>Editdriver - CampusRide</title>
+  <style>
+    .mensaje a {
+        color: inherit;
+        margin-right: .5rem;
+        display: inline-block;
+    }
+    .mensaje a:hover {
+        color: #309B76;
+        transform: scale(1.4)
+    }
+  </style>
+</head>
+
+<body>
+   
+    <app-header-driver></app-header-driver> <!-- Encabezado común para todas las páginas -->
+
+  <section class="seccion-perfil-usuario">
+    <div class="perfil-usuario-header">
+      <div class="perfil-usuario-portada">
+        <div class="perfil-usuario-avatar">
+          <img src="assets/images/avatargrande.png" alt="avatargrande.png" width="100" height="160">
+        
+          <button type="button" class="boton-avatar">
+            <i class="far fa-image"></i>
+          </button>
+        </div>
+        <button type="button" class="boton-portada">
+          <i class="far fa-image"></i> Cambiar fondo
+        </button>
+      </div>
+    </div>
+    <div class="perfil-usuario-body">
+      <div class="perfil-usuario-bio text-center">
+        <h3 class="titulo">Juan Pérez</h3>
+        <div class="form-group">
+          <textarea 
+              class="texto-descripcion" 
+              placeholder="Escribe una breve descripción sobre ti..."
+              maxlength="100"
+              rows="3"
+              name="descripcion"
+              id="descripcion"></textarea>
+      </div>
+    </div>
+    <div class="perfil-usuario-footer">
+      <form class="formulario-perfil">
+          <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" id="apellido" name="apellido" required>
+          </div>
+          <div class="form-group">
+              <label for="genero">Género</label>
+              <select id="genero" name="genero">
+                  <option value="masculino">Masculino</option>
+                  <option value="femenino">Femenino</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="correo">Correo Electrónico</label>
+              <input type="email" id="correo" name="correo" required>
+          </div>
+          <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono">
+          </div>
+          <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input type="text" id="direccion" name="direccion">
+          </div>
+          <div class="form-group">
+              <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+              <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+          </div>
+          <div class="form-group">
+              <label for="contraseña">Contraseña</label>
+              <input type="password" id="contraseña" name="contraseña" required>
+          </div>
+          <div class="form-group">
+              <label for="confirmar_contraseña">Confirmar Contraseña</label>
+              <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" required>
+          </div>
+  
+                    <!-- Nueva sección de Licencia -->
+<div style="text-align: center; width: 100%;">
+  <h3>Licencia</h3>
+</div>
+<div class="form-group">
+  <label for="numero_licencia">Número de Licencia</label>
+  <input type="text" id="numero_licencia" name="numero_licencia" required>
+</div>
+<div class="form-group">
+  <label for="fecha_vencimiento">Fecha de Vencimiento</label>
+  <input type="date" id="fecha_vencimiento" name="fecha_vencimiento" required>
+</div>
+
+<!-- Nueva sección de Vehículo -->
+<div style="text-align: center; width: 100%;">
+  <h3>Vehículo</h3>
+</div>
+<div class="form-row">
+  <div class="form-group">
+    <label for="id_placa">Número Placa</label>
+    <input type="text" id="id_placa" name="id_placa" required>
+  </div>
+  <div class="form-group">
+    <label for="marca">Marca</label>
+    <input type="text" id="marca" name="marca" required>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-group">
+    <label for="modelo">Modelo</label>
+    <input type="text" id="modelo" name="modelo" required>
+  </div>
+  <div class="form-group">
+    <label for="ano">Año</label>
+    <input type="text" id="ano" name="ano" required minlength="4" maxlength="4">
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-group">
+    <label for="color">Color</label>
+    <input type="text" id="color" name="color" required>
+  </div>
+  <div class="form-group">
+    <label for="capacidad_pasajeros">Capacidad de Pasajeros</label>
+    <input type="text" id="capacidad_pasajeros" name="capacidad_pasajeros" required>
+  </div>
+</div>
+
+<button type="submit" class="btn-guardar">Guardar Cambios</button>
+</form>
+</div>

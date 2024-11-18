@@ -9,7 +9,6 @@ import { HomeComponent } from './components/home/home.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { HeaderDriverComponent } from './components/header-driver/header-driver.component';
 import { HeaderPassengerComponent } from './components/header-passenger/header-passenger.component';
-import { AuntentucationLoginComponent } from './components/auntentucation-login/auntentucation-login.component';
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'login', component: LoginComponent},
@@ -21,7 +20,6 @@ export const routes: Routes = [
   {path: 'slider', component: SliderComponent},
   {path: 'driver', component: HeaderDriverComponent},
   {path: 'pass', component: HeaderPassengerComponent},
-  {path: 'auth', component: AuntentucationLoginComponent},
   {path: '**', redirectTo: 'home'}
 ];
 
