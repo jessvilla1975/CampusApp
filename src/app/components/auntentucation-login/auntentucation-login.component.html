@@ -9,10 +9,31 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
   <title>Autenticacion - CampusRide</title>
 </head>
+
 <body>
-  <app-header></app-header>
 
-
-  <app-footer></app-footer>
+  <app-header></app-header> <!-- Encabezado común para todas las páginas -->
+  <!-- Contenido del login -->
+  <main class="main-container">
+    <div class="image-container">
+      <img src="assets/images/fondologin.png" alt="Fondo de login" class="background-image">
+    </div>
+  <form class="otp-Form">
+    <span class="verificacion">Autenticación de Dos Pasos</span>
+    <p class="otpSubheading">Ingresa el código que enviamos a tu correo</p>
+    <div class="inputContainer">
+      <input required="required" maxlength="1" type="text" class="otp-input" id="otp-input1">
+      <input required="required" maxlength="1" type="text" class="otp-input" id="otp-input2">
+      <input required="required" maxlength="1" type="text" class="otp-input" id="otp-input3">
+      <input required="required" maxlength="1" type="text" class="otp-input" id="otp-input4"> 
+   
+   </div>
+   <button class="verifyButton" type="submit">Verificar</button>
+     <button class="exitBtn">×</button>
+     <p class="resendNote">¿No recibiste ningún código?<button class="resendBtn">Reenviar código</button></p>
+     
+  </form>
+  </main>
+  <app-footer></app-footer> <!-- Pie de página común para todas las páginas -->
 </body>
 </html>

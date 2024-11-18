@@ -11,6 +11,7 @@ import { HeaderDriverComponent } from './components/header-driver/header-driver.
 import { HeaderPassengerComponent } from './components/header-passenger/header-passenger.component';
 import { EditDriverComponent } from './components/edit-driver/edit-driver.component';
 import { EditPassengerComponent } from './components/edit-passenger/edit-passenger.component';
+import { AuntentucationLoginComponent } from './components/auntentucation-login/auntentucation-login.component';
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'login', component: LoginComponent},
@@ -24,6 +25,7 @@ export const routes: Routes = [
   {path: 'pass', component: HeaderPassengerComponent},
   {path : 'edit-driver', component: EditDriverComponent},
   {path : 'edit-passenger', component: EditPassengerComponent},
+  {path : 'auntentucation-login', component: AuntentucationLoginComponent},
   {path: '**', redirectTo: 'home'}
 ];
 
