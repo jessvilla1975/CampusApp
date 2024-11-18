@@ -7,7 +7,6 @@ body, html {
 /* Contenedor del inicio de sesión */
 .registro-container {
   display: flex;
-  flex-direction: row; /* Los elementos se colocan en fila inicialmente */
   min-height: 100vh;
   width: 100%;
   justify-content: center; /* Centra horizontalmente los elementos */
@@ -20,8 +19,6 @@ body, html {
 /* Caja de registro */
 .registro-box {
   background: white;
-  border-style: solid;
-  border-color: rgb(113, 69, 214);
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
   border-radius: 20px;
   padding: 40px; /* Aumentar el padding general */
@@ -196,11 +193,9 @@ a:hover {
   word-wrap: break-word;
   border: none;
 }
-
 .registarsebtn:hover {
   background-color: #7145d6;
 }
-
 .radio-input label:has(input:checked) {
   color: #fff;
 }
@@ -224,7 +219,6 @@ a:hover {
   background-color: #bebebe; /* Color de la línea */
   margin: 20px 0; /* Espaciado arriba y abajo */
 }
-
 
 /* -ARCHIVO- ---------------------------------------------------------------------------*/
 .container-btn-file {
@@ -252,8 +246,6 @@ a:hover {
   opacity: 0;
   cursor: pointer;
 }
-
-
 .container-btn-file > img {
   position: absolute;
   left: 30px; /* Ajusta la posición a la izquierda */
@@ -261,8 +253,6 @@ a:hover {
   height: 30px;
   transform: translateY(-50%); /* Centra verticalmente */
 }
-
-
 .container-btn-file::before {
   content: "";
   position: absolute;
@@ -273,10 +263,6 @@ a:hover {
   z-index: -1;
   transition: all 350ms;
 }
-
-
-
-
 .container-btn-file:hover::before {
   width: 100%;
 }
@@ -284,16 +270,11 @@ a:hover {
     display: block; /* Asegura que cada etiqueta esté en su propia línea */
     margin-bottom: 10px; /* Espacio debajo de cada etiqueta */
   }
-
   .container-btn-file {
     margin-bottom: 20px; /* Espacio debajo de cada botón */
   }
-
-
 /* ------------------------------------------------------------------*/
 /* ------------------------------------------------------------------*/
-
-
 
 .container input[type="radio"] {
   display: none;
@@ -309,28 +290,35 @@ a:hover {
   width: fit-content;
   padding-bottom: 5px;
 }
-
 /* Ocultar los inputs radio */
 .tabs input[type="radio"] {
   display: none;
 }
-
 /* Estilo de las etiquetas de los tabs */
 .tabs .tab {
   font-size: 16px;
   font-weight: bold;
   color: #555;
   cursor: pointer;
+  transition: color 0.15s ease-in;
   padding: 2px;
   text-align: center;
   transition: color 0.3s ease;
 }
-
 /* Cambio de color al seleccionar */
 .tabs input[type="radio"]:checked + .tab {
   color:#8550e1; /* Morado */
 }
 
+.tabs .glider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: #8550e1; /* Morado */
+  transition: left 0.3s ease, width 0.3s ease;
+}
 
 .container input[type="radio"]:checked + label {
   color: #185ee0;
@@ -349,33 +337,25 @@ a:hover {
 
 
 /* Cambio de color al seleccionar */
-
-
 @media (max-width: 700px) {
   .tabs {
     transform: scale(0.8); /* Reducir ligeramente en pantallas pequeñas */
   }
 }
-
 @media (max-width: 932px) {
   .registro-container {
     flex-direction: column; /* Cambia la dirección a columna */
   }
-
-
   .form-row{
     flex-direction: column;
     
   }
-
   .form-group{
     margin-bottom: 2px;
   }
-
   .container{
     margin-left: -47px;
   }
-
   .radio-input{
     margin-left: 0px;
     top: 0px; 
