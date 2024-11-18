@@ -7,6 +7,7 @@ body, html {
 /* Contenedor del inicio de sesión */
 .registro-container {
   display: flex;
+  flex-direction: row; /* Los elementos se colocan en fila inicialmente */
   min-height: 100vh;
   width: 100%;
   justify-content: center; /* Centra horizontalmente los elementos */
@@ -19,6 +20,8 @@ body, html {
 /* Caja de registro */
 .registro-box {
   background: white;
+  border-style: solid;
+  border-color: rgb(113, 69, 214);
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
   border-radius: 20px;
   padding: 40px; /* Aumentar el padding general */
@@ -245,10 +248,14 @@ a:hover {
   transform: translateX(100%);
 }
 
+.container{
+  margin-left: -31px;
+}
+
 .glider {
   position: absolute;
   display: flex;
-  height: 25px;
+  height: 35px;
   width: 88px; /* Ajuste para abarcar solo dos opciones */
   z-index: 1;
   border-radius: 99px;
@@ -261,5 +268,31 @@ a:hover {
 @media (max-width: 700px) {
   .tabs {
     transform: scale(0.8); /* Reducir ligeramente en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 932px) {
+  .registro-container {
+    flex-direction: column; /* Cambia la dirección a columna */
+  }
+
+
+  .form-row{
+    flex-direction: column;
+    
+  }
+
+  .form-group{
+    margin-bottom: 2px;
+  }
+
+  .container{
+    margin-left: -47px;
+  }
+
+  .radio-input{
+    margin-left: 0px;
+    top: 0px; 
+    left: 0px;
   }
 }
