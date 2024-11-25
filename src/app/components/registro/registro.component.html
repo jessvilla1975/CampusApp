@@ -108,9 +108,9 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="fecha-nacimiento">Fecha de nacimiento</label>
-            <input type="date" id="fecha-nacimiento" formControlName="fechaNacimiento" required>
-            <div *ngIf="agregarUsuario.get('fechaNacimiento')?.invalid && (agregarUsuario.get('fechaNacimiento')?.touched || agregarUsuario.get('fechaNacimiento')?.dirty)">
+            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+            <input type="date" id="fecha_nacimiento" formControlName="fecha_nacimiento" required>
+            <div *ngIf="agregarUsuario.get('fechaNacimiento')?.invalid && (agregarUsuario.get('fecha_nacimiento')?.touched || agregarUsuario.get('fecha_nacimiento')?.dirty)">
               <small class="error">La fecha de nacimiento es obligatoria.</small>
             </div>
           </div>
@@ -266,7 +266,7 @@
                 </button>
               </div>
               <div class="divider"></div>
-  
+
 
             </div>
             <div class="divider"></div>
