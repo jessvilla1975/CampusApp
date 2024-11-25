@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from "../footer/footer.component";
 import { SliderComponent } from "../slider/slider.component";
 import { ApiService } from '../../api.service';
 import { RouterLink, RouterOutlet, Router } from '@angular/router';
@@ -8,7 +6,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, SliderComponent, RouterLink, ReactiveFormsModule, RouterOutlet, RouterLink],
+  imports: [SliderComponent, RouterLink, ReactiveFormsModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

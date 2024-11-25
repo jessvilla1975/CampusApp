@@ -7,11 +7,12 @@ import { Observable, of } from 'rxjs';
 })
 export class ApiService {
 
+  //https://api-rest-vo9r.onrender.com/api
 
-
-  private apiUrl = 'https://api-rest-vo9r.onrender.com/api'; // Asegúrate de colocar aquí tu URL de la API
+  private apiUrl = 'https://api-rest-vo9r.onrender.com/api'; //URL de la API
 
   constructor(private http: HttpClient) { }
+
 
 
   // Función para crear un nuevo usuario
@@ -52,14 +53,29 @@ export class ApiService {
   }
 
   establecerContrasena(data: { correo: string; contraseña: string }) {
-    return this.http.post('https://api-rest-vo9r.onrender.com/api/newPassword', data);
+    return this.http.post(`${this.apiUrl}/newPassword`, data);
+    //return this.http.post('https://api-rest-vo9r.onrender.com/api/newPassword', data);
   }
 
   // Función para enviar solicitud de ayuda
   // Método para crear una solicitud en la mesa de ayuda
-createHelpDeskRequest(data: { nombre: string; correo: string; telefono?: string; comentario: string }): Observable<any> {
-  return this.http.post(`${this.apiUrl}/helpDesk`, data);
-}
+  createHelpDeskRequest(data: { nombre: string; correo: string; telefono?: string; comentario: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/helpDesk`, data);
+  }
+  getUserById(userId: string) {
+    return this.http.get<any>(`${this.apiUrl}/usuariosid/${userId}`);  // Corrige la URL si es necesario
+  }
+  updateUser(userId: string, userData: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/updateUser/${userId}`, userData);
+  }
+
+
+
+
+
+
+
+
 
 
 }
