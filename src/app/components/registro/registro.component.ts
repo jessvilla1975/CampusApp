@@ -94,7 +94,7 @@ export class RegistroComponent implements OnInit {
                 rol: 'conductor'
             }).subscribe((userResponse) => {
                 console.log('Usuario registrado:', userResponse);
-
+                localStorage.setItem('correo', this.agregarUsuario.value.correo);
                 // Al registrar al usuario, obtén su ID
                 const id_conductor = id; // Asumiendo que el ID se retorna
 
@@ -119,9 +119,11 @@ export class RegistroComponent implements OnInit {
                         vehiculoResponse => {
                             console.log('Vehículo registrado:', vehiculoResponse);
                             alert('Registro de conductor y vehículo exitoso');
+
                             this.router.navigate(['/bike']);
                             setTimeout(() => {
-                              this.router.navigate(['/login']);
+
+                              this.router.navigate(['/auntentication-login']);
                             }, 3000);
                         },
                         error => {
@@ -145,10 +147,12 @@ export class RegistroComponent implements OnInit {
             this.userService.newUser(this.agregarUsuario.value).subscribe(
                 response => {
                     console.log('Usuario registrado:', response);
+                    // Guardar correo en localStorage
+                    localStorage.setItem('correo', this.agregarUsuario.value.correo);
                     alert('Registro exitoso');
                     this.router.navigate(['/bike']);
                     setTimeout(() => {
-                      this.router.navigate(['/login']);
+                      this.router.navigate(['/auntentication-login']);
                     }, 3000);
                 },
                 error => {

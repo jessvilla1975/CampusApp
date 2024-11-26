@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 export class ApiService {
 
   //https://api-rest-vo9r.onrender.com/api
-
+  //http://localhost:9001/api
   private apiUrl = 'https://api-rest-vo9r.onrender.com/api'; //URL de la API
 
   constructor(private http: HttpClient) { }
@@ -65,9 +65,22 @@ export class ApiService {
   getUserById(userId: string) {
     return this.http.get<any>(`${this.apiUrl}/usuariosid/${userId}`);  // Corrige la URL si es necesario
   }
+
+  getConductorById(userId: string) {
+    return this.http.get<any>(`${this.apiUrl}/conductor/${userId}`);  // Corrige la URL si es necesario
+  }
+
+
+
+
   updateUser(userId: string, userData: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/updateUser/${userId}`, userData);
   }
+
+  updateDriver(userId: string, userData: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/updateConductor/${userId}`, userData);
+  }
+
 
 
 

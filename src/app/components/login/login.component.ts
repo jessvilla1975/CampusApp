@@ -29,39 +29,44 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.ingresoUsuario.valid) {
-      console.log(this.ingresoUsuario.value);
+      // Muestra los datos del formulario
+      console.log('Formulario enviado:', this.ingresoUsuario.value);
+
+      // Llamada al servicio de login
       this.userService.login(this.ingresoUsuario.value).subscribe({
         next: (response) => {
-          console.log('Usuario validado:', response);
+          // Verificar la respuesta de la API
+          console.log('Respuesta del servidor:', response);
 
-          // Acceder directamente al rol desde la respuesta
-          const rol = response.rol; // Ya no usamos response.user.rol
+          if (response && response.id && response.rol) {
+            // Guardar información del usuario en localStorage
+            localStorage.setItem('userId', response.id);
+            localStorage.setItem('userRole', response.rol);
 
-          // Guardar información del usuario en localStorage
-          localStorage.setItem('userId', response.id);
-          localStorage.setItem('userRole', rol);
+            // Verifica que los valores se almacenaron correctamente
+            console.log('userId en localStorage:', localStorage.getItem('userId'));
+            console.log('userRole en localStorage:', localStorage.getItem('userRole'));
 
-          // Verifica que los valores se almacenaron correctamente
-          console.log('userId en localStorage:', localStorage.getItem('userId'));
-          console.log('userRole en localStorage:', localStorage.getItem('userRole'));
-          console.log('Datos enviados:', this.ingresoUsuario.value);
-          // Redirige dependiendo del rol
-          switch(rol) {
-            case 'admin':
-              // this.router.navigate(['/admin-dashboard']);
-              break;
-            case 'conductor':
-              this.router.navigate(['/edit-driver']);
-              break;
-            case 'pasajero':
-              this.router.navigate(['/edit-passenger']);
+            // Redirigir dependiendo del rol
+            switch(response.rol) {
+              case 'admin':
+                // this.router.navigate(['/admin-dashboard']);
+                break;
+              case 'conductor':
+                this.router.navigate(['/edit-driver']);
+                break;
+              case 'pasajero':
+                this.router.navigate(['/edit-passenger']);
+                break;
+              default:
+                this.router.navigate(['/login']);
+            }
 
-              break;
-            default:
-              this.router.navigate(['/login']);
+            alert('Ingreso exitoso');
+          } else {
+            console.error('Respuesta inválida del servidor:', response);
+            alert('Error al procesar la respuesta del servidor. Por favor, intenta nuevamente.');
           }
-
-          alert('Ingreso exitoso');
         },
         error: (error) => {
           console.error('Error al ingresar usuario:', error);
@@ -73,7 +78,7 @@ export class LoginComponent implements OnInit {
       Object.keys(this.ingresoUsuario.controls).forEach(control => {
         const controlErrors = this.ingresoUsuario.get(control)?.errors;
         if (controlErrors) {
-          console.log(`Control: ${control}`, controlErrors);
+          console.log(`Errores en control ${control}:`, controlErrors);
         }
       });
     }

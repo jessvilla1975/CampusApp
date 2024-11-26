@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header-driver',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './header-driver.component.css'
 })
 export class HeaderDriverComponent {
-
+  @Input() fullName: string = '';
 }
