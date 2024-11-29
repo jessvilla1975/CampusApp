@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { PlacesService } from '../../services';
+import { MapService, PlacesService } from '../../services';
 import {Map, Popup, Marker} from 'mapbox-gl';
 import { HeaderPassengerComponent } from '../../../components/header-passenger/header-passenger.component';
 
@@ -15,14 +15,14 @@ export class MapViewComponent implements AfterViewInit {
   @ViewChild('mapDiv')
   mapDivElement!: ElementRef;
 
-  constructor(private placesService: PlacesService
+  constructor(private placesService: PlacesService, private mapService: MapService
   ) {}
 
   ngAfterViewInit(): void {
     const map = new Map({
       container: this.mapDivElement.nativeElement, // container ID
       style: 'mapbox://styles/mapbox/streets-v12', // style URL
-      center: this.placesService.userlocation || [-76.1986, 4.08472], // starting position [lng, lat]
+      center: this.placesService.userlocation,
       zoom: 12, // starting zoom
     });
 
@@ -33,14 +33,14 @@ export class MapViewComponent implements AfterViewInit {
     `);
 
 
-    if (this.placesService.userlocation) {
-      new Marker({ color: 'red' })
-        .setLngLat(this.placesService.userlocation)
-        .setPopup(popup)
-        .addTo(map);
-    } else {
-      console.error('User location is not defined');
-    }
+
+    new Marker({ color: 'red' })
+      .setLngLat(this.placesService.userlocation || [-76.1986, 4.08472])
+      .setPopup(popup)
+      .addTo(map);
+
+    this.mapService.setMap(map);
+
 
 
 

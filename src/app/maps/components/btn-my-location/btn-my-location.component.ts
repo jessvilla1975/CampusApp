@@ -1,7 +1,6 @@
 
-
 import { Component } from '@angular/core';
-
+import { MapService, PlacesService } from '../../services';
 import { error } from 'console';
 
 @Component({
@@ -13,13 +12,16 @@ import { error } from 'console';
 })
 export class BtnMyLocationComponent {
 
-  constructor(
-  ) {
+  constructor(private placesService: PlacesService, private mapService: MapService) {
 
   }
   goToMyLocation() {
     console.log('Go to my location');
-
+    this.placesService.getUserLocation().then((coords) => {
+      this.mapService.flyto(coords);
+    }).catch((error) => {
+      console.error(error);
+    });
 
   }
 
