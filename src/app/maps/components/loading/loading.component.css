@@ -1,0 +1,113 @@
+/* Estilo general para el contenedor */
+.loading-map {
+  display: flex;
+  justify-content: center;   /* Centrado horizontal */
+  align-items: center;       /* Centrado vertical */
+  height: 100vh;             /* Altura completa de la pantalla */
+  margin: 0;                 /* Elimina el margen por defecto del body */
+  background-color: #f0f0f0; /* Fondo opcional */
+}
+
+/* Contenedor de todo el contenido */
+.content-container {
+  display: flex;
+  flex-direction: column;  /* Organiza el contenido en columna */
+  align-items: center;     /* Centra horizontalmente los elementos */
+}
+
+/* Cambios en el contenedor del indicador de escritura */
+.typing-indicator {
+  width: 120px;  /* Aumento el tamaño */
+  height: 60px;  /* Aumento el tamaño */
+  position: relative;
+  z-index: 4;
+}
+
+/* Cambios en los círculos de escritura */
+.typing-circle {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #8550e1;
+  left: 15%;
+  transform-origin: 50%;
+  animation: typing-circle7124 0.5s alternate infinite ease;
+}
+
+@keyframes typing-circle7124 {
+  0% {
+    top: 30px;
+    height: 10px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+  }
+  40% {
+    height: 16px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+.typing-circle:nth-child(2) {
+  left: 45%;
+  animation-delay: 0.2s;
+}
+
+.typing-circle:nth-child(3) {
+  left: auto;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+
+/* Estilo para las sombras */
+.typing-shadow {
+  width: 10px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 45px;
+  transform-origin: 50%;
+  z-index: 3;
+  left: 15%;
+  filter: blur(1px);
+  animation: typing-shadow046 0.5s alternate infinite ease;
+}
+
+@keyframes typing-shadow046 {
+  0% {
+    transform: scaleX(1.5);
+  }
+  40% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scaleX(0.2);
+    opacity: 0.4;
+  }
+}
+
+.typing-shadow:nth-child(4) {
+  left: 45%;
+  animation-delay: 0.2s;
+}
+
+.typing-shadow:nth-child(5) {
+  left: auto;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+
+/* Estilo para el texto "Geolocalizando..." */
+.geolocalizando-label {
+  font-size: 18px;        /* Tamaño de la fuente */
+  font-weight: bold;      /* Fuente en negrita */
+  margin-top: 20px;       /* Espacio entre el indicador y el texto */
+  color: #333;            /* Color del texto */
+  text-align: center;     /* Centrado del texto */
+}
