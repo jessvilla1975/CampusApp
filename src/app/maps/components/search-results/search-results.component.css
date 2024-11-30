@@ -1,0 +1,29 @@
+.pointer {
+    cursor: pointer;
+}
+
+p {
+  font-size: 12px;
+}
+
+.list-group-item {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 0;
+  font-size: 14px;
+  color: #333;
+  transition: 0.3s;
+  width: 220px;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+
+  border-radius: 0;
+  font-size: 14px;
+  color: #310eca;
+  transition: 0.3s;
+  position: relative;
+  width: 100%;
+}
