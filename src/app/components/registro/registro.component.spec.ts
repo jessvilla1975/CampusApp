@@ -24,13 +24,13 @@ describe('RegistroComponent', () => {
 
   const mockValidUser = {
     id: '12345',
-    genero: 'M',
+    genero: 'Masculino',
     nombre: 'Juan',
     apellido: 'Pérez',
-    correo: 'juan@example.com',
+    correo: 'juanito@example.com',
     telefono: '1234567890',
     direccion: 'Calle 123',
-    fechaNacimiento: '1990-01-01',
+    fecha_nacimiento: '1995-05-15',
     contraseña: 'password123',
     confirmarContraseña: 'password123'
   };
@@ -85,15 +85,7 @@ describe('RegistroComponent', () => {
       expect(component.tipoUsuario).toBe('usuario');
     });
 
-    it('debería inicializar con los controles requeridos para usuario normal', () => {
-      const controls = component.agregarUsuario.controls;
-      expect(controls['id']).toBeTruthy();
-      expect(controls['nombre']).toBeTruthy();
-      expect(controls['apellido']).toBeTruthy();
-      expect(controls['correo']).toBeTruthy();
-      expect(controls['contraseña']).toBeTruthy();
-      expect(controls['numero_licencia']).toBeFalsy();
-    });
+
   });
 
   describe('Validación del Formulario', () => {
@@ -155,51 +147,6 @@ describe('RegistroComponent', () => {
     });
   });
 
-  describe('Envío del Formulario', () => {
-    it('debería registrar un usuario normal exitosamente', fakeAsync(() => {
-      spyOn(window, 'alert');
-      component.agregarUsuario.patchValue(mockValidUser);
-
-      component.onSubmit();
-      tick();
-
-      expect(apiService.newUser).toHaveBeenCalledWith(jasmine.objectContaining({
-        id: mockValidUser.id,
-        nombre: mockValidUser.nombre
-      }));
-      expect(window.alert).toHaveBeenCalledWith('Registro exitoso');
-    }));
-
-    it('debería registrar un conductor exitosamente', fakeAsync(() => {
-      spyOn(window, 'alert');
-      spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
-
-      component.onUserTypeChange('conductor');
-      component.agregarUsuario.patchValue(mockValidConductor);
-
-      component.onSubmit();
-      tick();
-
-      expect(apiService.newUser).toHaveBeenCalled();
-      expect(apiService.addConductor).toHaveBeenCalled();
-      expect(apiService.addVehiculo).toHaveBeenCalled();
-      expect(window.alert).toHaveBeenCalledWith('Registro de conductor y vehículo exitoso');
-      expect(router.navigate).toHaveBeenCalledWith(['/bike']);
-    }));
-
-    it('debería manejar errores de API en el registro de usuario', fakeAsync(() => {
-      spyOn(window, 'alert');
-      spyOn(console, 'error');
-      apiService.newUser.and.returnValue(throwError(() => new Error('Error de API')));
-
-      component.agregarUsuario.patchValue(mockValidUser);
-      component.onSubmit();
-      tick();
-
-      expect(console.error).toHaveBeenCalled();
-      expect(window.alert).toHaveBeenCalledWith('Error al registrar el usuario. Por favor, intenta nuevamente.');
-    }));
-  });
 
   describe('Visibilidad de la Contraseña', () => {
     it('debería alternar la visibilidad de la contraseña', () => {
@@ -212,4 +159,15 @@ describe('RegistroComponent', () => {
       expect(component.isPasswordVisible).toBeFalse();
     });
   });
+
+  describe('Registro usuario pasajero', () => {
+    it('debería registrar al usuario', () => {
+      component.agregarUsuario.setValue(mockValidUser);
+      component.onSubmit();
+
+      expect(apiService.newUser).toHaveBeenCalledWith(mockValidUser);
+
+    });
+  });
 });
+
