@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="inicio-pasajero.component.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+  <title>Inicio-pasajero - CampusRide</title>
+</head>
+
+<body>
+    <app-header-passenger></app-header-passenger> <!-- Encabezado para pagina de inicio de pasajero -->
+    <main class="inicio-pasajero-container">
+        <div class="image-container">
+          <img src="assets/images/fondoinicio.png" alt="Fondo" class="background-image">
+        </div>
+        <div class="inicio-pasajero-box">
+            
+            <h1 class="inicio-pasajero-header">ENCUENTRA TU PRÓXIMO VIAJE</h1>
+            <p class="inicio-pasajero-subtitulo">
+                Ingresa la ubicación de origen y destino, así como la fecha y hora en la que deseas viajar.
+            </p>
+            <div class="form-group">
+                <input type="text" placeholder="Ubicación origen" required>
+                <input type="text" placeholder="Ubicación destino" required>
+                <input type="date" placeholder="Fecha" required>
+                <input type="time" placeholder="Hora" required>
+                <button type="submit" class="bt">Buscar</button>
+
+            </div>
+            
+        </div> 
+        <div class="map-container">
+            <div class="map-icon">
+                <i class="bi bi-geo-alt-fill" style="font-size: 100px; color: gray;"></i>
+            </div>
+        </div>  
+    </main>
+    <app-footer></app-footer> <!-- Pie de página común para todas las páginas -->
+</body>
+</html>

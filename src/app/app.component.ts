@@ -15,13 +15,17 @@ import { AuntentucationLoginComponent } from './components/auntentucation-login/
 import { SliderComponent } from './components/slider/slider.component';
 import { EditPassengerComponent } from './components/edit-passenger/edit-passenger.component';
 import { EditDriverComponent } from './components/edit-driver/edit-driver.component';
+import { InicioPasajeroComponent } from './components/inicio-pasajero/inicio-pasajero.component';
+import { InicioConductorComponent } from './components/inicio-conductor/inicio-conductor.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [ReactiveFormsModule, RouterOutlet, CommonModule, RouterLink,
     LoginComponent, RegistroComponent, HeaderComponent, HeaderPassengerComponent, HeaderDriverComponent, BikeComponent, 
-    PasswordRecoveryComponent, NewPasswordComponent, HomeComponent, SliderComponent, AuntentucationLoginComponent, EditPassengerComponent, EditDriverComponent], // Importa el componente TarjetaComponent aquí
+    PasswordRecoveryComponent, NewPasswordComponent, HomeComponent, SliderComponent, AuntentucationLoginComponent, 
+    EditPassengerComponent, EditDriverComponent, InicioPasajeroComponent, InicioConductorComponent], // Importa el componente TarjetaComponent aquí
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] // Corregido de styleUrl a styleUrls
 })
