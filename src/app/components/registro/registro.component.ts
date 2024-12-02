@@ -10,7 +10,7 @@ import { FooterComponent } from "../footer/footer.component";
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [ReactiveFormsModule, HeaderComponent, CommonModule, RouterOutlet, RouterLink, FooterComponent],
+  imports: [ReactiveFormsModule, HeaderComponent, CommonModule, FooterComponent],
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
@@ -29,7 +29,7 @@ export class RegistroComponent implements OnInit {
       correo: ['', [Validators.required, Validators.email]],
       telefono: ['', Validators.required],
       direccion: ['', Validators.required],
-      fechaNacimiento: ['', Validators.required],
+      fecha_nacimiento: ['', Validators.required],
       contraseña: ['', [Validators.required, Validators.minLength(6)]],
       confirmarContraseña: ['', Validators.required],
     }, { validator: this.passwordMatchValidator });
@@ -76,7 +76,7 @@ export class RegistroComponent implements OnInit {
         if (this.tipoUsuario === 'conductor') {
             // Llama al servicio para registrar el usuario
             const {
-                id, genero, nombre, apellido, correo, telefono, direccion, fechaNacimiento, contraseña,
+                id, genero, nombre, apellido, correo, telefono, direccion, fecha_nacimiento, contraseña,
                 numero_licencia, fecha_vencimiento, id_placa, marca, modelo, ano, color, capacidad_pasajeros
             } = this.agregarUsuario.value;
 
@@ -89,11 +89,12 @@ export class RegistroComponent implements OnInit {
                 correo,
                 telefono,
                 direccion,
-                fechaNacimiento,
-                contraseña
+                fecha_nacimiento,
+                contraseña,
+                rol: 'conductor'
             }).subscribe((userResponse) => {
                 console.log('Usuario registrado:', userResponse);
-
+                localStorage.setItem('correo', this.agregarUsuario.value.correo);
                 // Al registrar al usuario, obtén su ID
                 const id_conductor = id; // Asumiendo que el ID se retorna
 
@@ -118,7 +119,12 @@ export class RegistroComponent implements OnInit {
                         vehiculoResponse => {
                             console.log('Vehículo registrado:', vehiculoResponse);
                             alert('Registro de conductor y vehículo exitoso');
+
                             this.router.navigate(['/bike']);
+                            setTimeout(() => {
+
+                              this.router.navigate(['/auntentication-login']);
+                            }, 3000);
                         },
                         error => {
                             console.error('Error al registrar vehículo:', error);
@@ -141,7 +147,13 @@ export class RegistroComponent implements OnInit {
             this.userService.newUser(this.agregarUsuario.value).subscribe(
                 response => {
                     console.log('Usuario registrado:', response);
+                    // Guardar correo en localStorage
+                    localStorage.setItem('correo', this.agregarUsuario.value.correo);
                     alert('Registro exitoso');
+                    this.router.navigate(['/bike']);
+                    setTimeout(() => {
+                      this.router.navigate(['/auntentication-login']);
+                    }, 3000);
                 },
                 error => {
                     console.error('Error al registrar usuario:', error);

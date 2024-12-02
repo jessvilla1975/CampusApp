@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="map-screen.component.css">
+  <title>Map - CampusRide</title>
+</head>
+<body>
+  <app-loading *ngIf="!isUserLocationReady; else mapReady"></app-loading>
+    <ng-template #mapReady>
+      <app-map-view></app-map-view>
+      <app-btn-my-location></app-btn-my-location>
+    </ng-template>
+
+
+
+
+</body>
+</html>

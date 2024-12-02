@@ -4,6 +4,7 @@ import { AppRoutes } from './app.routes';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { MapsModule } from './maps/maps.module';
 @NgModule({
   declarations: [
 
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutes,
     ReactiveFormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    MapsModule
 
 
   ],

@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenedor a la derecha */
+  align-items: center;      /* Centra verticalmente el contenedor */
+  background-color: #ffffff; /* Fondo opcional */
+}
+
+.map-container {
+  width: 600px;            /* Ancho del contenedor */
+  height: 500px;           /* Alto del contenedor */
+  background-color: #ffffff; /* Color de fondo del contenedor */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+  border-radius: 8px;      /* Bordes redondeados opcionales */
+  margin-right: 100px;      /* Espaciado desde el borde derecho */
+}

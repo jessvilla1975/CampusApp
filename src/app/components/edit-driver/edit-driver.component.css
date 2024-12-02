@@ -1,4 +1,28 @@
+/* Modificar/Agregar estos estilos en tu archivo CSS */
 
+/* Asegurarse que el formulario ocupe todo el ancho disponible */
+.perfil-usuario-footer form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Centrar los elementos del formulario */
+.perfil-usuario-footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Ajustar el ancho de los grupos de formulario */
+.perfil-usuario-footer .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  gap: 1rem;
+  width: 100%;  /* Asegura que tome todo el ancho disponible */
+}
 .seccion-perfil-usuario .perfil-usuario-body,
 .seccion-perfil-usuario {
     display: flex;
@@ -23,7 +47,7 @@
     height: 17rem;
     background-image: linear-gradient(45deg, #BC3CFF, #317FFF);
     border-radius: 0 0 20px 20px;
-    
+
 }
 
 .seccion-perfil-usuario .perfil-usuario-portada .boton-portada {
@@ -143,8 +167,8 @@
     transition: all 0.3s ease;
     background-color: #f8f9fa;
 
-     
-      
+
+
 }
 
 .perfil-usuario-bio .texto-descripcion:focus {
@@ -273,13 +297,13 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .perfil-usuario-footer .form-group label {
         width: 100%;
         text-align: left;
         margin-bottom: 0.5rem;
     }
-    
+
     .perfil-usuario-footer .form-group input,
     .perfil-usuario-footer .form-group select {
         width: 100%;
@@ -325,36 +349,36 @@ h3 {
 .form-group input[name="fecha_vencimiento"] {
     cursor: pointer;
 }
- 
+
 /* Estilos para la sección de vehículo */
 .form-row {
     display: flex;
     gap: 20px;
     margin-bottom: 15px;
   }
-  
+
   .form-group {
     flex: 1;
   }
-  
+
   .form-group label {
     display: block;
     margin-bottom: 5px;
     color: #333;
   }
-  
+
   .form-group input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
   }
-  
+
   /* Estilo para el título */
   h3 {
     color: #333;
     text-align: center;
     margin: 20px 0;
   }
-    
+
 }

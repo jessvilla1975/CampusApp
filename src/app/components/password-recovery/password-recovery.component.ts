@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-password-recovery',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, ReactiveFormsModule, FormsModule, CommonModule, RouterLink],
+  imports: [HeaderComponent, FooterComponent, ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './password-recovery.component.html',
   styleUrls: ['./password-recovery.component.css']
 })

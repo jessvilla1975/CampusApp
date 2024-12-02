@@ -7,12 +7,33 @@
   <link rel="stylesheet" href="auntentucation-login.component.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
-  <title>Autenticacion - CampusRide</title>
+  <title>Autenticación - CampusRide</title>
 </head>
+
 <body>
-  <app-header></app-header>
+  <app-header></app-header> <!-- Encabezado común para todas las páginas -->
+  <main class="main-container">
+    <div class="image-container">
+      <img src="assets/images/fondologin.png" alt="Fondo de login" class="background-image">
+    </div>
 
-
-  <app-footer></app-footer>
+    <!-- Formulario de verificación de código -->
+    <form class="otp-Form" (ngSubmit)="onSubmit()">
+      <span class="verificacion">Autenticación de Dos Pasos</span>
+      <p class="otpSubheading">Ingresa el código que enviamos a tu correo</p>
+      <div class="inputContainer">
+        <input required maxlength="1" type="text" class="otp-input" [(ngModel)]="otp[0]" name="otp1">
+        <input required maxlength="1" type="text" class="otp-input" [(ngModel)]="otp[1]" name="otp2">
+        <input required maxlength="1" type="text" class="otp-input" [(ngModel)]="otp[2]" name="otp3">
+        <input required maxlength="1" type="text" class="otp-input" [(ngModel)]="otp[3]" name="otp4">
+      </div>
+      <button class="verifyButton" type="submit">Verificar</button>
+      <button class="exitBtn" type="button" (click)="exit()">×</button>
+      <p class="resendNote">¿No recibiste ningún código?
+        <button class="resendBtn" type="button" (click)="resendCode()">Reenviar código</button>
+      </p>
+    </form>
+  </main>
+  <app-footer></app-footer> <!-- Pie de página común para todas las páginas -->
 </body>
 </html>

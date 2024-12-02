@@ -1,3 +1,4 @@
+
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
@@ -13,6 +14,10 @@ import { InicioPasajeroComponent } from './components/inicio-pasajero/inicio-pas
 import { InicioConductorComponent } from './components/inicio-conductor/inicio-conductor.component';
 import path from 'path';
 
+import { EditDriverComponent } from './components/edit-driver/edit-driver.component';
+import { EditPassengerComponent } from './components/edit-passenger/edit-passenger.component';
+import { AuntentucationLoginComponent } from './components/auntentucation-login/auntentucation-login.component';
+import { MapScreenComponent } from './maps/screens/map-screen/map-screen.component';
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'login', component: LoginComponent},
@@ -26,6 +31,10 @@ export const routes: Routes = [
   {path: 'pass', component: HeaderPassengerComponent},
   {path: 'inicio-pasajero', component: InicioPasajeroComponent},
   {path: 'inicio-conductor', component: InicioConductorComponent},
+  {path: 'edit-driver', component: EditDriverComponent},
+  {path: 'edit-passenger', component: EditPassengerComponent},
+  {path: 'auntentication-login', component: AuntentucationLoginComponent},
+  {path: 'map', component: MapScreenComponent},
   {path: '**', redirectTo: 'home'}
 ];
 
