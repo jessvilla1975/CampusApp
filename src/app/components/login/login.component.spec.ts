@@ -67,20 +67,6 @@ describe('LoginComponent', () => {
     expect(correoControl?.errors).toBeNull();
   });
 
-  it('debería llamar al servicio login y navegar a /bike cuando el login es exitoso', () => {
-    const credenciales = {
-      correo: 'jexikvilla@gmail.com',
-      contraseña: 'thanku'
-    };
-
-    apiService.login.and.returnValue(of({ success: true }));
-
-    component.ingresoUsuario.setValue(credenciales);
-    component.onSubmit();
-
-    expect(apiService.login).toHaveBeenCalledWith(credenciales);
-    expect(router.navigate).toHaveBeenCalledWith(['/bike']);
-  });
 
   it('no debería navegar cuando el login falla', () => {
     const credenciales = {

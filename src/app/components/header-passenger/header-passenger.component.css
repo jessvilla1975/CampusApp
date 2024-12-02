@@ -20,7 +20,7 @@
 
 .header-left .header-content .header-item .login-text2 {
   background: #cdbef1;
-  color: #ffffff;
+  color: #292929;
   font-size: 15px;
   font-weight: bold;
   padding: 5px 8px;
@@ -31,6 +31,7 @@
 
 .header-left .header-content .header-item .login-text2:hover {
   background: #7145d6;
+  color: #ffffff;
 }
 
 .material-icons {

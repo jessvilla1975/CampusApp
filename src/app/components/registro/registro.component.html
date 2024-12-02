@@ -126,11 +126,11 @@
                 placeholder="Ingresa tu contraseña"
                 required>
               <img
-                src="assets/images/ojo_cerrado.png"
+                src="assets/images/ojo_cerrado.webp"
                 class="toggle-password"
                 alt="Mostrar/Ocultar Contraseña"
                 (click)="togglePasswordVisibility()"
-                [src]="isPasswordVisible ? 'assets/images/ojo_abierto.png' : 'assets/images/ojo_cerrado.png'">
+                [src]="isPasswordVisible ? 'assets/images/ojo_abierto.webp' : 'assets/images/ojo_cerrado.webp'">
             </div>
             <div *ngIf="agregarUsuario.get('contraseña')?.invalid && (agregarUsuario.get('contraseña')?.touched || agregarUsuario.get('contraseña')?.dirty)">
               <small class="error" *ngIf="agregarUsuario.get('contraseña')?.errors?.['required']">La contraseña es obligatoria.</small>
@@ -147,11 +147,11 @@
                 placeholder="Confirma tu contraseña"
                 required>
               <img
-                src="assets/images/ojo_cerrado.png"
+                src="assets/images/ojo_cerrado.webp"
                 class="toggle-password"
                 alt="Mostrar/Ocultar Contraseña"
                 (click)="togglePasswordVisibility()"
-                [src]="isPasswordVisible ? 'assets/images/ojo_abierto.png' : 'assets/images/ojo_cerrado.png'">
+                [src]="isPasswordVisible ? 'assets/images/ojo_abierto.webp' : 'assets/images/ojo_cerrado.webp'">
             </div>
             <div *ngIf="agregarUsuario.get('confirmarContraseña')?.invalid && (agregarUsuario.get('confirmarContraseña')?.touched || agregarUsuario.get('confirmarContraseña')?.dirty)">
               <small class="error">Debes confirmar tu contraseña.</small>
@@ -242,25 +242,25 @@
               <div class="form-group">
                 <label>Ingrese Foto de Perfil </label>
                 <button class="container-btn-file">
-                  <img src="assets/images/avatar.png" alt="perfil Icon">
+                  <img src="assets/images/avatar.webp" alt="perfil Icon">
                   <span>Subir</span>
                   <input class="file" name="text" type="file"/>
                 </button>
                 <label>Ingrese Foto de la Licencia por Lado y Lado</label>
                 <button class="container-btn-file">
-                  <img src="assets/images/documento.png" alt="perfil Icon">
+                  <img src="assets/images/documento.webp" alt="perfil Icon">
                   <span style="white-space: nowrap;">Subir PDF</span> <!-- Envuelve el texto en un span -->
                   <input class="file" name="text" type="file" accept=".pdf" />
                 </button>
                 <label>Ingrese Foto de la Tarjeta de Propiedad por Lado y Lado</label>
                 <button class="container-btn-file">
-                  <img src="assets/images/documento.png" alt="perfil Icon">
+                  <img src="assets/images/documento.webp" alt="perfil Icon">
                   <span style="white-space: nowrap;">Subir PDF</span> <!-- Envuelve el texto en un span -->
                   <input class="file" name="text" type="file" accept=".pdf" />
                 </button>
                 <label>Ingrese Foto de la Cédula por Lado y Lado</label>
                 <button class="container-btn-file">
-                  <img src="assets/images/documento.png" alt="perfil Icon">
+                  <img src="assets/images/documento.webp" alt="perfil Icon">
                   <span style="white-space: nowrap;">Subir PDF</span> <!-- Envuelve el texto en un span -->
                   <input class="file" name="text" type="file" accept=".pdf" />
                 </button>
@@ -280,7 +280,7 @@
         <p>¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
       </form>
     </div>
-    <img src="assets/images/fondoRegistro.png" alt="registro" class="imagen-container">
+    <img src="assets/images/fondoRegistro.webp" alt="registro" class="imagen-container">
   </main>
   <app-footer></app-footer>
 </body>

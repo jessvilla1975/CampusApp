@@ -179,3 +179,4 @@ export class RegistroComponent implements OnInit {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 }
+
