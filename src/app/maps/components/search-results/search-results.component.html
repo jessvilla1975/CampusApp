@@ -1,13 +1,15 @@
-<div
+<div *ngIf="isLoadingPlaces"
     class="alet alet-primary mt-2 text-center">
 
     <span class="spinner-border spinner-border-sm"></span>
 </div>
 
-<ul class="list-group mt-2">
-  <li class="list-group-item list-group-item-action pointer">
-    <h6>Lugar</h6>
-    <p>Descripción</p>
+<ul class="list-group mt-2" *ngIf="places.length > 0">
+  <li *ngFor=" let place of places"
+    class="list-group-item list-group-item-action pointer"
+    (click) = "flyto(place)">
+    <h6>{{place.text_es}}</h6>
+    <p>{{place.place_name}}</p>
     <button class="btn btn-outline-primary btn-sm">Direcciones</button>
 
   </li>

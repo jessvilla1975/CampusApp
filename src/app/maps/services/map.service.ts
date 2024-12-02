@@ -21,7 +21,7 @@ export class MapService {
 
     this.map?.flyTo({
       center: coords,
-      zoom: 14
+      zoom: 18
     });
   }
 }

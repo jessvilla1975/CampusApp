@@ -6,15 +6,16 @@ p {
   font-size: 12px;
 }
 
-.list-group-item {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-bottom: 1px solid #f0f0f0;
-  border-radius: 0;
-  font-size: 14px;
-  color: #333;
-  transition: 0.3s;
-  width: 220px;
+.list-group {
+  position: absolute; /* Saca la lista del flujo del documento */
+  top: 100%; /* Asegura que aparezca justo debajo del input */
+  left: 0;
+  z-index: 10; /* Garantiza que quede sobre otros elementos */
+  width: 100%; /* Haz que ocupe todo el ancho del input */
+  max-height: 200px; /* Limita la altura máxima para evitar que cubra todo */
+  overflow-y: auto; /* Habilita el scroll si hay demasiados resultados */
+  background: #fff; /* Fondo blanco para la lista */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Agrega sombra para visibilidad */
 }
 
 .btn {
