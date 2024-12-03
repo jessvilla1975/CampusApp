@@ -57,7 +57,7 @@ export class PlacesService {
 
       this.isLoadingPlaces = false;
       this.places = resp.features;
-      this.mapService.createMarkersFronPlaces(this.places);
+      this.mapService.createMarkersFronPlaces(this.places, this.userlocation!);
     });
   }
 

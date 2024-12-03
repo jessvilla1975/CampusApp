@@ -1,7 +1,12 @@
+import { Properties } from './../interfaces/places';
 import { Injectable } from '@angular/core';
-import { LngLatLike, Map, Marker, Popup } from 'mapbox-gl';
+import { AnySourceData, LngLatBounds, LngLatLike, Map, Marker, Popup } from 'mapbox-gl';
 import { Feature } from '../interfaces/places';
-import { error } from 'console';
+import { DirectionsApiClient } from '../api';
+import { DirectionsResponde, Route } from '../interfaces/directions';
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +19,8 @@ export class MapService {
   get isMapReady() {
     return !!this.map;
   }
+
+  constructor(private directionsApi: DirectionsApiClient) { }
 
   setMap(map: Map) {
     this.map = map;
@@ -28,8 +35,9 @@ export class MapService {
     });
   }
 
-  createMarkersFronPlaces(places: Feature[]){
+  createMarkersFronPlaces(places: Feature[], userLocation: [number, number]){
     if(!this.map) throw Error("Mapa no inicializado");
+
     this.markers.forEach (marker => marker.remove());
     const newMarkers = [];
 
@@ -53,6 +61,73 @@ export class MapService {
     }
 
     this.markers = newMarkers;
+    if(places.length == 0 ) return;
+
+    //limites del mapa
+    const bounds = new LngLatBounds();
+    newMarkers.forEach(marker =>bounds.extend(marker.getLngLat()));
+    bounds.extend(userLocation);
+    this.map.fitBounds(bounds,{
+      padding: 200
+    })
+
+  }
+
+  getRouteBetweenPoints ( start: [number, number], end: [number, number] ){
+    return this.directionsApi.get<DirectionsResponde>(`/${start.join(',')}; ${end.join(',')}` )
+    .subscribe( resp => this.drawPolyLine(resp.routes[0]));
+  }
+
+  private drawPolyLine (route: Route){
+    console.log( {kms: route.distance/1000, time: route.duration/60});
+    if(!this.map) throw Error('Map is not ready');
+    const coords = route.geometry.coordinates;
+
+    const bounds = new LngLatBounds();
+    coords.forEach( ([lng, lat]) => {
+      bounds.extend([lng, lat]); ;
+    });
+
+
+    this.map?.fitBounds(bounds, {
+      padding: 200
+    });
+
+
+    const sourceData: AnySourceData = {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: [
+          {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+              type: 'LineString',
+              coordinates: coords
+            }
+          }
+        ]
+      }
+    }
+
+    //limpiar
+    this.map.addSource('RouteString', sourceData);
+
+    this.map.addLayer({
+      id: 'RouteString',
+      type: 'line',
+      source: 'RouteString',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#3887be',
+        'line-width': 3
+      }
+    });
+
 
   }
 
