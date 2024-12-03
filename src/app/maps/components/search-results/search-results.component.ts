@@ -13,6 +13,8 @@ import { Feature } from '../../interfaces/places';
 })
 export class SearchResultsComponent {
 
+  public selectedId: string = "";
+
   constructor(private placesService: PlacesService, private mapService: MapService) {
     // constructor implementation
 }
@@ -25,6 +27,7 @@ export class SearchResultsComponent {
   }
 
   flyto (place: Feature){
+    this.selectedId = place.id;
     const[lng, lat] = place.center;
     this.mapService.flyto([lng, lat]);
 

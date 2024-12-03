@@ -16,6 +16,7 @@ p {
   overflow-y: auto; /* Habilita el scroll si hay demasiados resultados */
   background: #fff; /* Fondo blanco para la lista */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Agrega sombra para visibilidad */
+
 }
 
 .btn {
@@ -28,3 +29,10 @@ p {
   position: relative;
   width: 100%;
 }
+
+.btn:active {
+  color: #fff; /* Cambia el color de la fuente a blanco */
+  background-color: #310eca; /* Opcional: Cambia el fondo para que sea visible */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Añade una transición */
+}
+
