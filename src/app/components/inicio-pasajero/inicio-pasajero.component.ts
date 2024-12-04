@@ -8,6 +8,7 @@ import { SearchResultsComponent } from "../../maps/components/search-results/sea
 import { Router } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-inicio-pasajero',
   standalone: true,
@@ -26,16 +27,12 @@ export class InicioPasajeroComponent implements OnInit {
   duration: number = 0;
   price: number = 0;
 
-
   constructor(private placesService: PlacesService,
-     private mapService: MapService,
-     private router: Router,
-     private apiService: ApiService) {
-
-  }
+              private mapService: MapService,
+              private router: Router,
+              private apiService: ApiService) {}
 
   ngOnInit(): void {
-
     // Suscribirse al observable de distancia
     this.mapService.distance$.subscribe((distance) => {
       this.distance = distance;
@@ -56,9 +53,6 @@ export class InicioPasajeroComponent implements OnInit {
       this.locationOutput = place;
     });
 
-
-
-
     // Obtener el userId desde localStorage
     const userIdFromStorage = localStorage.getItem('userId');
     if (userIdFromStorage) {
@@ -69,45 +63,61 @@ export class InicioPasajeroComponent implements OnInit {
     }
   }
 
-    // Cargar los datos del usuario desde la API
-    private loadUserData(): void {
-      this.apiService.getUserById(this.userId).subscribe({
-        next: (response: any) => {
-          if (response.success) {
-            this.fullName = `${response.data.usuario.nombre} ${response.data.usuario.apellido}`;
-          } else {
-            alert('No se pudo cargar la información del usuario.');
-          }
-        },
-        error: (error) => {
-          console.error('Error al cargar los datos del usuario', error);
-          alert('Error al cargar los datos del usuario.');
+  // Cargar los datos del usuario desde la API
+  private loadUserData(): void {
+    this.apiService.getUserById(this.userId).subscribe({
+      next: (response: any) => {
+        if (response.success) {
+          this.fullName = `${response.data.usuario.nombre} ${response.data.usuario.apellido}`;
+        } else {
+          alert('No se pudo cargar la información del usuario.');
         }
-      });
-    }
-
-
+      },
+      error: (error) => {
+        console.error('Error al cargar los datos del usuario', error);
+        alert('Error al cargar los datos del usuario.');
+      }
+    });
+  }
 
   // Obtiene la ubicación y llena el input automáticamente
   goToMyLocation() {
     console.log('Go to my location');
-    this.locationInput = 'Mi ubicación';
+    this.locationInput = 'Mi ubicación'; // Texto temporal en el input
+
+    // Llamar al servicio para obtener las coordenadas del usuario
     this.placesService.getUserLocation().then((coords) => {
+      // Usamos las coordenadas obtenidas para obtener el nombre del lugar
+      this.placesService.getPlaceName(coords[0], coords[1]).subscribe({
+        next: (response) => {
+          const placeName = response.features.length > 0 ? response.features[0].place_name : 'Ubicación desconocida';
+          if (placeName === 'Calle 42 22 10, 763022 Tuluá, Valle del Cauca, Colombia') {
+            this.locationInput  = 'Universidad Universidad del Valle - Sede Príncipe, Kra 23, Tuluá, Valle del Cauca 763022, Colombia';
+          }else{
+            this.locationInput = placeName;
+          }
+
+
+
+        },
+        error: (error: any) => {
+          console.error('Error al obtener el nombre del lugar', error);
+          this.locationInput = 'Ubicación desconocida';
+        }
+      });
+
+      // Mover el mapa a las coordenadas
       this.mapService.flyto(coords);
     }).catch((error) => {
-      console.error(error);
+      console.error('Error al obtener la ubicación', error);
+      this.locationInput = 'Ubicación desconocida';
     });
-
   }
 
-  onQueryChange(query: string ="") {
-
+  onQueryChange(query: string = "") {
     if (this.debounceTimer) clearTimeout(this.debounceTimer);
     this.debounceTimer = setTimeout(() => {
       this.placesService.getPlacesQuery(query);
     }, 1000);
   }
-
-
-
 }

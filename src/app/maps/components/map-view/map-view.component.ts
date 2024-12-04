@@ -29,6 +29,8 @@ export class MapViewComponent implements AfterViewInit {
       .setHTML(`
 
         <h8 style="font-weight: bold; text-align: left;">Ubicación Cercana   </h8>
+
+
     `);
 
 
@@ -37,6 +39,19 @@ export class MapViewComponent implements AfterViewInit {
       .setLngLat(this.placesService.userlocation || [-76.1986, 4.08472])
       .setPopup(popup)
       .addTo(map);
+
+      // Llamada para obtener el nombre del lugar
+      if (this.placesService.userlocation) {
+        this.placesService.getPlaceName(this.placesService.userlocation[0], this.placesService.userlocation[1])
+        .subscribe(response => {
+          const placeName = response.features.length > 0 ? response.features[0].place_name : 'Ubicación desconocida';
+          // Actualiza el contenido del popup con el nombre de la ubicación
+          popup.setHTML(`
+            <h8 style="font-weight: bold; text-align: left;">Ubicación Cercana</h8>
+            <p>${placeName}</p>
+          `);
+        });
+      }
 
     this.mapService.setMap(map);
 
