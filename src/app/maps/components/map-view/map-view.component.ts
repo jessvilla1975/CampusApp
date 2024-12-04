@@ -1,12 +1,11 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { MapService, PlacesService } from '../../services';
 import {Map, Popup, Marker} from 'mapbox-gl';
-import { HeaderPassengerComponent } from '../../../components/header-passenger/header-passenger.component';
 
 @Component({
   selector: 'app-map-view',
   standalone: true,
-  imports: [HeaderPassengerComponent],
+  imports: [],
   templateUrl: './map-view.component.html',
   styleUrl: './map-view.component.css'
 })

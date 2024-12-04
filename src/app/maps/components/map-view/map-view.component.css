@@ -8,10 +8,10 @@ body {
 }
 
 .map-container {
-  width: 600px;            /* Ancho del contenedor */
+  width: 700px;            /* Ancho del contenedor */
   height: 500px;           /* Alto del contenedor */
   background-color: #ffffff; /* Color de fondo del contenedor */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra opcional */
   border-radius: 8px;      /* Bordes redondeados opcionales */
-  margin-right: 100px;      /* Espaciado desde el borde derecho */
+  margin-right: 40px;      /* Espaciado desde el borde derecho */
 }

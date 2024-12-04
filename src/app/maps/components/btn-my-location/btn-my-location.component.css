@@ -16,8 +16,8 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
   padding-left: 6px;   /* Reducir el padding izquierdo */
   transition-duration: .5s;
-  bottom: 450px; /* Mantener la posición desde el borde inferior */
-  right: 110px;  /* Mantener la posición desde el borde derecho */
+  bottom: 480px; /* Mantener la posición desde el borde inferior */
+  right: 90px;  /* Mantener la posición desde el borde derecho */
 }
 
 .svgIcon {
