@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header-passenger',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './header-passenger.component.html',
   styleUrls: ['./header-passenger.component.css']
 })

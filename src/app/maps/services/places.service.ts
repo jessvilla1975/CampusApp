@@ -14,6 +14,7 @@ export class PlacesService {
   public isLoadingPlaces: boolean = false;
   public places: Feature[] = [];
 
+
   get isUserLocationReady(): boolean {
     return !!this.userlocation;
   }

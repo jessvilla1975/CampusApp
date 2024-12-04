@@ -94,10 +94,84 @@ body, html {
 
   }
 
+ /*location*/
+  /* From Uiverse.io by Shoh2008 */
+.loader {
+  width: 16px;
+  height: 16px;
+  display: block;
+  margin: 20px auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.loader::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  border-radius: 50% 50% 0;
+  border: 5px solid red; /* Proporcional al tamaño */
+  transform: rotate(45deg) translate(0, 0);
+  box-sizing: border-box;
+  animation: animMarker 0.4s ease-in-out infinite alternate;
+}
+
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 150%;
+  width: 8px; /* Proporcional al tamaño */
+  height: 1.5px; /* Proporcional al tamaño */
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  animation: animShadow 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes animMarker {
+  0% {
+    transform: rotate(45deg) translate(2px, 2px); /* Ajustado proporcionalmente */
+  }
+
+  100% {
+    transform: rotate(45deg) translate(-2px, -2px); /* Ajustado proporcionalmente */
+  }
+}
+
+@keyframes animShadow {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+/* Contenedor del input y loader */
+.input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-container input {
+  flex: 1; /* El input toma el espacio disponible */
+}
+
+.input-container .loader {
+  margin-left: 10px; /* Espacio entre el input y el loader */
+  position: absolute;
+  right: 10px; /* Asegura que el loader esté alineado al final */
+  top: -10px;
+}
 
 
-
-  /* Media Queries para Responsividad */
 
 /* En pantallas más pequeñas (menos de 768px de ancho) */
 @media (max-width: 768px) {

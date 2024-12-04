@@ -14,26 +14,26 @@
 </head>
 
 <body>
-  <app-header-driver></app-header-driver> <!-- Encabezado para pagina de inicio de conductor -->
+  <app-header-driver [fullName]="fullName"></app-header-driver> <!-- Encabezado para pagina de inicio de conductor -->
   <main class="inicio-conductor-container">
-    <div class="image-container">
+<!--     <div class="image-container">
       <img src="assets/images/fondoinicio.webp" alt="Fondo" class="background-image">
-    </div>
+    </div> -->
     <div class="solicitudes-box">
-      
+
       <h1 class="solicitudes-header">Solicitudes de Viajes</h1>
 
       <div class="search-container">
         <input type="text" id="searchInput" placeholder="Buscar...">
-        
+
         <!-- Selector de filtro -->
         <select id="filterSelect">
           <option value="origen">Origen</option>
           <option value="destino">Destino</option>
         </select>
-        
+
         <button id="searchButton">
-          Buscar<i class="fas fa-search"></i> 
+          Buscar<i class="fas fa-search"></i>
         </button>
       </div>
 
@@ -63,7 +63,7 @@
       <div class="solicitud-card">
         <p><strong>Origen:</strong> Biblioteca Central</p>
         <p><strong>Destino:</strong> Terminal de Transportes</p>
-        <p><strong>Fecha:</strong> 02/12/2024</p> 
+        <p><strong>Fecha:</strong> 02/12/2024</p>
         <p><strong>Hora:</strong> 16:30</p>
         <div class="solicitud-actions">
           <button class="bt">Aceptar</button>

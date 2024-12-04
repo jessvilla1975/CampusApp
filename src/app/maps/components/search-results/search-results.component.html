@@ -1,6 +1,5 @@
 <div *ngIf="isLoadingPlaces"
     class="alet alet-primary mt-2 text-center">
-
     <span class="spinner-border spinner-border-sm"></span>
 </div>
 
@@ -11,7 +10,7 @@
     (click) = "flyto(place)">
     <h6>{{place.text_es}}</h6>
     <p>{{place.place_name}}</p>
-    <button
+     <button
     class="btn-sm"
     (click)="getDirections(place)"
     [ngClass]=" (place.id == selectedId ? 'btn btn-outline-light' : 'btn btn-outline-primary')"

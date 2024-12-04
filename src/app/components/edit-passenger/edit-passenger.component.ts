@@ -110,7 +110,7 @@ export class EditPassengerComponent implements OnInit {
       contraseña: formData.contraseña
     };
 
-    this.apiService.updateDriver(this.userId, userData).subscribe({
+    this.apiService.updateUser(this.userId, userData).subscribe({
       next: (response) => {
         alert('Usuario actualizado correctamente.');
         //this.router.navigate(['/profile']); // Redirigir a otra página (ajusta según sea necesario)

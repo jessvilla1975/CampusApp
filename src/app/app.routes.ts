@@ -12,12 +12,12 @@ import { HeaderDriverComponent } from './components/header-driver/header-driver.
 import { HeaderPassengerComponent } from './components/header-passenger/header-passenger.component';
 import { InicioPasajeroComponent } from './components/inicio-pasajero/inicio-pasajero.component';
 import { InicioConductorComponent } from './components/inicio-conductor/inicio-conductor.component';
-import path from 'path';
-
 import { EditDriverComponent } from './components/edit-driver/edit-driver.component';
 import { EditPassengerComponent } from './components/edit-passenger/edit-passenger.component';
 import { AuntentucationLoginComponent } from './components/auntentucation-login/auntentucation-login.component';
-import { MapScreenComponent } from './maps/screens/map-screen/map-screen.component';
+
+
+
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'login', component: LoginComponent},
@@ -34,7 +34,7 @@ export const routes: Routes = [
   {path: 'edit-driver', component: EditDriverComponent},
   {path: 'edit-passenger', component: EditPassengerComponent},
   {path: 'auntentication-login', component: AuntentucationLoginComponent},
-  {path: 'map', component: MapScreenComponent},
+
   {path: '**', redirectTo: 'home'}
 ];
 
