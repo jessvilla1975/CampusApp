@@ -5,19 +5,18 @@
   align-items: center;
   justify-content: flex-start;
   gap: 8px;          /* Reducir el espacio entre el SVG y el texto */
-  background-color: #a585dd;
+  background-color: #dcf309;
   border-radius: 20px; /* Reducir el radio del borde para que se vea más pequeño */
   color: rgb(19, 19, 19);
   font-weight: 500;    /* Reducir el peso de la fuente */
   font-size: 12px;     /* Reducir el tamaño de la fuente */
-  border: none;
   position: absolute;
   cursor: pointer;
   transition-duration: .2s;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
   padding-left: 6px;   /* Reducir el padding izquierdo */
   transition-duration: .5s;
-  bottom: 420px; /* Mantener la posición desde el borde inferior */
+  bottom: 450px; /* Mantener la posición desde el borde inferior */
   right: 110px;  /* Mantener la posición desde el borde derecho */
 }
 
@@ -31,7 +30,7 @@
 }
 
 .button:hover {
-  background-color: #7145d6;
+  background-color: #c2bf0d;
   transition-duration: .5s;
 }
 

@@ -112,6 +112,11 @@ export class MapService {
     }
 
     //limpiar
+
+    if (this.map.getLayer('RouteString')) {
+      this.map.removeLayer('RouteString');
+      this.map.removeSource('RouteString');
+    }
     this.map.addSource('RouteString', sourceData);
 
     this.map.addLayer({
@@ -123,8 +128,8 @@ export class MapService {
         'line-cap': 'round'
       },
       paint: {
-        'line-color': '#3887be',
-        'line-width': 3
+        'line-color': 'black',
+        'line-width': 5
       }
     });
 
