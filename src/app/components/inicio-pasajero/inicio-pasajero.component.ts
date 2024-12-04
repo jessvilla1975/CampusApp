@@ -21,7 +21,11 @@ export class InicioPasajeroComponent implements OnInit {
   fullName: string = '';
   userId: string = '';
   locationInput: string = '';
+  locationOutput: string = '';
   distance: number = 0;
+  duration: number = 0;
+  price: number = 0;
+
 
   constructor(private placesService: PlacesService,
      private mapService: MapService,
@@ -36,6 +40,25 @@ export class InicioPasajeroComponent implements OnInit {
     this.mapService.distance$.subscribe((distance) => {
       this.distance = distance;
     });
+
+    // Suscribirse al observable de duración
+    this.mapService.duration$.subscribe((duration) => {
+      this.duration = duration;
+    });
+
+    // Suscribirse al observable de precio
+    this.mapService.price$.subscribe((price) => {
+      this.price = price;
+    });
+
+    // Obtener la ubicación del usuario
+    this.placesService.place$.subscribe((place) => {
+      this.locationOutput = place;
+    });
+
+
+
+
     // Obtener el userId desde localStorage
     const userIdFromStorage = localStorage.getItem('userId');
     if (userIdFromStorage) {

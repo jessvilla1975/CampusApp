@@ -31,6 +31,7 @@
                     required=""
                     autocomplete="off"
                     placeholder="Ubicación destino"
+                    [(ngModel)]="locationOutput"
                     id="search"
                     type="text"
                     #txtQuery
@@ -46,6 +47,23 @@
                   readonly
                   class="form-control"
                 />
+                <input
+                  type="text"
+                  [value]="'Duración: ' + (duration | number: '1.2-2') + ' min'"
+                  readonly
+                  class="form-control"
+                />
+
+                <input
+                  type="text"
+                  [value]="price | currency: 'COP ': true"
+                  readonly
+                  class="form-control"
+                />
+
+
+
+
 
                 <button type="submit" class="bt" >Guardar Viaje</button>
 

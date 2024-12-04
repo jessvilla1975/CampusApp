@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Feature, PlacesResponse } from '../interfaces/places';
 import { PlacesApiClient } from '../api';
 import { MapService } from './map.service';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -13,6 +14,8 @@ export class PlacesService {
   public userlocation: [number, number] | undefined;
   public isLoadingPlaces: boolean = false;
   public places: Feature[] = [];
+  private placeSUbjet = new BehaviorSubject<string>('');
+  place$ = this.placeSUbjet.asObservable();
 
 
   get isUserLocationReady(): boolean {
@@ -36,6 +39,8 @@ export class PlacesService {
           reject(error);
         }
       );
+
+
     });
   }
 
@@ -55,6 +60,10 @@ export class PlacesService {
         proximity: this.userlocation!.join(',')
       }
       }).subscribe( resp => {
+
+      const nameUserLOcation = resp.features[0].place_name;
+      console.log(nameUserLOcation);
+      this.placeSUbjet.next(nameUserLOcation); // locacion destino
 
       this.isLoadingPlaces = false;
       this.places = resp.features;

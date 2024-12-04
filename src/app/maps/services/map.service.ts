@@ -18,6 +18,13 @@ export class MapService {
   private markers: Marker[] = []
   private distanceSubject = new BehaviorSubject<number>(0); // Distancia inicial en 0
   distance$ = this.distanceSubject.asObservable(); // Observable para suscribirse a cambios de distancia
+  private durationSubject = new BehaviorSubject<number>(0); // Duración inicial en 0
+  duration$ = this.durationSubject.asObservable(); // Observable para suscribirse a cambios
+  private priceSUbjet = new BehaviorSubject<number>(0);
+  price$ = this.priceSUbjet.asObservable();
+
+
+
 
   get isMapReady() {
     return !!this.map;
@@ -81,7 +88,21 @@ export class MapService {
       .get<DirectionsResponde>(`/${start.join(',')};${end.join(',')}`)
       .subscribe((resp) => {
         const distanceInKm = resp.routes[0].distance / 1000;
+        const durationInMinutes = resp.routes[0].duration / 60;
+        const baseFare = 2000; // Tarifa base en COP
+        const costPerKm = 300; // Costo por km en COP
+        const costPerMinute = 100; // Costo por minuto en COP
+
+
+        // Cálculo del precio total
+        const price = Math.round(baseFare + (distanceInKm * costPerKm) + (durationInMinutes * costPerMinute));
+
+
+        this.durationSubject.next(durationInMinutes); // Emitir
         this.distanceSubject.next(distanceInKm); // Emitir distancia
+        this.priceSUbjet.next(price); // Emitir precio
+
+
         this.drawPolyLine(resp.routes[0]);
       });
   }
