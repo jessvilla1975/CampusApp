@@ -15,6 +15,9 @@ import { InicioConductorComponent } from './components/inicio-conductor/inicio-c
 import { EditDriverComponent } from './components/edit-driver/edit-driver.component';
 import { EditPassengerComponent } from './components/edit-passenger/edit-passenger.component';
 import { AuntentucationLoginComponent } from './components/auntentucation-login/auntentucation-login.component';
+import { TravelHistoryDriverComponent } from './components/travel-history-driver/travel-history-driver.component';
+import { TravelHistoryPassengerComponent } from './components/travel-history-passenger/travel-history-passenger.component';
+import { WalletComponent } from './components/wallet/wallet.component';
 
 
 
@@ -34,6 +37,9 @@ export const routes: Routes = [
   {path: 'edit-driver', component: EditDriverComponent},
   {path: 'edit-passenger', component: EditPassengerComponent},
   {path: 'auntentication-login', component: AuntentucationLoginComponent},
+  {path: 'travel-history-driver', component: TravelHistoryDriverComponent},
+  {path: 'travel-history-passenger', component: TravelHistoryPassengerComponent},
+  {path: 'wallet', component: WalletComponent},
 
   {path: '**', redirectTo: 'home'}
 ];
