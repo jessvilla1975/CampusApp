@@ -40,6 +40,13 @@
 
                 <input type="date" placeholder="Fecha" required>
                 <input type="time" placeholder="Hora" required>
+                <input
+                  type="text"
+                  [value]="'Distancia: ' + (distance | number: '1.2-2') + ' km'"
+                  readonly
+                  class="form-control"
+                />
+
                 <button type="submit" class="bt" >Guardar Viaje</button>
 
 

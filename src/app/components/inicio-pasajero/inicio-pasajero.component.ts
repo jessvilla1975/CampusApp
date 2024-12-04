@@ -7,11 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { SearchResultsComponent } from "../../maps/components/search-results/search-results.component";
 import { Router } from '@angular/router';
 import { ApiService } from '../../api.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-inicio-pasajero',
   standalone: true,
   imports: [HeaderPassengerComponent, FooterComponent, MapScreenComponent,
-    FormsModule, SearchResultsComponent],
+    FormsModule, SearchResultsComponent, CommonModule],
   templateUrl: './inicio-pasajero.component.html',
   styleUrl: './inicio-pasajero.component.css'
 })
@@ -20,6 +21,7 @@ export class InicioPasajeroComponent implements OnInit {
   fullName: string = '';
   userId: string = '';
   locationInput: string = '';
+  distance: number = 0;
 
   constructor(private placesService: PlacesService,
      private mapService: MapService,
@@ -29,6 +31,11 @@ export class InicioPasajeroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    // Suscribirse al observable de distancia
+    this.mapService.distance$.subscribe((distance) => {
+      this.distance = distance;
+    });
     // Obtener el userId desde localStorage
     const userIdFromStorage = localStorage.getItem('userId');
     if (userIdFromStorage) {

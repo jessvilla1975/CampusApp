@@ -4,6 +4,7 @@ import { AnySourceData, LngLatBounds, LngLatLike, Map, Marker, Popup } from 'map
 import { Feature } from '../interfaces/places';
 import { DirectionsApiClient } from '../api';
 import { DirectionsResponde, Route } from '../interfaces/directions';
+import { BehaviorSubject } from 'rxjs';
 
 
 
@@ -15,6 +16,8 @@ export class MapService {
 
   private map: Map | undefined;
   private markers: Marker[] = []
+  private distanceSubject = new BehaviorSubject<number>(0); // Distancia inicial en 0
+  distance$ = this.distanceSubject.asObservable(); // Observable para suscribirse a cambios de distancia
 
   get isMapReady() {
     return !!this.map;
@@ -73,9 +76,14 @@ export class MapService {
 
   }
 
-  getRouteBetweenPoints ( start: [number, number], end: [number, number] ){
-    return this.directionsApi.get<DirectionsResponde>(`/${start.join(',')}; ${end.join(',')}` )
-    .subscribe( resp => this.drawPolyLine(resp.routes[0]));
+  getRouteBetweenPoints(start: [number, number], end: [number, number]) {
+    return this.directionsApi
+      .get<DirectionsResponde>(`/${start.join(',')};${end.join(',')}`)
+      .subscribe((resp) => {
+        const distanceInKm = resp.routes[0].distance / 1000;
+        this.distanceSubject.next(distanceInKm); // Emitir distancia
+        this.drawPolyLine(resp.routes[0]);
+      });
   }
 
   private drawPolyLine (route: Route){
