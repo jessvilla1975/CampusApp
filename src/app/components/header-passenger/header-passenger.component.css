@@ -43,11 +43,12 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  color: #292929;
 }
 
 .dropbtn {
   background-color: #cdbef1;
-  color: #f1f1f1;
+  color: #292929;
   padding: 10px 15px;
   font-size: 16px;
   border: none;
