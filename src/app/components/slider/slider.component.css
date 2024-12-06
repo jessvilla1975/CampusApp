@@ -4,7 +4,7 @@
   filter: brightness(1);
 }
 .btn {
-  margin-top: 37.5%;
+  margin-top: 40%;
   border: none;
   color: #7145d6;
   background-color: #ffff;
@@ -16,3 +16,5 @@
   background-color: #7145d6;
   color: white;
 }
+
+
