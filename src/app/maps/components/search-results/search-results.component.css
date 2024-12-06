@@ -1,0 +1,38 @@
+.pointer {
+    cursor: pointer;
+}
+
+p {
+  font-size: 12px;
+}
+
+.list-group {
+  position: absolute; /* Saca la lista del flujo del documento */
+  top: 100%; /* Asegura que aparezca justo debajo del input */
+  left: 0;
+  z-index: 10; /* Garantiza que quede sobre otros elementos */
+  width: 100%; /* Haz que ocupe todo el ancho del input */
+  max-height: 200px; /* Limita la altura máxima para evitar que cubra todo */
+  overflow-y: auto; /* Habilita el scroll si hay demasiados resultados */
+  background: #fff; /* Fondo blanco para la lista */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Agrega sombra para visibilidad */
+
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+
+  border-radius: 0;
+  font-size: 14px;
+  color: #310eca;
+  transition: 0.3s;
+  position: relative;
+  width: 100%;
+}
+
+.btn:active {
+  color: #fff; /* Cambia el color de la fuente a blanco */
+  background-color: #310eca; /* Opcional: Cambia el fondo para que sea visible */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Añade una transición */
+}
+

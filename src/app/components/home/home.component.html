@@ -13,23 +13,34 @@
 <body>
   <!-- HEADER -->
   <div class="header">
-    <div class="header-left">
-      <div class="header-logo-container">
-        <a href="/home">
-          <img src="assets/images/logohome.png" alt="CampusRide" class="header-logo" width="80" height="90">
+    <nav class="navbar navbar-expand-lg" id="header">
+      <div class="container-fluid">
+        <a class="header-logo-contanier" href="/home">
+          <img src="assets/images/logohome.webp" alt="CampusRide" class="header-logo" width="80" height="0">
         </a>
+  
+        <!-- Botón toggler -->
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <!-- Contenido colapsable -->
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="header-item"><a class="login-text2" aria-current="page" href="#seccion-contacto">Ayuda</a></li>
+            <li class="header-item"><a class="login-text2" href="#Footer">Contactanos</a></li>
+            <li class="header-item"><a class="login-text2" href="#seccion-comunidad">Comunidad</a></li>
+            <li class="header-item"><a class="login-text2" href="#about">Quienes somos</a></li>
+          </ul>
+          
+   
+          <div class="header-buttons">
+            <a routerLink="/login" class="login-text-btn">Iniciar sesión</a>
+            <a routerLink="/registro" class="login-text-btn">Registrarse</a>
+          </div>
+        </div>
       </div>
-      <nav class="header-content">
-        <div class="header-item"><div class="login-text2">Ayuda</div></div>
-        <div class="header-item"><div class="login-text2">Contactanos</div></div>
-        <div class="header-item"><div class="login-text2">Comunidad</div></div>
-        <div class="header-item"><div class="login-text2">Quienes somos</div></div>
-      </nav>
-    </div>
-    <div class="header-right">
-      <div class="header-item"><a routerLink="/login" class="login-text">Iniciar sesión</a></div>
-      <div class="header-item"><a routerLink="/registro" class="login-text">Registrarse</a></div>
-    </div>
+    </nav>
   </div>
 
   <!-- SLIDER -->
@@ -40,7 +51,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-md-12 col-12">
-          <div class="about-img"><img alt="" class="img-fluid" src="assets/images/aboutus.png"></div>
+          <div class="about-img"><img alt="" class="img-fluid" src="assets/images/aboutus.webp"></div>
         </div>
         <div class="col-lg-6 col-md-12 col-12">
           <div class="about-text">
@@ -75,7 +86,7 @@
           </div> <!-- Estrellas -->
         </div>
         <div class="col-lg-6 col-md-12 col-12">
-          <div class="about-img"><img alt="" class="img-fluid" src="assets/images/comunidad.png"></div>
+          <div class="about-img"><img alt="" class="img-fluid" src="assets/images/comunidad.webp"></div>
         </div>
       </div>
     </div>
@@ -115,7 +126,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="w-100 d-flex align-items-center justify-content-center">
+  <footer class="w-100 d-flex align-items-center justify-content-center" id="Footer">
     <section><p class="fs-5 px-3 pt-3">Campus Ride UV &copy; Todos Los Derechos Reservados 2024 <br> Tuluá - Valle del Cauca</p></section>
     <div id="iconos">
       <a href="https://www.instagram.com/campusride__?igsh=YnUzNHZ6OWtqNWh5&utm_source=qr" target="_blank"> <i class="bi bi-instagram"></i> </a>

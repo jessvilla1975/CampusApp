@@ -1,69 +1,238 @@
-/*============================HEADER===================================*/
-.btn{
-    background-color: #7145d6;
-    color: white;
-    border: none;
-    border-radius: 10px;
-}
-
-.login-text:hover{
-    background-color: #ffffff;
-    color: #8550e1;
-}
-
-.header-logo {
-    width: 75 px;
-    height: 75px;
-    transition: all 2 s;
-}
-
-.header {
+#header {
+    margin: 0;
+    padding: 0 20px; 
+    box-sizing: border-box;
     display: flex;
+    justify-content: space-between; 
+    align-items: center;
     width: 100%;
-    height: 80px;
-    padding-top: 5 px;
-    color: white;
+    height: 100px;
     background-color: #8550e1;
-}
-
-.header-logo {
+  }
+  
+  
+  
+  .header-logo {
+    margin-left: 20px;
+    margin-right: 10px;
+    width: 90px;
+    height: 90px;
+    transition: all 2 s;
+  }
+  
+  .header-logo {
     cursor: pointer;
-}
-
-.header-logo:hover {
+  }
+  
+  .header-logo:hover {
     transform: scale(1.1);
-}
-
-.header-item:hover {
-    transform: scale(1.1);
-}
-
-.header-right .login-text2 {
-    background: #7145d6;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: bold;
+  }
+  
+  
+  
+  #header .login-text2,
+  #header .login-text {
+    color: white; 
+    text-decoration: none;
+    font-weight: bold; 
+    background: #8550e1;
     padding: 5px 15px;
     border-radius: 50px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
+    cursor: pointer;
     text-decoration: none;
+  }  
+  
+  #header .login-text2:hover,
+  #header .login-text:hover {
+    background: #7145d6;
   }
-
-.header-left .header-content .header-item .login-text2 {
-    background: #8550e1;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 5px 8px;
+  
+  .header-buttons {
+    display: flex;
+    gap: 20px; 
+    margin-left: auto; 
+  }
+  
+  #header .login-text-btn {
+    color: white;
+    text-decoration: none; 
+    font-weight: bold; 
+    background: #7145d6;
+    padding: 5px 15px;
     border-radius: 50px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }  
+  
+  #header .login-text-btn:hover {
+    background: #ffffff;
+    color: #8550e1
   }
-
-.header-left .header-content .header-item .login-text2:hover {
-    background-color: #7145d6;
+  
+  .header-item:hover {
+    transform: scale(1.1);
   }
+  
+  
+  .navbar-collapse{
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .navbar-collapse .header-item {
+    margin-bottom: 10px; /* Espaciado entre elementos */
+  }
+  
+  .navbar {
+    position: relative; 
+    z-index: 1050; /* Mayor que el slider */
+  }
+  
+  #app-slider {
+    position: relative;
+    z-index: 1; /* Asegúrate de que el slider no sobrepase la navbar */
+  }
+  
+  
+  .navbar-collapse {
+    background-color: #8550e1; 
+    width: 100%;
+  
+  }
+  
+  .navbar-collapse {
+    width: 100%; 
+  
+  }
+  
+  
+  
+  
+  /*=========================MEDIA QUERIES PANTALLA ANCHA================================*/
+  
+  @media (max-width:1200px){
+    #intro, #equipo {
+        width:90% !important;
+        margin:auto;
+    }
+  
+    #local {
+        flex-wrap: wrap;
+        padding-top:30px;
+   }
+   .wrapper-local {
+    width:90%;
+    margin:auto;
+    padding-top:50px;    
+   }
+  }
+  
+  /*=========================MEDIA QUERIES PANTALLA SM================================*/
+  
+  @media (max-width:768px) {
+  
+    #intro, #equipo{
+        width:90% !important;
+        margin:auto;
+    }
+  
+    
+    #img-equipo{
+        max-height:20rem !important;
+        width:90%;
+    }
+    .wrapper-local {
+        width:90%;
+        margin:auto;
+        padding-top:50px;    
+    }
+    #local {
+        flex-wrap: wrap;
+    }
+    .mapa img {
+        width:100%;
+        height:auto;
+    }
+    #bg-contactos{
+        top: -120px;
+    }
+  }
+  
+  /*=========================MEDIA QUERIES PANTALLA EXTRA-SM================================*/
+  
+  @media (max-width: 576px) {
+    #servicios-fila-2 {
+        width:100% !important;
+    }
+    #servicios-fila-1 {
+        width:100% !important;
+    }
+  
+    .icono-wrap{
+        flex-wrap:wrap !important;
+        justify-content: center !important;
+        text-align: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #header {
+        flex-direction: column; /* Cambiar a columna */
+        height: auto; /* Adaptar altura */
+        align-items: center;
+    }
+  
+    .header-logo {
+        margin-bottom: 10px; /* Espacio bajo el logo */
+        width: 70px;
+        height: 70px;
+    }
+  
+    .header-right {
+        flex-direction: column; /* Botones en columna */
+    }
+  }
+  .navbar-toggler {
+    width: 40px; /* Ancho predeterminado */
+    height: 40px; /* Alto predeterminado */
+    background-color: #7145d6; /* Color de fondo */
+    border: none; /* Quitar borde */
+    border-radius: 50%; /* Forma redonda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3E%3Cpath fill="white" d="M1 2.75h14v1.5H1v-1.5zM1 7.25h14v1.5H1v-1.5zM1 11.75h14v1.5H1v-1.5z"/%3E%3C/svg%3E');
+    width: 20px; /* Tamaño del icono */
+    height: 20px; /* Tamaño del icono */
+  }
+  
+  /* Toggler en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .navbar-toggler {
+        width: 50px; /* Ancho más grande */
+        height: 50px; /* Alto más grande */
+        background-color: #8550e1; /* Ajustar color si necesario */
+        border-radius: 10px; /* Cambiar estilo de bordes */
+    }
+  
+    .navbar-toggler-icon {
+        width: 25px; /* Icono más grande */
+        height: 25px;
+    }
+  .header-buttons {
+      flex-direction: column; /* Botones en columna */
+      align-items: center; /* Centrado en pantalla pequeña */
+      gap: 10px; /* Espacio entre los botones */
+    }
+  }
+  
 
 /*=========================QUIENES SOMOS================================*/
 

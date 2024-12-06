@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="inicio-pasajero.component.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+  <title>Inicio-pasajero - CampusRide</title>
+</head>
+
+<body>
+    <app-header-passenger [fullName]="fullName"></app-header-passenger><!-- Encabezado para pagina de inicio de pasajero -->
+    <main class="inicio-pasajero-container">
+
+        <div class="inicio-pasajero-box">
+
+            <h1 class="inicio-pasajero-header">ENCUENTRA TU PRÓXIMO VIAJE</h1>
+            <p class="inicio-pasajero-subtitulo">
+                Ingresa la ubicación de origen y destino, así como la fecha y hora en la que deseas viajar.
+            </p>
+            <!-- Aquí se usa ngSubmit para manejar el evento de envío del formulario -->
+            <form [formGroup]="solicitudViaje" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <div class="input-container">
+                  <input type="text" placeholder="Ubicación origen" [(ngModel)]="locationInput"
+                         id="origen" formControlName="origen" required>
+                  <div class="loader" (click)="goToMyLocation()"></div>
+                </div>
+
+                <input
+                    required=""
+                    autocomplete="off"
+                    placeholder="Ubicación destino"
+                    [(ngModel)]="locationOutput"
+                    id="destino" formControlName="destino"
+                    type="text"
+                    #txtQuery
+                    (keyup)="onQueryChange(txtQuery.value)"
+                >
+                <app-search-results></app-search-results>
+
+                <input type="date" placeholder="Fecha" id="fecha" formControlName="fecha" required>
+                <input type="time" placeholder="Hora" id="horaviaje" formControlName="horaviaje" required>
+                <input
+                  type="text"
+                  id="distancia_recorrido" formControlName="distancia_recorrido"
+                  [value]="'Distancia: ' + (distance | number: '1.2-2') + ' km'"
+                  readonly
+                  class="form-control"
+                />
+                <input
+                  type="text"
+                  id="duracionViaje" formControlName="duracionViaje"
+                  [value]="'Duración: ' + (duration | number: '1.2-2') + ' min'"
+                  readonly
+                  class="form-control"
+                />
+
+                <input
+                  type="text"
+                  id="costo_viaje" formControlName="costo_viaje"
+                  [value]="price | currency: 'COP ': true"
+                  readonly
+                  class="form-control"
+                />
+
+                <button type="submit" class="bt">Solicitar Viaje</button>
+              </div>
+
+            </form>
+
+        </div>
+
+            <app-map-screen></app-map-screen>
+
+    </main>
+    <app-footer></app-footer> <!-- Pie de página común para todas las páginas -->
+</body>
+</html>

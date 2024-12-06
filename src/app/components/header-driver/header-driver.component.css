@@ -20,7 +20,7 @@
 
 .header-left .header-content .header-item .login-text2 {
   background: #cdbef1;
-  color: #ffffff;
+  color: #292929;
   font-size: 15px;
   font-weight: bold;
   padding: 5px 8px;
@@ -31,6 +31,7 @@
 
 .header-left .header-content .header-item .login-text2:hover {
   background: #7145d6;
+  color: #ffffff;
 }
 
 .material-icons {
@@ -42,11 +43,12 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  color: #292929;
 }
 
 .dropbtn {
   background-color: #cdbef1;
-  color: #ffffff;
+  color: #292929;
   padding: 10px 15px;
   font-size: 16px;
   border: none;
@@ -102,4 +104,20 @@
 
 .dropdown-content a:last-child {
   color: #ff0000;
+}
+
+/* Eliminar subrayado y cambiar el color de los enlaces */
+a {
+  text-decoration: none;  /* Eliminar subrayado */
+  color: #292929;         /* Color del texto (puedes cambiarlo al color que desees) */
+}
+
+/* Cambiar el color cuando el enlace está en foco o cuando se pasa el ratón */
+a:hover {
+  color: #f1f1f1;         /* Color cuando pasa el ratón */
+}
+
+/* Cambiar el color cuando el enlace está activo (haciendo clic) */
+a:active {
+  color: #f1f1f1;         /* Color cuando se hace clic */
 }

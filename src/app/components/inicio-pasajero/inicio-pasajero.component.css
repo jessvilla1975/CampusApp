@@ -1,0 +1,219 @@
+/* Estilos generales */
+body, html {
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+  }
+
+  /* Contenedor principal */
+  .inicio-pasajero-container {
+    position: relative;
+    height: calc(120vh - 60px); /* Altura del viewport menos un posible header */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    padding: 20px;
+  }
+
+
+
+  /* Caja principal */
+  .inicio-pasajero-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(113, 69, 214);
+    background: white;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 80%;
+    max-width: 500px; /* Ajusta según la proporción */
+    z-index: 1;
+  }
+
+  /* Título */
+  .inicio-pasajero-header {
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Subtítulo */
+  .inicio-pasajero-subtitulo {
+    color: #6C6C6C;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+/* Formulario */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 430px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  color: #6C6C6C;
+}
+ /*location*/
+  /* From Uiverse.io by Shoh2008 */
+.loader {
+  width: 16px;
+  height: 16px;
+  display: block;
+  margin: 20px auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.loader::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  border-radius: 50% 50% 0;
+  border: 5px solid red; /* Proporcional al tamaño */
+  transform: rotate(45deg) translate(0, 0);
+  box-sizing: border-box;
+  animation: animMarker 0.4s ease-in-out infinite alternate;
+}
+
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 150%;
+  width: 8px; /* Proporcional al tamaño */
+  height: 1.5px; /* Proporcional al tamaño */
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  animation: animShadow 0.4s ease-in-out infinite alternate;
+}
+
+
+
+@keyframes animMarker {
+  0% {
+    transform: rotate(45deg) translate(2px, 2px); /* Ajustado proporcionalmente */
+  }
+
+  100% {
+    transform: rotate(45deg) translate(-2px, -2px); /* Ajustado proporcionalmente */
+  }
+}
+
+@keyframes animShadow {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+/* Contenedor del input y loader */
+.input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-container input {
+  flex: 1; /* El input toma el espacio disponible */
+}
+
+.input-container .loader {
+  margin-left: 10px; /* Espacio entre el input y el loader */
+  position: absolute;
+  right: 10px; /* Asegura que el loader esté alineado al final */
+  top: -10px;
+}
+
+
+
+
+
+/* En pantallas más pequeñas (menos de 768px de ancho) */
+@media (max-width: 768px) {
+  .inicio-pasajero-container {
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    padding: 10px;
+  }
+
+  .inicio-pasajero-box {
+    width: 90%; /* El formulario ocupará todo el ancho */
+    max-width: 900%;
+    padding: 20px; /* Menos padding */
+  }
+
+  .inicio-pasajero-header {
+    font-size: 14px; /* Ajuste de tamaño de fuente */
+  }
+
+  .inicio-pasajero-subtitulo {
+    font-size: 10px; /* Ajuste de tamaño de fuente */
+  }
+
+  .form-group input {
+    width: 200px; /* El input ocupará todo el ancho */
+    font-size: 12px; /* Ajuste de tamaño de los inputs */
+  }
+
+  .map-container {
+    height: 300px; /* Reduce el tamaño del mapa en pantallas pequeñas */
+  }
+
+  .map-icon {
+    font-size: 80px; /* Ajuste en el tamaño del ícono del mapa */
+  }
+
+}
+
+/* En pantallas más pequeñas (menos de 480px de ancho) */
+@media (max-width: 480px) {
+  .inicio-pasajero-header {
+    font-size: 12px; /* Ajuste de tamaño de fuente */
+  }
+
+  .inicio-pasajero-subtitulo {
+    font-size: 8px; /* Ajuste de tamaño de fuente */
+  }
+
+  .form-group input {
+    font-size: 10px; /* Ajuste de tamaño de los inputs */
+  }
+
+  .map-container {
+    height: 250px; /* Reduce aún más el tamaño del mapa */
+  }
+
+  .map-icon {
+    font-size: 60px; /* Ajuste en el tamaño del ícono del mapa */
+  }
+}

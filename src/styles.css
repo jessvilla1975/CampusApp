@@ -1,99 +1,3 @@
-/* Estilo del encabezado */
-.header {
-  width: 100%;
-  height: 60px;
-  padding: 0 20px;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
-/* Alineación de los elementos del encabezado */
-.header-left, .header-right {
-  display: flex;
-  align-items: center;
-}
-
-/* Estilo del logotipo */
-.header-logo {
-  font-size: 24px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #000000;
-  margin-right: 20px;
-}
-
-/* Elementos del encabezado */
-.header-content {
-  display: flex;
-  gap: 20px;
-}
-
-/* Texto de los elementos del encabezado */
-.header-item {
-  color: #080606;
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
-}
-.header-right {
-  gap: 20px; /* Añade espacio entre "Iniciar sesión" y "Registrarse" */
-}
-/* Estilo para el botón de "Registrarse" */
-.header-right .login-text {
-  background: #7145D6;
-  padding: 5px 15px;
-  border-radius: 50px;
-  color: white;  /* Cambiado a rojo como solicitado */
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-
-.header-right .login-text:hover {
-  background: #8550e1;
-  color: #ffffff
-}
-
-.header-right .login-text2 {
-  background: #ffffff;
-  color: #080606;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 5px 15px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-}
-
-
-.header-right .login-text2:hover {
-  background: #8550e1;
-  color: #ffffff;
-
-}
-
-.header-left .header-content .header-item .login-text2 {
-  background: #ffffff;
-  color: #080606;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 5px 8px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.header-left .header-content .header-item .login-text2:hover {
-  background: #8550e1;
-  color: #ffffff;
-}
-
-
 .error {
   color: red;
   font-size: 12px;
@@ -128,7 +32,6 @@
 }
 
 
-
 p {
   margin-top: 10px;
   font-size: 12px;
@@ -142,16 +45,4 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-/* Registrarte */
-.registrarte {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.registrarte a {
-  color: #8450E1;  /* Color del texto Registrarte */
-  font-size: 14px;
-  font-weight: 500;
 }

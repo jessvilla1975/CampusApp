@@ -15,8 +15,8 @@ export class BikeComponent implements OnInit {
 
   ngOnInit(): void {
     // Establece un tiempo de carga de 3 segundos
-      setTimeout(() => {
+      /* setTimeout(() => {
       this.router.navigate(['/login']); // Redirige a la ruta de inicio
-    }, 5000);
+    }, 5000); */
   }
 }

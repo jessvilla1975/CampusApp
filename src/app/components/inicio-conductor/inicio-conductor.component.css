@@ -1,0 +1,251 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f7f7f7;
+  }
+  
+  /* Contenedor principal */
+  .inicio-conductor-container {
+    position: relative;
+    height: calc(100vh - 60px); /* Altura del viewport menos un posible header */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Contenedor del fondo */
+  .image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Mantén la imagen detrás del contenido */
+  }
+
+  /* Caja principal con scroll */
+.solicitudes-box {
+  width: 90%;
+  max-width: 600px;
+  max-height: 95%; /* Limita la altura al 90% del contenedor principal */
+  overflow-y: auto; /* Scroll solo dentro de esta caja */
+  padding: 20px;
+  position: relative; 
+
+}
+
+/* Estilo para el contenedor de búsqueda */
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 2px;
+}
+
+#searchInput {
+  width: 58%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(113, 69, 214);
+  font-size: 14px;
+  color: rgb(113, 69, 214);
+}
+
+#filterSelect {
+  width: 22%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(113, 69, 214);
+  font-size: 14px;
+  color: rgb(113, 69, 214);
+  background-color: #fff;
+}
+
+/* Estilo para el botón de búsqueda */
+#searchButton {
+  padding: 10px 15px;
+  border: none;
+  background-color: rgb(133, 80, 225);
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre el ícono y el texto */
+}
+
+#searchButton i {
+  font-size: 16px; /* Tamaño del ícono */
+}
+
+#searchButton:hover {
+  background-color: rgb(113, 69, 214);
+}
+
+/* Estilo del título */
+.solicitudes-header {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(113, 69, 214);
+  margin-bottom: 20px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Tarjetas */
+.solicitud-card {
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(113, 69, 214, 0.4); /* Bordes menos llamativos */
+  background: rgba(255, 255, 255, 0.85); /* Fondo con transparencia */
+  border-radius: 15px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1); /* Sombras ligeras */
+  padding: 20px;
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondo decorativo */
+.solicitud-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, rgba(113, 69, 214, 0.1), transparent);
+  z-index: 0;
+}
+
+
+/* Botones de acción */
+.solicitud-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+  /* Contenedor del mapa */
+  .map-container {
+    width: 95%;
+    max-width: 800px;
+    height: 500px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
+    z-index: 0;
+  }
+  
+  .map-icon {
+    font-size: 100px;
+    color: gray;
+  }
+
+/* Personalización de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 12px; /* Ancho de la barra de desplazamiento */
+  height: 12px; /* Altura de la barra de desplazamiento horizontal */
+}
+
+/* Personalización del fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: rgb(180, 152, 245); /* Fondo suave usando el color claro */
+  border-radius: 10px;
+  border: 1px solid rgba(113, 69, 214, 0.3)
+}
+
+/* Personalización del pulgar (la parte que se mueve) */
+::-webkit-scrollbar-thumb {
+  background-color: rgb(133, 80, 225); /* Color del pulgar con el tono base morado */
+  border-radius: 10px;  
+}
+
+/* Personalización del pulgar al pasar el ratón */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(113, 69, 214); /* Color más intenso al pasar el ratón */
+}
+
+
+/* Medias Query para pantallas pequeñas (móviles y tabletas) */
+@media (max-width: 768px) {
+  .inicio-conductor-container {
+    flex-direction: column; /* Cambia la disposición a columna para pantallas más pequeñas */
+    gap: 10px; /* Reduce el espacio entre los elementos */
+  }
+
+  .solicitudes-box {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: none; /* Elimina el límite máximo de ancho */
+    padding: 15px; /* Ajusta el padding para pantallas pequeñas */
+    max-height: none; /* Elimina el límite máximo de altura */
+  }
+
+  .search-container {
+    flex-direction: column; /* Coloca los elementos del contenedor de búsqueda en columna */
+    width: 100%; /* Hace que ocupe todo el ancho disponible */
+    gap: 5px; /* Reduce el espacio entre los elementos */
+  }
+
+  #searchInput, #filterSelect, #searchButton {
+    width: 100%; /* Hace que los campos de entrada y el botón ocupen todo el ancho disponible */
+    padding: 12px; 
+    font-size: 16px;
+  }
+
+  .map-container {
+    width: 100%; /* El mapa ocupa todo el ancho disponible */
+    height: 250px; /* Ajusta la altura del mapa para pantallas pequeñas */
+    margin-top: 20px; /* Añade espacio encima del mapa */
+  }
+}
+
+/* Medias Query para pantallas muy pequeñas (como móviles muy pequeños) */
+@media (max-width: 480px) {
+  .search-container {
+    gap: 5px;
+  }
+
+  #searchInput, #filterSelect, #searchButton {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #searchButton {
+    font-size: 16px; /* Ajusta el tamaño del ícono de búsqueda para que sea visible */
+  }
+}
+
+/* Asegura que el mapa esté debajo del contenedor de solicitudes en pantallas pequeñas */
+@media (max-width: 768px) {
+  .solicitudes-box {
+    order: 1; /* Asegura que el contenedor de solicitudes esté por encima del mapa */
+  }
+
+  .map-container {
+    order: 2; /* Asegura que el mapa esté debajo del contenedor de solicitudes */
+    margin-top: 20px; /* Añade margen para separarlo */
+  }
+}

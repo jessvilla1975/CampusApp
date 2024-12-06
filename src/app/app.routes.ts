@@ -1,3 +1,4 @@
+
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
@@ -9,9 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { HeaderDriverComponent } from './components/header-driver/header-driver.component';
 import { HeaderPassengerComponent } from './components/header-passenger/header-passenger.component';
-import { EditDriverComponent } from './components/edit-driver/edit-driver.component';
-import { EditPassengerComponent } from './components/edit-passenger/edit-passenger.component';
-import { AuntentucationLoginComponent } from './components/auntentucation-login/auntentucation-login.component';
+import { ApiService } from './api.service';
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'login', component: LoginComponent},
@@ -23,9 +22,7 @@ export const routes: Routes = [
   {path: 'slider', component: SliderComponent},
   {path: 'driver', component: HeaderDriverComponent},
   {path: 'pass', component: HeaderPassengerComponent},
-  {path : 'edit-driver', component: EditDriverComponent},
-  {path : 'edit-passenger', component: EditPassengerComponent},
-  {path : 'auntentucation-login', component: AuntentucationLoginComponent},
+  {path: 'api', component: ApiService},
   {path: '**', redirectTo: 'home'}
 ];
 

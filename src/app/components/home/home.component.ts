@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from "../footer/footer.component";
+import { Component, OnInit } from '@angular/core';
 import { SliderComponent } from "../slider/slider.component";
 import { ApiService } from '../../api.service';
 import { RouterLink, RouterOutlet, Router } from '@angular/router';
@@ -8,14 +6,17 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, SliderComponent, RouterLink, ReactiveFormsModule, RouterOutlet, RouterLink],
+  imports: [SliderComponent, RouterLink, ReactiveFormsModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent  {
   helpForm: FormGroup;
 
-  constructor(private apiService: ApiService, private formBuilder: FormBuilder) {
+  constructor(private apiService: ApiService,
+    private formBuilder: FormBuilder,
+
+  ) {
     // Inicializar el formulario con validación
     this.helpForm = this.formBuilder.group({
       nombre: ['', Validators.required],
@@ -46,5 +47,7 @@ export class HomeComponent {
       alert('Por favor, complete los campos obligatorios.');
     }
   }
+
+
 
 }
