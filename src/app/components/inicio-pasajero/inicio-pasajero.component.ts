@@ -8,16 +8,18 @@ import { SearchResultsComponent } from "../../maps/components/search-results/sea
 import { Router } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-inicio-pasajero',
   standalone: true,
   imports: [HeaderPassengerComponent, FooterComponent, MapScreenComponent,
-    FormsModule, SearchResultsComponent, CommonModule],
+    FormsModule, SearchResultsComponent, CommonModule, ReactiveFormsModule],
   templateUrl: './inicio-pasajero.component.html',
   styleUrl: './inicio-pasajero.component.css'
 })
 export class InicioPasajeroComponent implements OnInit {
+
   private debounceTimer?: NodeJS.Timeout;
   fullName: string = '';
   userId: string = '';
@@ -26,11 +28,26 @@ export class InicioPasajeroComponent implements OnInit {
   distance: number = 0;
   duration: number = 0;
   price: number = 0;
+  solicitudViaje: FormGroup;
 
   constructor(private placesService: PlacesService,
               private mapService: MapService,
               private router: Router,
-              private apiService: ApiService) {}
+              private apiService: ApiService,
+              private fb: FormBuilder,)
+               {
+                // Inicializar el formulario con validaciones
+                this.solicitudViaje = this.fb.group({
+                  origen: ['', Validators.required],
+                  destino: ['', Validators.required],
+                  fecha: ['', Validators.required],
+                  horaviaje: ['', Validators.required],
+                  distancia_recorrido: ['', Validators.required],
+                  duracionViaje: ['', Validators.required],
+                  costo_viaje: ['', Validators.required],
+                });
+
+              }
 
   ngOnInit(): void {
     // Suscribirse al observable de distancia
@@ -120,4 +137,53 @@ export class InicioPasajeroComponent implements OnInit {
       this.placesService.getPlacesQuery(query);
     }, 1000);
   }
+
+  // Función para convertir la fecha al formato adecuado
+  private formatDate(date: string): string {
+    const dateObject = new Date(date);
+    const year = dateObject.getFullYear();
+    const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
+    const day = dateObject.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  // Función para enviar la solicitud de viaje
+  onSubmit(): void {
+
+
+    const formData = this.solicitudViaje.value;
+    const viajeData = {
+      id_usuario: this.userId,  // Asegúrate de usar 'id_usuario' en lugar de 'usuario_id'
+      origen: formData.origen,
+      destino: formData.destino,
+      fecha: this.formatDate(formData.fecha),  // Usa la función para formatear la fecha si es necesario
+      horaviaje: formData.horaviaje,
+      distancia_recorrido: this.distance,  // Asegúrate de que la distancia no sea 0
+      duracionViaje: this.duration,  // Asegúrate de que la duración no sea 0
+      costo_viaje: this.price,  // Asegúrate de que el precio no sea 0
+    };
+
+    console.log(viajeData);  // Agrega este log para ver qué datos estás enviando
+
+    this.apiService.createViaje(viajeData).subscribe({
+      next: (response) => {
+        if (response.success) {
+          alert('Viaje solicitado con éxito.');
+          this.router.navigate(['/bike']);
+                            setTimeout(() => {
+
+                              this.router.navigate(['/inicio-pasajero']);
+                            }, 3000);
+        } else {
+          alert('Error al solicitar el viaje. Intente nuevamente.');
+        }
+      },
+      error: (error) => {
+        console.error('Error al crear el viaje:', error);
+        alert('Error al solicitar el viaje. Intente nuevamente.');
+      }
+    });
+  }
+
+
 }

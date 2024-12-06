@@ -29,9 +29,6 @@ export const routes: Routes = [
   {path: 'password-recovery', component: PasswordRecoveryComponent},
   {path: 'new-password/:correo', component: NewPasswordComponent },
   {path: 'home', component: HomeComponent},
-  {path: 'slider', component: SliderComponent},
-  {path: 'driver', component: HeaderDriverComponent},
-  {path: 'pass', component: HeaderPassengerComponent},
   {path: 'inicio-pasajero', component: InicioPasajeroComponent},
   {path: 'inicio-conductor', component: InicioConductorComponent},
   {path: 'edit-driver', component: EditDriverComponent},
@@ -40,7 +37,6 @@ export const routes: Routes = [
   {path: 'travel-history-driver', component: TravelHistoryDriverComponent},
   {path: 'travel-history-passenger', component: TravelHistoryPassengerComponent},
   {path: 'wallet', component: WalletComponent},
-
   {path: '**', redirectTo: 'home'}
 ];
 

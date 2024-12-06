@@ -81,6 +81,15 @@ export class ApiService {
     return this.http.put(`${this.apiUrl}/updateConductor/${userId}`, userData);
   }
 
+  // Función para crear un viaje
+  createViaje(viajeData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/viajes `, viajeData);
+  }
+
+
+
+
+
 
 
 

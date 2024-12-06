@@ -20,35 +20,39 @@
             <p class="inicio-pasajero-subtitulo">
                 Ingresa la ubicación de origen y destino, así como la fecha y hora en la que deseas viajar.
             </p>
-            <div class="form-group">
-
-              <div class="input-container">
-                <input type="text" placeholder="Ubicación origen" [(ngModel)]="locationInput" required>
-                <div class="loader" (click)="goToMyLocation()"></div>
-              </div>
+            <!-- Aquí se usa ngSubmit para manejar el evento de envío del formulario -->
+            <form [formGroup]="solicitudViaje" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <div class="input-container">
+                  <input type="text" placeholder="Ubicación origen" [(ngModel)]="locationInput"
+                         id="origen" formControlName="origen" required>
+                  <div class="loader" (click)="goToMyLocation()"></div>
+                </div>
 
                 <input
                     required=""
                     autocomplete="off"
                     placeholder="Ubicación destino"
                     [(ngModel)]="locationOutput"
-                    id="search"
+                    id="destino" formControlName="destino"
                     type="text"
                     #txtQuery
                     (keyup)="onQueryChange(txtQuery.value)"
-                    >
+                >
                 <app-search-results></app-search-results>
 
-                <input type="date" placeholder="Fecha" required>
-                <input type="time" placeholder="Hora" required>
+                <input type="date" placeholder="Fecha" id="fecha" formControlName="fecha" required>
+                <input type="time" placeholder="Hora" id="horaviaje" formControlName="horaviaje" required>
                 <input
                   type="text"
+                  id="distancia_recorrido" formControlName="distancia_recorrido"
                   [value]="'Distancia: ' + (distance | number: '1.2-2') + ' km'"
                   readonly
                   class="form-control"
                 />
                 <input
                   type="text"
+                  id="duracionViaje" formControlName="duracionViaje"
                   [value]="'Duración: ' + (duration | number: '1.2-2') + ' min'"
                   readonly
                   class="form-control"
@@ -56,19 +60,16 @@
 
                 <input
                   type="text"
+                  id="costo_viaje" formControlName="costo_viaje"
                   [value]="price | currency: 'COP ': true"
                   readonly
                   class="form-control"
                 />
 
+                <button type="submit" class="bt">Solicitar Viaje</button>
+              </div>
 
-
-
-
-                <button type="submit" class="bt" >Guardar Viaje</button>
-
-
-            </div>
+            </form>
 
         </div>
 
