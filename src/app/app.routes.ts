@@ -10,17 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { HeaderDriverComponent } from './components/header-driver/header-driver.component';
 import { HeaderPassengerComponent } from './components/header-passenger/header-passenger.component';
-import { InicioPasajeroComponent } from './components/inicio-pasajero/inicio-pasajero.component';
-import { InicioConductorComponent } from './components/inicio-conductor/inicio-conductor.component';
-import { EditDriverComponent } from './components/edit-driver/edit-driver.component';
-import { EditPassengerComponent } from './components/edit-passenger/edit-passenger.component';
-import { AuntentucationLoginComponent } from './components/auntentucation-login/auntentucation-login.component';
-import { TravelHistoryDriverComponent } from './components/travel-history-driver/travel-history-driver.component';
-import { TravelHistoryPassengerComponent } from './components/travel-history-passenger/travel-history-passenger.component';
-import { WalletComponent } from './components/wallet/wallet.component';
-
-
-
+import { ApiService } from './api.service';
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'login', component: LoginComponent},
@@ -29,14 +19,10 @@ export const routes: Routes = [
   {path: 'password-recovery', component: PasswordRecoveryComponent},
   {path: 'new-password/:correo', component: NewPasswordComponent },
   {path: 'home', component: HomeComponent},
-  {path: 'inicio-pasajero', component: InicioPasajeroComponent},
-  {path: 'inicio-conductor', component: InicioConductorComponent},
-  {path: 'edit-driver', component: EditDriverComponent},
-  {path: 'edit-passenger', component: EditPassengerComponent},
-  {path: 'auntentication-login', component: AuntentucationLoginComponent},
-  {path: 'travel-history-driver', component: TravelHistoryDriverComponent},
-  {path: 'travel-history-passenger', component: TravelHistoryPassengerComponent},
-  {path: 'wallet', component: WalletComponent},
+  {path: 'slider', component: SliderComponent},
+  {path: 'driver', component: HeaderDriverComponent},
+  {path: 'pass', component: HeaderPassengerComponent},
+  {path: 'api', component: ApiService},
   {path: '**', redirectTo: 'home'}
 ];
 

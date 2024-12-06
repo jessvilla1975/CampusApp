@@ -1,32 +1,30 @@
-<header class="header">
-  <div class="header-left">
-    <div class="header-logo-container">
-      <a routerLink="/home">
-        <img src="assets/images/logo.webp" alt="CampusRide" class="header-logo" width="80" height="90">
+<div class="header">
+  <nav class="navbar navbar-expand-lg" id="header">
+    <div class="container-fluid">
+      <a class="header-logo-contanier" href="/home">
+        <img src="assets/images/logo.webp" alt="CampusRide" class="header-logo" width="80" height="0">
       </a>
-    </div>
 
-    <nav class="header-content">
-      <div class="header-item">
-        <div class="login-text2">Ayuda</div>
+      <!-- Botón toggler -->
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Contenido colapsable -->
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="header-item"><a class="login-text2" aria-current="page" href="#seccion-contacto">Ayuda</a></li>
+          <li class="header-item"><a class="login-text2" href="#Footer">Contactanos</a></li>
+          <li class="header-item"><a class="login-text2" href="#seccion-comunidad">Comunidad</a></li>
+          <li class="header-item"><a class="login-text2" href="#about">Quienes somos</a></li>
+        </ul>
+        
+ 
+        <div class="header-buttons">
+          <a routerLink="/login" class="login-text-btn">Iniciar sesión</a>
+          <a routerLink="/registro" class="login-text-btn">Registrarse</a>
+        </div>
       </div>
-      <div class="header-item">
-        <div class="login-text2">Contactanos</div>
-      </div>
-      <div class="header-item">
-        <div class="login-text2">Comunidad</div>
-      </div>
-      <div class="header-item">
-        <div class="login-text2">Quienes somos</div>
-      </div>
-    </nav>
-  </div>
-  <div class="header-right">
-    <div class="header-item">
-      <a routerLink="/login" class="login-text2">Iniciar sesión</a>
     </div>
-    <div class="header-item">
-      <a routerLink="/registro" class="login-text">Registrarse</a>
-    </div>
-  </div>
-</header>
+  </nav>
+</div>
