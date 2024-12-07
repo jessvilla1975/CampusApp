@@ -3,10 +3,12 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ApiService } from '../../api.service';
 import { Router } from '@angular/router';
+import { NgModel, ReactiveFormsModule, FormsModule } from '@angular/forms'; // Agrega FormsModule
+
 @Component({
   selector: 'app-auntentucation-login',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent],
+  imports: [HeaderComponent, FooterComponent, ReactiveFormsModule, FormsModule], // Incluye FormsModule
   templateUrl: './auntentucation-login.component.html',
   styleUrls: ['./auntentucation-login.component.css']
 })
