@@ -17,57 +17,90 @@
       <div class="image-container">
         <img src="assets/images/fondohistorial.webp" alt="Fondo" class="background-image">
       </div>
-    <div class="modal">
+    <div class="metodos-de-pago-box">
+
+      <h1 class="metodos-de-pago-header">WALLET</h1>
+      <div class="wallet-balance-container">
+        <div class="wallet-balance-title">Saldo de la billetera</div>
+        <div class="wallet-balance">COP 0</div>
+        <a href="#" class="wallet-button">+ Tarjeta de regalo</a>
+      </div>
+
+          <div class="payment-methods">
+            <div class="payment-methods-title">Métodos de pago</div>
+            <div class="payment-card visa">
+              <div class="card-details">
+                <span>Visa</span><br>
+                <span>**** 1454</span>
+              </div>
+            </div>
+            <div class="payment-card cash">
+              <div class="card-details">
+                  <span>Efectivo</span><br>
+                  <span>Preferido</span>
+              </div>
+            </div>
+            <button class="agregar-metodo--btn" type="button" onclick="document.querySelector('.formulario').style.display='flex'">Agregar método de pago</button>
+
+            </div>
+        </div>
+    <div class="formulario">
+      <h1 class="agregar-metodo">AGREGAR MÉTODO DE PAGO</h1>
       <form class="form">
         <div class="credit-card-info--form">
           <div class="input_container">
-            <label class="input_label" for="card_holder_name"
-              >Nombre del titular de la tarjeta</label
-            >
+            <label class="input_label" for="card_holder_name">Nombre del titular de la tarjeta</label>
             <input
               placeholder="Ingresa tu nombre completo"
-              title="Input title"
-              name="input-name"
+              aria-label="Nombre del titular de la tarjeta"
+              name="card_holder_name"
               type="text"
               class="input_field"
               id="card_holder_name"
+              required
             />
           </div>
           <div class="input_container">
             <label class="input_label" for="card_number">Número de la tarjeta</label>
             <input
               placeholder="0000 0000 0000 0000"
-              title="Input title"
-              name="input-name"
-              type="number"
+              aria-label="Número de la tarjeta"
+              name="card_number"
+              type="tel"
               class="input_field"
               id="card_number"
+              pattern="[0-9\s]{13,19}"
+              maxlength="19"
+              required
             />
           </div>
           <div class="input_container">
-            <label class="input_label" for="expiry_date"
-              >Fecha de expiración / CVV</label
-            >
+            <label class="input_label" for="expiry_date">Fecha de expiración</label>
             <div class="split">
               <input
-                placeholder="01/23"
-                title="Expiry Date"
-                name="input-name"
+                placeholder="MM/AA"
+                aria-label="Fecha de expiración de la tarjeta"
+                name="expiry_date"
                 type="text"
                 class="input_field"
                 id="expiry_date"
+                pattern="(0[1-9]|1[0-2])/[0-9]{2}"
+                required
               />
               <input
                 placeholder="CVV"
-                title="CVV"
+                aria-label="Código CVV"
                 name="cvv"
-                type="number"
+                type="tel"
                 class="input_field"
                 id="cvv"
+                pattern="[0-9]{3,4}"
+                maxlength="4"
+                required
               />
             </div>
           </div>
-          <button class="purchase--btn">Verificar</button>
+          <button class="purchase--btn" type="submit">Verificar</button>        
           <div class="separator">
             <hr class="line" />
             <p>O paga usando un e-Wallet </p>
@@ -202,6 +235,8 @@
       </form>
     </div>
     </main>
+    
   <app-footer></app-footer>
-</body>
-</html>
+  </body>
+</html>      
+
