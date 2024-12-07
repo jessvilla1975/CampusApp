@@ -8,11 +8,11 @@ body {
 /* Contenedor principal */
 .wallet-container {
     position: relative;
-    height: calc(100vh - 60px); /* Ajusta la altura para ser más responsive */
+    height: calc(120vh - 60px); /* Ajusta la altura para ser más responsive */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f9f9f9; /* Color de fondo opcional */
+    background-color: #cdbef1; /* Color de fondo opcional */
     padding: 20px;
     flex-direction: column;
 }
