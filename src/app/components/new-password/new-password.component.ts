@@ -63,6 +63,10 @@ export class NewPasswordComponent implements OnInit {
           next: (response) => {
             console.log('Respuesta del servidor:', response);
             this.router.navigate(['/bike']);
+                            setTimeout(() => {
+
+                              this.router.navigate(['/login']);
+                            }, 3000);
           },
           error: (err) => {
             console.error('Error al establecer la contraseña:', err);

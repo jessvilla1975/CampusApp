@@ -14,13 +14,9 @@
 </head>
 
 <body>
-  <app-header-driver [fullName]="fullName"></app-header-driver> <!-- Encabezado para pagina de inicio de conductor -->
+  <app-header-driver [fullName]="fullName"></app-header-driver>
   <main class="inicio-conductor-container">
-<!--     <div class="image-container">
-      <img src="assets/images/fondoinicio.webp" alt="Fondo" class="background-image">
-    </div> -->
     <div class="solicitudes-box">
-
       <h1 class="solicitudes-header">Solicitudes de Viajes</h1>
 
       <div class="search-container">
@@ -37,46 +33,32 @@
         </button>
       </div>
 
-      <!-- Tarjeta de solicitud -->
-      <div class="solicitud-card">
-        <p><strong>Origen:</strong> Universidad Central</p>
-        <p><strong>Destino:</strong> Parque Simón Bolívar</p>
-        <p><strong>Fecha:</strong> 18/12/2024</p>
-        <p><strong>Hora:</strong> 15:30</p>
+      <!-- Aquí mostramos las solicitudes de viajes -->
+      <div *ngFor="let solicitud of solicitudesViajes" class="solicitud-card">
+        <p><strong>Origen:</strong> {{ solicitud.origen }}</p>
+        <p><strong>Destino:</strong> {{ solicitud.destino }}</p>
+        <p><strong>Fecha:</strong> {{ solicitud.fecha | date:'dd/MM/yyyy' }}</p>
+        <p><strong>Hora:</strong> {{ solicitud.hora_salida .slice(0, 8) }}</p>
+        <p><strong>Usuario:</strong> {{ solicitud?.usuario }}</p>
+        <p><strong>Costo:</strong> {{ solicitud.costo_viaje | currency:'COP':'symbol':'1.0-0' }}</p>
+
+
+
+
         <div class="solicitud-actions">
-          <button class="bt">Aceptar</button>
+          <button (click)="aceptarViaje(solicitud)" class="bt">Aceptar</button>
+
         </div>
       </div>
 
-      <!-- Tarjeta de solicitud -->
-      <div class="solicitud-card">
-        <p><strong>Origen:</strong> Facultad de Ingeniería</p>
-        <p><strong>Destino:</strong> Centro Comercial Gran Estación</p>
-        <p><strong>Fecha:</strong> 02/12/2024</p>
-        <p><strong>Hora:</strong> 08:00</p>
-        <div class="solicitud-actions">
-          <button class="bt">Aceptar</button>
-        </div>
-      </div>
-
-      <!-- Tarjeta de solicitud -->
-      <div class="solicitud-card">
-        <p><strong>Origen:</strong> Biblioteca Central</p>
-        <p><strong>Destino:</strong> Terminal de Transportes</p>
-        <p><strong>Fecha:</strong> 02/12/2024</p>
-        <p><strong>Hora:</strong> 16:30</p>
-        <div class="solicitud-actions">
-          <button class="bt">Aceptar</button>
-        </div>
-      </div>
     </div>
     <div class="map-container">
       <div class="map-icon">
-        <i class="bi bi-geo-alt-fill" style="font-size: 100px; color: gray;"></i>
+        <app-map-screen></app-map-screen>
       </div>
     </div>
   </main>
-  <app-footer></app-footer> <!-- Pie de página común para todas las páginas -->
+  <app-footer></app-footer>
 </body>
 
 </html>
