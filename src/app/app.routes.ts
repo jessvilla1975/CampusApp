@@ -18,6 +18,7 @@ import { AuntentucationLoginComponent } from './components/auntentucation-login/
 import { TravelHistoryDriverComponent } from './components/travel-history-driver/travel-history-driver.component';
 import { TravelHistoryPassengerComponent } from './components/travel-history-passenger/travel-history-passenger.component';
 import { WalletComponent } from './components/wallet/wallet.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 
 
@@ -40,6 +41,7 @@ export const routes: Routes = [
   {path: 'travel-history-driver', component: TravelHistoryDriverComponent},
   {path: 'travel-history-passenger', component: TravelHistoryPassengerComponent},
   {path: 'wallet', component: WalletComponent},
+  {path: 'star-rating', component: StarRatingComponent},
 
   {path: '**', redirectTo: 'home'}
 ];

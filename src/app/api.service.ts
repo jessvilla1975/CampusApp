@@ -63,12 +63,19 @@ export class ApiService {
     return this.http.post(`${this.apiUrl}/helpDesk`, data);
   }
   getUserById(userId: string) {
-    return this.http.get<any>(`${this.apiUrl}/usuariosid/${userId}`);  // Corrige la URL si es necesario
+    return this.http.get<any>(`${this.apiUrl}/usuariosid/${userId}`);
   }
 
   getConductorById(userId: string) {
-    return this.http.get<any>(`${this.apiUrl}/conductor/${userId}`);  // Corrige la URL si es necesario
+    return this.http.get<any>(`${this.apiUrl}/conductor/${userId}`);
   }
+
+  getTravelHistory(userId: string) {
+    const url = `${this.apiUrl}/historialViajes/${userId}`;
+    console.log('URL de la solicitud:', url); // Depuración
+    return this.http.get<any>(url);
+  }
+
 
 
 
@@ -80,6 +87,15 @@ export class ApiService {
   updateDriver(userId: string, userData: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/updateConductor/${userId}`, userData);
   }
+
+  // Función para crear un viaje
+  createViaje(viajeData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/viajes `, viajeData);
+  }
+
+
+
+
 
 
 

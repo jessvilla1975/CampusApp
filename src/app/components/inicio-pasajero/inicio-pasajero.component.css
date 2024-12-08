@@ -10,7 +10,7 @@ body, html {
   /* Contenedor principal */
   .inicio-pasajero-container {
     position: relative;
-    height: calc(100vh - 60px); /* Altura del viewport menos un posible header */
+    height: calc(120vh - 60px); /* Altura del viewport menos un posible header */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -58,26 +58,24 @@ body, html {
     text-align: center;
   }
 
-  /* Formulario */
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 20px;
-  }
+/* Formulario */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
 
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    font-family: 'Montserrat', sans-serif;
-    color: #6C6C6C;
-
-  }
-
+.form-group input {
+  width: 430px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  color: #6C6C6C;
+}
  /*location*/
   /* From Uiverse.io by Shoh2008 */
 .loader {
@@ -117,6 +115,8 @@ body, html {
   background: rgba(0, 0, 0, 0.2);
   animation: animShadow 0.4s ease-in-out infinite alternate;
 }
+
+
 
 @keyframes animMarker {
   0% {
@@ -158,6 +158,7 @@ body, html {
 
 
 
+
 /* En pantallas más pequeñas (menos de 768px de ancho) */
 @media (max-width: 768px) {
   .inicio-pasajero-container {
@@ -180,6 +181,7 @@ body, html {
   }
 
   .form-group input {
+    width: 200px; /* El input ocupará todo el ancho */
     font-size: 12px; /* Ajuste de tamaño de los inputs */
   }
 
@@ -190,6 +192,7 @@ body, html {
   .map-icon {
     font-size: 80px; /* Ajuste en el tamaño del ícono del mapa */
   }
+
 }
 
 /* En pantallas más pequeñas (menos de 480px de ancho) */
