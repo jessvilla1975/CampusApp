@@ -110,6 +110,11 @@ export class ApiService {
     return this.http.post<any>(`${this.apiUrl}/ubicacion`, ubicacionData);
   }
 
+  // Método para obtener el último ID de viaje
+  getUltimoViajeId(userId: string) {
+    return this.http.get<any>(`${this.apiUrl}/ultimo-viaje/${userId}`);
+  }
+
 
 
 

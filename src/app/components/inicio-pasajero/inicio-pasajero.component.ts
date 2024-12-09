@@ -169,7 +169,7 @@ export class InicioPasajeroComponent implements OnInit {
   onSubmit(): void {
     const formData = this.solicitudViaje.value;
 
-    // Prepare viaje data (as you already have)
+    // Prepare viaje data
     const viajeData = {
       id_usuario: this.userId,
       origen: formData.origen,
@@ -181,33 +181,47 @@ export class InicioPasajeroComponent implements OnInit {
       costo_viaje: this.price,
     };
 
-    // Prepare location data
-    const locationData = {
-      id_usuario: this.userId,
-      origen_latitud: this.coordinatesOrigen?.[1] || 0,
-      origen_longitud: this.coordinatesOrigen?.[0] || 0,
-      destino_latitud: this.coordinatesDestino[1],
-      destino_longitud: this.coordinatesDestino[0],
-      nombre_origen: this.locationInput,
-      nombre_destino: this.locationOutput
-    };
-
     // First, create the trip
     this.apiService.createViaje(viajeData).subscribe({
       next: (viajeResponse) => {
         if (viajeResponse.success) {
-          // Then, save the location
-          this.apiService.createUbicacion(locationData).subscribe({
-            next: (ubicacionResponse) => {
-              alert('Viaje y ubicación guardados con éxito.');
-              this.router.navigate(['/bike']);
-              setTimeout(() => {
-                this.router.navigate(['/inicio-pasajero']);
-              }, 3000);
+          // Obtener el último ID de viaje para este usuario
+          this.apiService.getUltimoViajeId(this.userId).subscribe({
+            next: (ultimoViajeResponse) => {
+              if (ultimoViajeResponse.success) {
+                // Prepare location data
+                const locationData = {
+                  id_usuario: this.userId,
+                  id_viaje: ultimoViajeResponse.id_viaje,
+                  origen_latitud: this.coordinatesOrigen?.[1] || 0,
+                  origen_longitud: this.coordinatesOrigen?.[0] || 0,
+                  destino_latitud: this.coordinatesDestino[1],
+                  destino_longitud: this.coordinatesDestino[0],
+                  nombre_origen: this.locationInput,
+                  nombre_destino: this.locationOutput
+                };
+
+                // Then, save the location
+                this.apiService.createUbicacion(locationData).subscribe({
+                  next: (ubicacionResponse) => {
+                    alert('Viaje y ubicación guardados con éxito.');
+                    this.router.navigate(['/bike']);
+                    setTimeout(() => {
+                      this.router.navigate(['/inicio-pasajero']);
+                    }, 3000);
+                  },
+                  error: (ubicacionError) => {
+                    console.error('Error al guardar la ubicación:', ubicacionError);
+                    alert('Viaje creado, pero hubo un problema al guardar la ubicación.');
+                  }
+                });
+              } else {
+                alert('No se pudo obtener el ID del último viaje.');
+              }
             },
-            error: (ubicacionError) => {
-              console.error('Error al guardar la ubicación:', ubicacionError);
-              alert('Viaje creado, pero hubo un problema al guardar la ubicación.');
+            error: (error) => {
+              console.error('Error al obtener el último viaje:', error);
+              alert('Error al obtener el ID del viaje.');
             }
           });
         } else {
@@ -220,7 +234,6 @@ export class InicioPasajeroComponent implements OnInit {
       }
     });
 }
-
 
 
 
