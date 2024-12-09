@@ -17,8 +17,7 @@ import { TravelHistoryPassengerComponent } from './components/travel-history-pas
 import { WalletComponent } from './components/wallet/wallet.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { RatingHistoryComponent } from './components/rating-history/rating-history.component';
-
-
+import { RoadmapComponent } from './components/roadmap/roadmap.component';
 
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -38,6 +37,7 @@ export const routes: Routes = [
   {path: 'wallet', component: WalletComponent},
   {path: 'star-rating', component: StarRatingComponent},
   {path: 'rating-history', component: RatingHistoryComponent},
+  {path: 'roadmap', component: RoadmapComponent},
 
   {path: '**', redirectTo: 'home'}
 ];

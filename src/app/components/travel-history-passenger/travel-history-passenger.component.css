@@ -95,3 +95,29 @@
         vertical-align: middle;
         font-size: 1.3em; /* Ajusta el tamaño según lo necesites */
     }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table th, .table td {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: #f9f9f9;
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    @media (max-width: 768px) {
+      .table th, .table td {
+        padding: 8px 10px;
+      }
+    }

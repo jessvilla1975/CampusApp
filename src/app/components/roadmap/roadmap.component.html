@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="roadmap.component.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+  <title>Roadmap - CampusRide</title>
+</head>
+
+<body>
+    <app-header-passenger></app-header-passenger><!-- Encabezado para pagina de inicio de pasajero -->
+    <main class="roadmap-container">
+
+        <div class="roadmap-box">
+
+            <h1 class="roadmap-header">SEGUIMIENTO DE VIAJE</h1>
+            <p class="roadmap-subtitulo">
+                El estado de tu viaje en tiempo real
+            </p>
+            <app-map-screen></app-map-screen>
+
+            <div class ="roadmap-info-container">
+                <div class="trip-info">
+                    <div class="info-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        <div>
+                            <div>Tiempo estimado</div>
+                            <strong>2 min</strong>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        <div>
+                            <div>Distancia</div>
+                            <strong>0.5 km</strong>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="progress-bar">
+                    <div class="progress-bar-fill"></div>
+                </div>
+        
+                <div class="driver-info">
+                    <div class="driver-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-7 2a4 4 0 1 1-4 4 4 4 0 0 1 4-4zm6 12H6v-1.25C6 15.24 7.24 14 8.75 14h6.5c1.51 0 2.75 1.24 2.75 2.75V18z'/%3E%3C/svg%3E" 
+                            alt="Icono de conductor">
+                    </div>
+                    <div class="driver-details">
+                        <div class="driver-name">Juan Pérez</div>
+                        <div class="driver-car">Toyota Corolla - ABC123</div>
+                    </div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 8v8m-4-4h8"/>
+                    </svg>
+                </div>
+        
+                <button class="cancel-button">Cancelar viaje</button>
+            </div>
+        </div>
+
+    </main>
+    <app-footer></app-footer> <!-- Pie de página común para todas las páginas -->
+</body>
+</html>
