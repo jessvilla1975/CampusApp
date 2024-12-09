@@ -28,7 +28,7 @@
   <div class="header-right">
     <div class="dropdown">
       <button class="dropbtn">
-        <img src="assets/images/avatar.webp" alt="avatar" class="avatar">
+        <img [src]="fullName === 'Carlos Camacho' ? 'assets/images/carlos1.webp' : 'assets/images/avatar.webp'" alt="avatar" width="32" height="32" class="avatar">
         <span>{{ fullName }}</span>
         <span class="material-icons">expand_more</span>
       </button>
