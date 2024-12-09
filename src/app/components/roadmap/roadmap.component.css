@@ -1,0 +1,293 @@
+/* Estilos generales */
+body, html {
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #cdbef1;
+  }
+
+  /* Contenedor principal */
+  .roadmap-container {
+    position: relative;
+    height: calc(180vh - 80px); /* Altura del viewport menos un posible header */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    overflow: hidden;
+    gap: 10px;
+    padding: 20px;
+  }
+
+
+
+  /* Caja principal */
+  .roadmap-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(113, 69, 214);
+    background: white;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: fit-content;
+    max-width: 900px; /* Ajusta según la proporción */
+    z-index: 1;
+  }
+
+  /* Título */
+  .roadmap-header {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Subtítulo */
+  .roadmap-subtitulo {
+    color: #6C6C6C;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .roadmap-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .trip-info {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 80%;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: #eee;
+    margin: 0 16px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 30%;
+    background-color: #000;
+    transition: width 0.3s ease;
+}
+
+.driver-info {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.driver-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.driver-avatar img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
+.driver-details {
+    flex: 1;
+}
+
+.driver-name {
+    font-weight: 600;
+}
+
+.driver-car {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.cancel-button {
+    margin: 16px;
+    width: calc(100% - 32px);
+    padding: 12px;
+    border: 1px solid #000;
+    background: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-button:hover {
+    background-color: #f5f5f5;
+}
+
+ /*location*/
+  /* From Uiverse.io by Shoh2008 */
+.loader {
+  width: 16px;
+  height: 16px;
+  display: block;
+  margin: 20px auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.loader::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  border-radius: 50% 50% 0;
+  border: 5px solid red; /* Proporcional al tamaño */
+  transform: rotate(45deg) translate(0, 0);
+  box-sizing: border-box;
+  animation: animMarker 0.4s ease-in-out infinite alternate;
+}
+
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 150%;
+  width: 8px; /* Proporcional al tamaño */
+  height: 1.5px; /* Proporcional al tamaño */
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  animation: animShadow 0.4s ease-in-out infinite alternate;
+}
+
+
+
+@keyframes animMarker {
+  0% {
+    transform: rotate(45deg) translate(2px, 2px); /* Ajustado proporcionalmente */
+  }
+
+  100% {
+    transform: rotate(45deg) translate(-2px, -2px); /* Ajustado proporcionalmente */
+  }
+}
+
+@keyframes animShadow {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+/* Contenedor del input y loader */
+.input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-container input {
+  flex: 1; /* El input toma el espacio disponible */
+}
+
+.input-container .loader {
+  margin-left: 10px; /* Espacio entre el input y el loader */
+  position: absolute;
+  right: 10px; /* Asegura que el loader esté alineado al final */
+  top: -10px;
+}
+
+
+
+
+
+/* En pantallas más pequeñas (menos de 768px de ancho) */
+@media (max-width: 768px) {
+  .roadmap-container {
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    padding: 10px;
+  }
+
+  .roadmap-box {
+    width: 90%; /* El formulario ocupará todo el ancho */
+    max-width: 900%;
+    padding: 20px; /* Menos padding */
+  }
+
+  .roadmap-header {
+    font-size: 14px; /* Ajuste de tamaño de fuente */
+  }
+
+  .roadmap-subtitulo {
+    font-size: 10px; /* Ajuste de tamaño de fuente */
+  }
+
+  .form-group input {
+    width: 200px; /* El input ocupará todo el ancho */
+    font-size: 12px; /* Ajuste de tamaño de los inputs */
+  }
+
+  .map-container {
+    height: 300px; /* Reduce el tamaño del mapa en pantallas pequeñas */
+  }
+
+  .map-icon {
+    font-size: 80px; /* Ajuste en el tamaño del ícono del mapa */
+  }
+
+}
+
+/* En pantallas más pequeñas (menos de 480px de ancho) */
+@media (max-width: 480px) {
+  .roadmap-header {
+    font-size: 12px; /* Ajuste de tamaño de fuente */
+  }
+
+  .roadmap-subtitulo {
+    font-size: 8px; /* Ajuste de tamaño de fuente */
+  }
+
+  .form-group input {
+    font-size: 10px; /* Ajuste de tamaño de los inputs */
+  }
+
+  .map-container {
+    height: 250px; /* Reduce aún más el tamaño del mapa */
+  }
+
+  .map-icon {
+    font-size: 60px; /* Ajuste en el tamaño del ícono del mapa */
+  }
+}

@@ -1,46 +1,221 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal */
 .wallet-container {
     position: relative;
-    height: calc(100vh - 60px); /* Altura del viewport menos un posible header */
+    height: calc(120vh - 60px); /* Ajusta la altura para ser más responsive */
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: #f9f9f9; /* Color de fondo opcional */
-  }
+    background-color: #cdbef1; /* Color de fondo opcional */
+    padding: 20px;
+    flex-direction: column;
+}
 
-  .image-container {
+/* Imagen de fondo */
+.image-container {
+    flex: 1;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-  }
-  
-  .background-image {
+}
+
+.background-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: -1; /* Mantén la imagen detrás del contenido */
-  }
-  
-  .modal {
+}
+
+/* Caja de métodos de pago */
+.metodos-de-pago-box {
     display: flex;
-    top: 50%; /* Posición vertical al 50% */
-    left: 50%; /* Posición horizontal al 50% */
-    position: absolute;
-    transform: translate(-50%, -50%); /* Centra el elemento ajustando el eje */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: fit-content;
+    max-width: 600px; /* Ajusta según la proporción */
+    background: linear-gradient(145deg, #f8f9fa, #ffffff);
+    box-shadow:
+        0px 187px 75px rgba(0, 0, 0, 0.01),
+        0px 105px 63px rgba(0, 0, 0, 0.05),
+        0px 47px 47px rgba(0, 0, 0, 0.09),
+        0px 12px 26px rgba(0, 0, 0, 0.1),
+        0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 26px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(113, 69, 214);
+    padding: 30px 20px;
+    z-index: 1;
+    margin: 20px; /* Separación del borde */
+}
+
+/* Contenedor de saldo */
+.wallet-balance-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    background: #6C6C6C;
+    justify-content: space-between;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Saldo */
+.wallet-balance {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Botón */
+.wallet-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wallet-button:hover {
+    background-color: #444;
+}
+
+/* Métodos de pago */
+.payment-methods {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.payment-methods-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.payment-card {
+    width: 100%;
+    height: 80px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-card.visa {
+    background-color: #7145d6;
+}
+
+.payment-card.cash {
+    background-color: #a587ea;
+}
+
+/* Encabezado de métodos de pago */
+.metodos-de-pago-header {
+    color: black;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.metodos-de-pago-subtitulo {
+    color: #6C6C6C;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Botón de agregar método */
+.agregar-metodo--btn {
+    width: 100%;
+    height: 55px;
+    background: #f2f2f2;
+    border-radius: 11px;
+    border: 0;
+    outline: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    background: linear-gradient(180deg, #363636 0%, #1b1b1b 50%, #000000 100%);
+    box-shadow:
+      0px 0px 0px 0px #ffffff,
+      0px 0px 0px 0px #000000;
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.agregar-metodo--btn:hover {
+    box-shadow:
+      0px 0px 0px 2px #ffffff,
+      0px 0px 0px 4px #0000003a;
+}
+
+/* Formulario */
+.formulario {
+    display: none;
+    flex-direction: column; /* Organiza el contenido interno en columnas */
+    position: relative;
     width: fit-content;
     height: fit-content;
     background: #ffffff;
     box-shadow:
-      0px 187px 75px rgba(0, 0, 0, 0.01),
-      0px 105px 63px rgba(0, 0, 0, 0.05),
-      0px 47px 47px rgba(0, 0, 0, 0.09),
-      0px 12px 26px rgba(0, 0, 0, 0.1),
-      0px 0px 0px rgba(0, 0, 0, 0.1);
+        0px 187px 75px rgba(0, 0, 0, 0.01),
+        0px 105px 63px rgba(0, 0, 0, 0.05),
+        0px 47px 47px rgba(0, 0, 0, 0.09),
+        0px 12px 26px rgba(0, 0, 0, 0.1),
+        0px 0px 0px rgba(0, 0, 0, 0.1);
     border-radius: 26px;
-    max-width: 450px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(113, 69, 214);
+    max-width: 500px;
     z-index: 9999; /* Asegúrate de que esté sobre otros elementos */
+    margin: 80px; /* Separación del borde */
+}
+
+.agregar-metodo {
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 /* Formulario principal */
@@ -55,7 +230,7 @@
 .payment--options {
     width: calc(100% - 40px);
     display: grid;
-    grid-template-columns: 33% 34% 33%;
+    grid-template-columns: 1fr;
     gap: 20px;
     padding: 10px;
 }
@@ -129,7 +304,7 @@
 /* Diseño de columnas para entradas */
 .split {
     display: grid;
-    grid-template-columns: 4fr 2fr;
+    grid-template-columns: 1fr;
     gap: 15px;
 }
 
@@ -191,4 +366,63 @@
 .input_field[type="number"] {
     -moz-appearance: textfield;
     appearance: textfield;
+}
+
+/* Media Queries */
+@media (min-width: 480px) {
+    .wallet-container {
+        padding: 30px;
+    }
+
+    .image-container {
+        padding: 0px;
+    }
+
+    .metodos-de-pago-box {
+        padding: 40px 30px;
+    }
+
+    .wallet-balance {
+        font-size: 28px;
+    }
+
+    .wallet-button {
+        font-size: 16px;
+    }
+
+    .payment-methods-title {
+        font-size: 20px;
+    }
+
+    .metodos-de-pago-header {
+        font-size: 36px;
+    }
+
+    .agregar-metodo {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 768px) {
+    .wallet-container {
+        flex-direction: row;
+    }
+
+    .payment--options {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .split {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .payment--options {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .split {
+        grid-template-columns: 2fr 1fr;
+    }
 }
