@@ -115,6 +115,11 @@ export class ApiService {
     return this.http.get<any>(`${this.apiUrl}/ultimo-viaje/${userId}`);
   }
 
+  getCoordenadasViaje(idViaje: number) {
+    return this.http.get<any>(`${this.apiUrl}/coordenadas-viaje/${idViaje}`);
+  }
+
+
 
 
 
