@@ -34,7 +34,9 @@
       </div>
 
       <!-- Aquí mostramos las solicitudes de viajes -->
-      <div *ngFor="let solicitud of solicitudesViajes" class="solicitud-card">
+      <div *ngFor="let solicitud of solicitudesViajes"
+      class="solicitud-card"
+      (click)="seleccionarViaje(solicitud)">
         <p><strong>Origen:</strong> {{ solicitud.origen }}</p>
         <p><strong>Destino:</strong> {{ solicitud.destino }}</p>
         <p><strong>Fecha:</strong> {{ solicitud.fecha | date:'dd/MM/yyyy' }}</p>

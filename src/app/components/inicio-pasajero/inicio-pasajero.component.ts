@@ -29,6 +29,10 @@ export class InicioPasajeroComponent implements OnInit {
   duration: number = 0;
   price: number = 0;
   solicitudViaje: FormGroup;
+  coordinatesDestino: [number, number] = [0, 0];
+  coordinatesOrigen: [number, number] | undefined;
+
+
 
   constructor(private placesService: PlacesService,
               private mapService: MapService,
@@ -70,6 +74,17 @@ export class InicioPasajeroComponent implements OnInit {
       this.locationOutput = place;
     });
 
+    // Obtener las coordenadas del destino
+    this.placesService.destination$.subscribe((destination) => {
+      this.coordinatesDestino = destination?.coordinates || [0, 0];
+    });
+
+
+
+
+
+
+
     // Obtener el userId desde localStorage
     const userIdFromStorage = localStorage.getItem('userId');
     if (userIdFromStorage) {
@@ -102,8 +117,11 @@ export class InicioPasajeroComponent implements OnInit {
     console.log('Go to my location');
     this.locationInput = 'Mi ubicación'; // Texto temporal en el input
 
+
     // Llamar al servicio para obtener las coordenadas del usuario
     this.placesService.getUserLocation().then((coords) => {
+      this.coordinatesOrigen = coords;
+      console.log('cordenadas origen:', coords);
       // Usamos las coordenadas obtenidas para obtener el nombre del lugar
       this.placesService.getPlaceName(coords[0], coords[1]).subscribe({
         next: (response) => {
@@ -149,31 +167,49 @@ export class InicioPasajeroComponent implements OnInit {
 
   // Función para enviar la solicitud de viaje
   onSubmit(): void {
-
-
     const formData = this.solicitudViaje.value;
+
+    // Prepare viaje data (as you already have)
     const viajeData = {
-      id_usuario: this.userId,  // Asegúrate de usar 'id_usuario' en lugar de 'usuario_id'
+      id_usuario: this.userId,
       origen: formData.origen,
       destino: formData.destino,
-      fecha: this.formatDate(formData.fecha),  // Usa la función para formatear la fecha si es necesario
+      fecha: this.formatDate(formData.fecha),
       horaviaje: formData.horaviaje,
-      distancia_recorrido: this.distance,  // Asegúrate de que la distancia no sea 0
-      duracionViaje: this.duration,  // Asegúrate de que la duración no sea 0
-      costo_viaje: this.price,  // Asegúrate de que el precio no sea 0
+      distancia_recorrido: this.distance,
+      duracionViaje: this.duration,
+      costo_viaje: this.price,
     };
 
-    console.log(viajeData);  // Agrega este log para ver qué datos estás enviando
+    // Prepare location data
+    const locationData = {
+      id_usuario: this.userId,
+      origen_latitud: this.coordinatesOrigen?.[1] || 0,
+      origen_longitud: this.coordinatesOrigen?.[0] || 0,
+      destino_latitud: this.coordinatesDestino[1],
+      destino_longitud: this.coordinatesDestino[0],
+      nombre_origen: this.locationInput,
+      nombre_destino: this.locationOutput
+    };
 
+    // First, create the trip
     this.apiService.createViaje(viajeData).subscribe({
-      next: (response) => {
-        if (response.success) {
-          alert('Viaje solicitado con éxito.');
-          this.router.navigate(['/bike']);
-                            setTimeout(() => {
-
-                              this.router.navigate(['/inicio-pasajero']);
-                            }, 3000);
+      next: (viajeResponse) => {
+        if (viajeResponse.success) {
+          // Then, save the location
+          this.apiService.createUbicacion(locationData).subscribe({
+            next: (ubicacionResponse) => {
+              alert('Viaje y ubicación guardados con éxito.');
+              this.router.navigate(['/bike']);
+              setTimeout(() => {
+                this.router.navigate(['/inicio-pasajero']);
+              }, 3000);
+            },
+            error: (ubicacionError) => {
+              console.error('Error al guardar la ubicación:', ubicacionError);
+              alert('Viaje creado, pero hubo un problema al guardar la ubicación.');
+            }
+          });
         } else {
           alert('Error al solicitar el viaje. Intente nuevamente.');
         }
@@ -183,7 +219,11 @@ export class InicioPasajeroComponent implements OnInit {
         alert('Error al solicitar el viaje. Intente nuevamente.');
       }
     });
-  }
+}
+
+
+
+
 
 
 }
