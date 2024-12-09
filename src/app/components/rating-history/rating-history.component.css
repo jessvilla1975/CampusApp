@@ -128,7 +128,7 @@ body, html {
   font-weight: 700;
   line-height: 1.03;
   margin-right: 18px;
-  filter: drop-shadow(4px 4px 8px black);
+  
 }
 
 .ui-review-capability__rating__start-content {
@@ -170,7 +170,6 @@ body, html {
     border-radius: 9999px;
     object-fit: cover;
     background-color: royalblue;
-    filter: drop-shadow(4px 4px 8px black);
   }
   
   .stars {
@@ -182,7 +181,7 @@ body, html {
   }
   
   .stars svg {
-    filter: drop-shadow(4px 4px 8px black);
+    
     width: 30%;
   }
   
