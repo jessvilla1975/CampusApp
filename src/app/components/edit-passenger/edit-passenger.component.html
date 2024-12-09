@@ -25,6 +25,7 @@
 </head>
 
 <body>
+  
 
   <app-header-passenger [fullName]="fullName"></app-header-passenger>
  <!-- Encabezado común para todas las páginas -->
@@ -55,9 +56,11 @@
     </div>
 
     <div class="perfil-usuario-footer">
+      
       <!-- Aquí se usa ngSubmit para manejar el evento de envío del formulario -->
       <form [formGroup]="passengerForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
+          
           <label for="nombre">Nombre</label>
           <input type="text" id="nombre" formControlName="nombre" required>
         </div>
@@ -101,7 +104,9 @@
     </div>
 
   </section>
+ <!-- Pie de página común para todas las páginas -->
+
 
 </body>
-
+<app-footer></app-footer>
 </html>

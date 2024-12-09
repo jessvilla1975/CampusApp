@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { HeaderPassengerComponent } from '../header-passenger/header-passenger.component';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-edit-passenger',
   standalone: true,
-  imports: [HeaderPassengerComponent, ReactiveFormsModule],
+  imports: [HeaderPassengerComponent, ReactiveFormsModule, FooterComponent],
   templateUrl: './edit-passenger.component.html',
   styleUrls: ['./edit-passenger.component.css']
 })
