@@ -80,6 +80,8 @@ export class ApiService {
 
 
 
+
+
   updateUser(userId: string, userData: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/updateUser/${userId}`, userData);
   }
@@ -92,6 +94,23 @@ export class ApiService {
   createViaje(viajeData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/viajes `, viajeData);
   }
+
+  // Función para obtener la lista de solicitudes de viaje
+  getSolicitudesViajes(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/solicitudViajes`);
+  }
+
+  // Función para aceptar un viaje
+
+  aceptarViaje(idViaje: number, idConductor: string) {
+    return this.http.put(`${this.apiUrl}/aceptarViaje/${idViaje}`, { id_conductor: idConductor });
+  }
+
+  createUbicacion(ubicacionData: any) {
+    return this.http.post<any>(`${this.apiUrl}/ubicacion`, ubicacionData);
+  }
+
+
 
 
 

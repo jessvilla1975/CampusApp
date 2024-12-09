@@ -16,6 +16,8 @@ export class PlacesService {
   public places: Feature[] = [];
   private placeSUbjet = new BehaviorSubject<string>('');
   place$ = this.placeSUbjet.asObservable();
+  private destinationSubject = new BehaviorSubject<{ coordinates: [number, number] } | null>(null);
+  destination$ = this.destinationSubject.asObservable();  // Observable para suscribirse
 
 
   get isUserLocationReady(): boolean {
@@ -33,8 +35,10 @@ export class PlacesService {
       navigator.geolocation.getCurrentPosition(
         ({ coords }) => {
           this.userlocation = [coords.longitude, coords.latitude];
+
+
           resolve(this.userlocation);
-          console.log(this.userlocation);
+
 
 
         },
@@ -67,8 +71,14 @@ export class PlacesService {
       }).subscribe( resp => {
 
       const nameUserLOcation = resp.features[0].place_name;
+      const coordinates: [number, number] = [
+        resp.features[0].geometry.coordinates[0], // Longitude
+        resp.features[0].geometry.coordinates[1]  // Latitude
+      ];
       console.log(nameUserLOcation);
+      console.log(coordinates);
       this.placeSUbjet.next(nameUserLOcation); // locacion destino
+      this.destinationSubject.next({coordinates });
 
       this.isLoadingPlaces = false;
       this.places = resp.features;
@@ -92,6 +102,7 @@ export class PlacesService {
 
     return this.http.get<any>(url, { params });
   }
+
 
 
 
