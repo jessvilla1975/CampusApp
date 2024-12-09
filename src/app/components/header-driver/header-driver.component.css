@@ -1,26 +1,87 @@
 .header {
-  display: flex;
   width: 100%;
-  height: 80px;
-  padding-top: 5px;
-  color: #7145d6;
-  background-color: #cdbef1;
+  height: 100px;
+  padding: 0 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
+/* Alineación de los elementos del encabezado */
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo del logotipo */
 .header-logo {
-  width: 75px;
-  height: 75px;
-  transition: all 2s;
-  cursor: pointer;
+  font-size: 24px;
+  height: 90px;
+  width: 90px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000000;
+  margin-right: 20px;
+
 }
 
-.header-logo:hover {
-  transform: scale(1.1);
+/* Elementos del encabezado */
+.header-content {
+  display: flex;
+  gap: 20px;
+}
+
+/* Texto de los elementos del encabezado */
+.header-item {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.header-right {
+  gap: 20px; /* Añade espacio entre "Iniciar sesión" y "Registrarse" */
+}
+/* Estilo para el botón de "Registrarse" */
+.header-right .login-text {
+  background: #8550e1;
+  padding: 5px 15px;
+  border-radius: 50px;
+  color: white;  /* Cambiado a rojo como solicitado */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+.header-right .login-text:hover {
+  background: #8550e1;
+  color: #ffffff
+}
+
+.header-right .login-text2 {
+  background: #ffffff;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+
+.header-right .login-text2:hover {
+  background: #8550e1;
+  color: #ffffff;
+
 }
 
 .header-left .header-content .header-item .login-text2 {
-  background: #cdbef1;
-  color: #292929;
+  background: #8550e1;
+  color: #ffffff;
   font-size: 15px;
   font-weight: bold;
   padding: 5px 8px;
@@ -30,9 +91,108 @@
 }
 
 .header-left .header-content .header-item .login-text2:hover {
-  background: #7145d6;
+  background: #8550e1;
   color: #ffffff;
 }
+
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.title {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  border-left: 4px solid #8550e1;
+  padding-left: 10px;
+}
+
+.bt {
+  background-color: #8550e1;
+  width: 100%;
+  height: 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+  border: none;
+}
+
+.bt:hover {
+  background-color: #7145D6; /* Color del botón en hover */
+  color: #ffffff;
+}
+
+
+
+p {
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+a {
+  color: #8450E1;   /* Color del texto Reestrablecer contraseña */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Registrarte */
+.registrarte {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.registrarte a {
+  color: #8450E1;  /* Color del texto Registrarte */
+  font-size: 14px;
+  font-weight: 500;
+}
+.header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  padding-top: 5px;
+  color: #7145d6;
+  background-color: #8550e1;
+}
+
+.header-logo {
+  width: 80px;
+  height: 80px;
+  transition: all 2s;
+  cursor: pointer;
+}
+
+.header-logo:hover {
+  transform: scale(1.1);
+}
+
+.header-left .header-content .header-item .login-text2 {
+  color: white; 
+  text-decoration: none;
+  font-weight: bold; 
+  background: #8550e1;
+  padding: 5px 15px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.header-left .header-content .header-item .login-text2:hover {
+  background: #7145D6;
+  color: #ffffff;
+}
+
 
 .material-icons {
   font-size: 20px;
@@ -43,12 +203,13 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  color: #292929;
+  color: #ffffff;
+  font-style: bold;
 }
 
 .dropbtn {
-  background-color: #cdbef1;
-  color: #292929;
+  background-color: #8550e1;
+  color: #ffffff;
   padding: 10px 15px;
   font-size: 16px;
   border: none;
@@ -56,6 +217,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  font-style: bold;
 }
 
 .avatar-icon {
@@ -63,10 +225,6 @@
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-.username {
-  font-weight: bold;
 }
 
 .dropdown-content {
@@ -85,7 +243,8 @@
 }
 
 .dropdown-content a {
-  color: #333333;
+  color: #ffffff;
+  background-color: #8550e1;
   padding: 12px 16px;
   text-decoration: none;
   display: flex;
@@ -94,7 +253,7 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: #7145D6;
 }
 
 .separator {
@@ -106,15 +265,17 @@
   color: #ff0000;
 }
 
+
 /* Eliminar subrayado y cambiar el color de los enlaces */
 a {
   text-decoration: none;  /* Eliminar subrayado */
-  color: #292929;         /* Color del texto (puedes cambiarlo al color que desees) */
+  color: #ffffff;         /* Color del texto */
 }
 
 /* Cambiar el color cuando el enlace está en foco o cuando se pasa el ratón */
 a:hover {
-  color: #f1f1f1;         /* Color cuando pasa el ratón */
+  color: #f1f1f1;   
+  text-decoration: none;       /* Color cuando pasa el ratón */
 }
 
 /* Cambiar el color cuando el enlace está activo (haciendo clic) */
