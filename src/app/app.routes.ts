@@ -44,6 +44,7 @@ export const routes: Routes = [
   {path: 'rating-history', component: RatingHistoryComponent},
   {path: 'roadmap', component: RoadmapComponent},
   {path: 'vehicle-view', component: VehicleViewComponent},
+
   {path: '**', redirectTo: 'home'}
 ];
 
