@@ -14,6 +14,8 @@ import { EditPassengerComponent } from './components/edit-passenger/edit-passeng
 import { AuntentucationLoginComponent } from './components/auntentucation-login/auntentucation-login.component';
 import { TravelHistoryDriverComponent } from './components/travel-history-driver/travel-history-driver.component';
 import { TravelHistoryPassengerComponent } from './components/travel-history-passenger/travel-history-passenger.component';
+import { TravelStatusDriverComponent } from './components/travel-status-driver/travel-status-driver.component';
+import { TravelStatusPassengerComponent } from './components/travel-status-passenger/travel-status-passenger.component';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { RatingHistoryComponent } from './components/rating-history/rating-history.component';
@@ -34,6 +36,8 @@ export const routes: Routes = [
   {path: 'auntentication-login', component: AuntentucationLoginComponent},
   {path: 'travel-history-driver', component: TravelHistoryDriverComponent},
   {path: 'travel-history-passenger', component: TravelHistoryPassengerComponent},
+  {path: 'travel-status-driver', component: TravelStatusDriverComponent},
+  {path: 'travel-status-passenger', component: TravelStatusPassengerComponent},
   {path: 'wallet', component: WalletComponent},
   {path: 'star-rating', component: StarRatingComponent},
   {path: 'rating-history', component: RatingHistoryComponent},
