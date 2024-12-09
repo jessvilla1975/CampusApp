@@ -16,7 +16,7 @@ import { TravelHistoryDriverComponent } from './components/travel-history-driver
 import { TravelHistoryPassengerComponent } from './components/travel-history-passenger/travel-history-passenger.component';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
-
+import { VehicleViewComponent } from './components/vehicle-view/vehicle-view.component';
 
 
 export const routes: Routes = [
@@ -36,6 +36,7 @@ export const routes: Routes = [
   {path: 'travel-history-passenger', component: TravelHistoryPassengerComponent},
   {path: 'wallet', component: WalletComponent},
   {path: 'star-rating', component: StarRatingComponent},
+  {path: 'vehicle-view', component: VehicleViewComponent},
 
   {path: '**', redirectTo: 'home'}
 ];
