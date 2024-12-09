@@ -117,7 +117,7 @@ body, html {
     position: absolute;
     width: 6px;
     height: 6px;
-    background-color: #ff9e0b;
+    background-color: rgb(113, 69, 214);
     border-radius: 50%;
     opacity: 0;
     transform: scale(0);
@@ -152,15 +152,15 @@ body, html {
 
   .radio > label:hover > svg,
   .radio > label:hover ~ label > svg {
-    fill: #ff9e0b;
-    filter: drop-shadow(0 0 15px rgba(255, 158, 11, 0.9));
+    fill: rgb(113, 69, 214);
+    filter: drop-shadow(0 0 15px rgba(84, 11, 133, 0.9));
     animation: shimmer 1s ease infinite alternate;
   }
 
   .radio > input:checked + label > svg,
   .radio > input:checked + label ~ label > svg {
-    fill: #ff9e0b;
-    filter: drop-shadow(0 0 15px rgba(255, 158, 11, 0.9));
+    fill: rgb(113, 69, 214);
+    filter: drop-shadow(0 0 15px rgba(84, 11, 133, 0.9));
     animation: pulse 0.8s infinite alternate;
   }
 
@@ -192,25 +192,25 @@ body, html {
 
   @keyframes shimmer {
     0% {
-      filter: drop-shadow(0 0 10px rgba(255, 158, 11, 0.5));
+      filter: drop-shadow(0 0 10px rgba(84, 11, 133, 0.5));
     }
     100% {
-      filter: drop-shadow(0 0 20px rgba(255, 158, 11, 1));
+      filter: drop-shadow(0 0 20px rgba(84, 11, 133, 1));
     }
   }
 
   .radio > input:checked + label:hover > svg,
   .radio > input:checked + label:hover ~ label > svg {
-    fill: #e58e09;
+    fill: rgb(113, 69, 214);
   }
 
   .radio > label:hover > svg,
   .radio > label:hover ~ label > svg {
-    fill: #ff9e0b;
+    fill: rgb(113, 69, 214);
   }
 
   .radio input:checked ~ label svg {
-    fill: #ffa723;
+    fill: rgb(113, 69, 214);
 }
 
 /* -------------------------------------------------------------------------------------*/ 

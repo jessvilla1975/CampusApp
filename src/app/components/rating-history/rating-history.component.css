@@ -1,0 +1,206 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f7f7f7;
+  }
+
+  
+  
+  /* Contenedor principal */
+  .travel-history-container {
+    position: relative;
+    height: calc(100vh - 60px); /* Altura del viewport menos un posible header */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    padding: 20px;
+  }
+  
+    /* Contenedor del fondo */
+    .image-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1; /* Mantén la imagen detrás del contenido */
+    }
+  
+  
+  .travel-history-box {
+    display: flex;
+    flex-direction: column;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(113, 69, 214);
+    background: white;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 70rem;
+    z-index: 1;
+    max-height: 91vh; /* Altura máxima en relación al viewport */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    
+    }
+  
+  .travel-history-driver {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      border-radius: 8px;
+  }
+  
+  .travel-history-driver h1 {
+      color: var(--primary-color);
+  }
+  
+  .travel-history-driver p {
+      color: var(--secondary-color);
+  }
+  
+  .travel-history-driver .button {
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+  
+  .travel-history-driver .button:hover {
+      background-color: var(--secondary-color);
+  }
+  
+/* -------------------------------------------------------------------------------------*/ 
+
+ .titulo1 {
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: bold; 
+ }
+  
+  .average-rating {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  .ratings-list {
+    margin-top: 20px;
+  }
+  
+  
+  .rating-details {
+    flex: 1;
+  }
+
+/*---------------------------------------------------------------------------------------------------*/
+.ui-review-capability__rating {
+  display: flex;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.div {
+  display: block;
+  unicode-bidi: isolate;
+}
+
+.ui-review-capability__rating__average {
+  color: rgb(113, 69, 214);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.03;
+  margin-right: 18px;
+  
+}
+
+.ui-review-capability__rating__start-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ui-review-capability__rating__label {
+  color: black;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.14;
+}  
+
+/*--------------------------------------------------------------------------------------------*/
+ 
+.card {
+    border-color: rgb(113, 69, 214);
+    padding: 1rem;
+    width: 100%; 
+    border-radius: 10px;
+    box-shadow: 0 20px 30px -20px rgba(5, 5, 5, 0.24);
+    margin-bottom: 10px;
+    
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  .header .image2 {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    background-color: royalblue;
+  }
+  
+  .stars {
+    display: flex;
+    justify-content: center;
+    grid-gap: 0.125rem;
+    gap: 0.125rem;
+    fill: rgb(113, 69, 214);
+  }
+  
+  .stars svg {
+    
+    width: 30%;
+  }
+  
+  .name {
+    margin-top: 0.25rem;
+    font-size: 23px;
+    line-height: 1.75rem;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgba(55, 65, 81, 1);
+  }
+  
+  .message {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    margin-top: 1rem;
+    font-size: 18px;
+    color: #000000;
+  }
+
