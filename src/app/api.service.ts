@@ -106,6 +106,12 @@ export class ApiService {
     return this.http.put(`${this.apiUrl}/aceptarViaje/${idViaje}`, { id_conductor: idConductor });
   }
 
+  createUbicacion(ubicacionData: any) {
+    return this.http.post<any>(`${this.apiUrl}/ubicacion`, ubicacionData);
+  }
+
+
+
 
 
 

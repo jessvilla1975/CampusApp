@@ -5,7 +5,7 @@ body, html {
     font-family: 'Montserrat', sans-serif;
     background-color: #f7f7f7;
   }
-  
+
   /* Contenedor principal */
   .inicio-conductor-container {
     position: relative;
@@ -17,7 +17,7 @@ body, html {
     gap: 20px;
     padding: 20px;
   }
-  
+
   /* Contenedor del fondo */
   .image-container {
     position: absolute;
@@ -27,7 +27,7 @@ body, html {
     height: 100%;
     overflow: hidden;
   }
-  
+
   .background-image {
     width: 100%;
     height: 100%;
@@ -42,8 +42,17 @@ body, html {
   max-height: 95%; /* Limita la altura al 90% del contenedor principal */
   overflow-y: auto; /* Scroll solo dentro de esta caja */
   padding: 20px;
-  position: relative; 
+  position: relative;
 
+}
+
+.solicitud-card {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.solicitud-card:hover {
+  background-color: #f0f0f0; /* Un color de fondo suave al pasar el mouse */
 }
 
 /* Estilo para el contenedor de búsqueda */
@@ -158,7 +167,7 @@ body, html {
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.10);
     z-index: 0;
   }
-  
+
   .map-icon {
     font-size: 100px;
     color: gray;
@@ -180,7 +189,7 @@ body, html {
 /* Personalización del pulgar (la parte que se mueve) */
 ::-webkit-scrollbar-thumb {
   background-color: rgb(133, 80, 225); /* Color del pulgar con el tono base morado */
-  border-radius: 10px;  
+  border-radius: 10px;
 }
 
 /* Personalización del pulgar al pasar el ratón */
@@ -211,7 +220,7 @@ body, html {
 
   #searchInput, #filterSelect, #searchButton {
     width: 100%; /* Hace que los campos de entrada y el botón ocupen todo el ancho disponible */
-    padding: 12px; 
+    padding: 12px;
     font-size: 16px;
   }
 

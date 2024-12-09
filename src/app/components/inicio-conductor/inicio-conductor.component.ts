@@ -6,6 +6,7 @@ import { ApiService } from '../../api.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MapScreenComponent } from "../../maps/screens/map-screen/map-screen.component";
+import { MapService, PlacesService } from '../../maps/services';
 
 @Component({
   selector: 'app-inicio-conductor',
@@ -21,8 +22,10 @@ export class InicioConductorComponent implements OnInit {
   fullName: string = '';
   userId: string = '';
   solicitudesViajes: any[] = [];  // Array para almacenar las solicitudes de viaje
+  solicitudSeleccionada: any = null;
 
-  constructor(private router: Router, private apiService: ApiService) { }
+  constructor(private router: Router, private apiService: ApiService, private placesService: PlacesService,
+    private mapService: MapService) { }
 
   ngOnInit(): void {
     const userIdFromStorage = localStorage.getItem('userId');
@@ -93,6 +96,32 @@ export class InicioConductorComponent implements OnInit {
       }
     });
   }
+
+ //selecccionar tarjeta
+  seleccionarViaje(solicitud: any) {
+    console.log('Datos de solicitud:', solicitud);  // Verifica qué contiene el objeto 'solicitud'
+
+    // Verificar si la ubicación del conductor está lista
+    if (!this.placesService.isUserLocationReady) {
+      alert('No se ha obtenido la ubicación del conductor');
+      return;
+    }
+
+    // Obtener la ubicación del conductor
+    this.placesService.getUserLocation().then((conductorCoords) => {
+      console.log('Coordenadas del conductor:', conductorCoords);
+
+      // Llamar a un método para mostrar las coordenadas del conductor en el mapa
+      this.mapService.flyto(conductorCoords);  // Solo mover el mapa a la ubicación del conductor
+      this.solicitudSeleccionada = solicitud;  // Guardar la solicitud seleccionada (opcional)
+    }).catch((error) => {
+      console.error('Error al obtener ubicación', error);
+      alert('No se pudo obtener su ubicación actual');
+    });
+  }
+
+
+
 
 
 
