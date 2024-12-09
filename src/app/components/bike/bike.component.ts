@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-bike',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterOutlet, RouterLink],
+  imports: [ReactiveFormsModule],
   templateUrl: './bike.component.html',
   styleUrl: './bike.component.css'
 })
