@@ -76,6 +76,12 @@ export class ApiService {
     return this.http.get<any>(url);
   }
 
+  getTravelHistoryDriver(userId: string) {
+    const url = `${this.apiUrl}/historialViajesConductor/${userId}`;
+    console.log('URL de la solicitud:', url); // Depuración
+    return this.http.get<any>(url);
+  }
+
 
 
 
