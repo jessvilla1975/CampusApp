@@ -1,17 +1,17 @@
 body {
   margin: 0;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: flex-end; /* Alinea el contenedor a la derecha */
   align-items: center;      /* Centra verticalmente el contenedor */
-  background-color: #ffffff; /* Fondo opcional */
+  background-color: #cdbef1; /* Fondo opcional */
 }
 
 .map-container {
   width: 700px;            /* Ancho del contenedor */
   height: 500px;           /* Alto del contenedor */
   background-color: #ffffff; /* Color de fondo del contenedor */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+ /* Sombra opcional */
   border-radius: 8px;      /* Bordes redondeados opcionales */
-  margin-right: 40px;      /* Espaciado desde el borde derecho */
+     /* Espaciado desde el borde derecho */
 }
