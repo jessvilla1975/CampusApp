@@ -3,11 +3,13 @@ import { HeaderDriverComponent } from "../header-driver/header-driver.component"
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../../api.service';
+import { FooterComponent } from "../footer/footer.component";
+
 
 @Component({
   selector: 'app-edit-driver',
   standalone: true,
-  imports: [HeaderDriverComponent, ReactiveFormsModule],
+  imports: [HeaderDriverComponent, ReactiveFormsModule, FooterComponent],
   templateUrl: './edit-driver.component.html',
   styleUrls: ['./edit-driver.component.css']
 })

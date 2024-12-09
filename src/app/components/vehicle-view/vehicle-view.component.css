@@ -13,9 +13,25 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background: #cdbef1;
+  z-index: 1;
 }
-
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Mantén la imagen detrás del contenido */
+}
+.image-container {
+  flex: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
 .container {
   max-width: 700px;
   width: 100%;
@@ -23,6 +39,7 @@ body {
   padding: 25px 30px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1;
 }
 
 .container .title {
@@ -31,7 +48,10 @@ body {
   position: relative;
   text-align: center;
   margin-bottom: 20px;
+  z-index: 1;
+  
 }
+
 
 .container .title::before {
   content: "";
@@ -50,6 +70,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 20px 0 12px 0;
+  z-index: 1;
 }
 
 form .user-details .input-box {
