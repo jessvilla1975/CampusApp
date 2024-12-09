@@ -28,15 +28,15 @@
   <div class="header-right">
     <div class="dropdown">
       <button class="dropbtn">
-        <img src="assets/images/avatar.webp" alt="avatar" class="avatar">
+        <img [src]="fullName === 'Carlos Camacho' ? 'assets/images/carlos1.webp' : 'assets/images/avatar.webp'" alt="avatar" width="32" height="32" class="avatar">
         <span>{{ fullName }}</span>
         <span class="material-icons">expand_more</span>
       </button>
       <div class="dropdown-content">
           <a href="/edit-driver"><span class="material-icons">manage_accounts</span> Administrar perfil</a>
           <a href="#"><span class="material-icons">two_wheeler</span> Administrar vehiculo</a>
-          <a href="/travel-history-driver"><span class="material-icons">history</span> Registro de viajes</a>
-          <a href="/wallet"><span class="material-icons">account_balance_wallet</span> Wallet</a>
+          <a href="#"><span class="material-icons">history</span> Registro de viajes</a>
+          <a href="#"><span class="material-icons">account_balance_wallet</span> Wallet</a>
           <a href="#"><span class="material-icons">settings</span> Configuración</a>
           <div class="separator"></div>
           <a href="#"><span class="material-icons">exit_to_app</span> Cerrar sesión</a>

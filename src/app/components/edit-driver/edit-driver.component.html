@@ -31,7 +31,8 @@
     <div class="perfil-usuario-header">
       <div class="perfil-usuario-portada">
         <div class="perfil-usuario-avatar">
-          <img src="assets/images/avatargrande.webp" alt="avatargrande.webp" width="100" height="160">
+          <img [src]="fullName === 'Carlos Camacho' ? 'assets/images/carlos1.webp' : 'assets/images/avatar.webp'" alt="avatar" width="100" height="160" class="avatar">
+
           <button type="button" class="boton-avatar">
             <i class="far fa-image"></i>
           </button>
