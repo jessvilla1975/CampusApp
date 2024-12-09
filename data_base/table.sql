@@ -160,7 +160,7 @@ INSERT INTO viaje (id_conductor, id_usuario, origen, destino, fecha, horaviaje, 
 VALUES
 (1, 2, 'Universidad del Valle Sede Buga', 'UCEVA', '2024-12-10', '08:00:00', 15.0, 30.0, 4000),
 (1, 2, 'Universidad del Valle Sede Buga', 'Universidad Autónoma de Occidente', '2024-12-12', '10:30:00', 20.0, 40.0, 4500),
-(3, 4, 'Universidad del Valle Sede Buga', 'UCEVA', '2024-12-14', '09:00:00', 15.0, 30.0, 4000),
+(3, 4, 'UCEVA', 'Universidad del Valle Sede Buga', '2024-12-14', '09:00:00', 15.0, 30.0, 4000),
 (3, 4, 'Universidad del Valle Sede Buga', 'Universidad del Valle Sede Tuluá', '2024-12-16', '11:30:00', 12.0, 25.0, 3500);
 
 -- Inserción de historial de viajes para los pasajeros
@@ -168,5 +168,13 @@ INSERT INTO historial_viajes_pasajero (id_usuario, id_viaje, id_conductor, orige
 VALUES
 (2, 1, 1, 'Universidad del Valle Sede Buga', 'UCEVA', '2024-12-10', '08:00:00', 4000),
 (2, 2, 1, 'Universidad del Valle Sede Buga', 'Universidad Autónoma de Occidente', '2024-12-12', '10:30:00', 4500),
-(4, 3, 3, 'Universidad del Valle Sede Buga', 'UCEVA', '2024-12-14', '09:00:00', 4000),
+(4, 3, 3, 'UCEVA', 'Universidad del Valle Sede Buga', '2024-12-14', '09:00:00', 4000),
 (4, 4, 3, 'Universidad del Valle Sede Buga', 'Universidad del Valle Sede Tuluá', '2024-12-16', '11:30:00', 3500);
+
+-- Inserción de datos en la tabla ubicacion
+INSERT INTO ubicacion (id_usuario, id_viaje, origen_latitud, origen_longitud, destino_latitud, destino_longitud, nombre_origen, nombre_destino)
+VALUES
+(2, 1, 3.89816600, -76.30131500, 4.2214, -77.1098, 'Universidad del Valle Sede Buga', 'UCEVA'),
+(2, 2, 3.89816600, -76.30131500, 3.7919, -76.2740, 'Universidad del Valle Sede Buga', 'Universidad Autónoma de Occidente'),
+(4, 3, 4.06387300, -76.19986800, 4.2214, -77.1098, 'UCEVA', 'Universidad del Valle Sede Buga'),
+(4, 4, 3.89816600, -76.30131500, 4.0921, -76.2021, 'Universidad del Valle Sede Buga', 'Universidad del Valle Sede Tuluá');

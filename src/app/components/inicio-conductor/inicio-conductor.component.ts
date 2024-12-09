@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MapScreenComponent } from "../../maps/screens/map-screen/map-screen.component";
 import { MapService, PlacesService } from '../../maps/services';
+import { Feature } from '../../maps/interfaces/places';
 
 @Component({
   selector: 'app-inicio-conductor',
@@ -98,27 +99,69 @@ export class InicioConductorComponent implements OnInit {
   }
 
  //selecccionar tarjeta
-  seleccionarViaje(solicitud: any) {
-    console.log('Datos de solicitud:', solicitud);  // Verifica qué contiene el objeto 'solicitud'
+ seleccionarViaje(solicitud: any) {
+  console.log('Datos de solicitud:', solicitud);
 
-    // Verificar si la ubicación del conductor está lista
-    if (!this.placesService.isUserLocationReady) {
-      alert('No se ha obtenido la ubicación del conductor');
-      return;
-    }
-
-    // Obtener la ubicación del conductor
-    this.placesService.getUserLocation().then((conductorCoords) => {
-      console.log('Coordenadas del conductor:', conductorCoords);
-
-      // Llamar a un método para mostrar las coordenadas del conductor en el mapa
-      this.mapService.flyto(conductorCoords);  // Solo mover el mapa a la ubicación del conductor
-      this.solicitudSeleccionada = solicitud;  // Guardar la solicitud seleccionada (opcional)
-    }).catch((error) => {
-      console.error('Error al obtener ubicación', error);
-      alert('No se pudo obtener su ubicación actual');
-    });
+  // Verificar si la ubicación del conductor está lista
+  if (!this.placesService.isUserLocationReady) {
+    alert('No se ha obtenido la ubicación del conductor');
+    return;
   }
+
+  // Obtener la ubicación del conductor
+  this.placesService.getUserLocation().then((conductorCoords) => {
+    console.log('Coordenadas del conductor:', conductorCoords);
+
+    // Llamar a la API para obtener las coordenadas del viaje
+    this.apiService.getCoordenadasViaje(solicitud.id_viaje).subscribe({
+      next: (response: any) => {
+        if (response.success) {
+          const { origen_latitud, origen_longitud, nombre_origen } = response.data;
+
+          // Obtener coordenadas de origen del pasajero
+          const pasajeroCoords: [number, number] = [parseFloat(origen_longitud), parseFloat(origen_latitud)];
+
+          // Crear un objeto Feature que coincida con la interfaz
+          const pasajeroFeature: Feature = {
+            id: `passenger-${solicitud.id_viaje}`,
+            type: 'Feature',
+            place_type: ['point'],
+            relevance: 1,
+            properties: {
+              landmark: true,
+              category: 'passenger-location'
+            },
+            text_es: 'Ubicación del Pasajero',
+            text: 'Ubicacion Pasajero',
+            place_name_es: nombre_origen,
+            place_name: nombre_origen,
+            center: pasajeroCoords,
+            geometry: {
+              type: 'Point',
+              coordinates: pasajeroCoords
+            },
+            context: [] // Puedes dejarlo vacío o añadir contexto si lo tienes
+          };
+
+          // Marcar la posición del pasajero
+          this.mapService.createMarkersFronPlaces([pasajeroFeature], conductorCoords);
+
+          // Dibujar la ruta entre el conductor y el origen del pasajero
+          this.mapService.getRouteBetweenPoints(conductorCoords, pasajeroCoords);
+        } else {
+          alert('No se pudieron obtener las coordenadas del pasajero');
+        }
+      },
+      error: (error) => {
+        console.error('Error al obtener coordenadas del viaje', error);
+        alert('Error al obtener las coordenadas del viaje');
+      },
+    });
+  }).catch((error) => {
+    console.error('Error al obtener ubicación', error);
+    alert('No se pudo obtener su ubicación actual');
+  });
+}
 
 
 
