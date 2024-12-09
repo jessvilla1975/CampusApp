@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="vehicle-view.component.css">
+  <title>Vehicle-view - CampusRide</title>
+</head>
+<body>
+  <div class="container">
+    <!-- Title section -->
+    <div class="title">Registro de Vehículo</div>
+    <div class="content">
+      <!-- Registration form -->
+      <form action="#">
+        <div class="user-details">
+          <!-- Input for ID de Placa -->
+          <div class="input-box">
+            <span class="details">ID de Placa</span>
+            <input type="text" name="id_placa" placeholder="Ingrese ID de placa" required>
+          </div>
+          <!-- Input for Marca -->
+          <div class="input-box">
+            <span class="details">Marca</span>
+            <input type="text" name="marca" placeholder="Ingrese marca del vehículo" required>
+          </div>
+          <!-- Input for Modelo -->
+          <div class="input-box">
+            <span class="details">Modelo</span>
+            <input type="text" name="modelo" placeholder="Ingrese modelo del vehículo" required>
+          </div>
+          <!-- Input for Año -->
+          <div class="input-box">
+            <span class="details">Año</span>
+            <input type="number" name="ano" placeholder="Ingrese año del vehículo" required>
+          </div>
+          <!-- Input for Color -->
+          <div class="input-box">
+            <span class="details">Color</span>
+            <input type="color" name="color" required>
+          </div>
+          <!-- Input for Capacidad de Pasajeros -->
+          <div class="input-box">
+            <span class="details">Capacidad de Pasajeros</span>
+            <input type="number" name="capacidad_pasajeros" placeholder="Ingrese capacidad de pasajeros" required>
+          </div>
+        </div>
+        <!-- Buttons -->
+        <div class="button">
+          <input type="submit" value="Guardar cambios">
+        </div>
+        <div class="button">
+          <input type="button" value="Cancelar" onclick="window.location.href='index.html';">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
