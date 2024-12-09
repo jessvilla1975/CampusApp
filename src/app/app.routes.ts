@@ -21,6 +21,8 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
 import { RatingHistoryComponent } from './components/rating-history/rating-history.component';
 import { RoadmapComponent } from './components/roadmap/roadmap.component';
 import { VehicleViewComponent } from './components/vehicle-view/vehicle-view.component';
+import { UserManualComponent } from './components/user-manual/user-manual.component';
+
 
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -44,6 +46,7 @@ export const routes: Routes = [
   {path: 'rating-history', component: RatingHistoryComponent},
   {path: 'roadmap', component: RoadmapComponent},
   {path: 'vehicle-view', component: VehicleViewComponent},
+  {path: 'user-manual', component: UserManualComponent},
 
   {path: '**', redirectTo: 'home'}
 ];
