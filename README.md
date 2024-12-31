@@ -1,27 +1,76 @@
-# CampusRide
+# 🎓 CampusRide
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
+###  Descripción
+CampusRide es una solución innovadora de movilidad diseñada para estudiantes universitarios. Ofrecemos un servicio confiable, económico y flexible mediante una plataforma web que conecta a usuarios con conductores de motocicletas, optimizando sus trayectos diarios. Este proyecto tiene como objetivo principal facilitar el acceso al transporte mientras mantiene altos estándares de satisfacción y seguridad.
 
-## Development server
+### 🚀 Enlace App
+* 🌐 **Website:** [CampusRide](https://jessvilla1975.github.io/CampusApp/home)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### ✨ Características Principales
 
-## Code scaffolding
+1.  **Registro y autenticación:** Manejo seguro de usuarios mediante autenticación de dos pasos.
+2.  **Sistema de búsqueda y reserva:** Encuentra conductores cercanos de manera rápida y eficiente.
+3. **Sistema de calificación:** Permite retroalimentar y mejorar la experiencia del usuario.
+4.  **Notificaciones en tiempo real:** Alerta sobre eventos importantes del viaje.
+5. **Geolocalización avanzada:** Utiliza la API de Mapbox para optimizar rutas.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### 💻 Requisitos del Proyecto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+*  **Frontend:** Angular, Bootstrap, HTML, CSS
+*  **Backend:** Node.js, Express
+*  **Base de datos:** MySQL
+*  **APIs externas:** Mapbox para geolocalización
 
-## Running unit tests
+### 🚀 Instalación y Configuración
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Clona el repositorio desde GitHub:
 
-## Running end-to-end tests
+```bash
+git clone https://github.com/jessvilla1975/CampusApp.git
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Navega al directorio del proyecto:
 
-## Further help
+```bash
+cd campusride
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Instala las dependencias necesarias para el proyecto:
+
+```bash
+npm install
+```
+
+Asegúrate de configurar las variables de entorno en un archivo `.env` con el siguiente contenido si es local:
+
+```plaintext
+PORT=8080
+DB_PORT=3306
+DB_HOST=localhost
+DB_USERNAME=root
+DB_PASSWORD=1234
+DB_NAME=prueba
+```
+
+Inicia el servidor del proyecto Angular con el siguiente comando:
+
+```bash
+ng serve -o
+```
+
+Esto abrirá automáticamente la aplicación en `http://localhost:4200`.
+
+Para ejecutar las pruebas del proyecto, utiliza el siguiente comando:
+
+```bash
+npm run test
+```
+
+### 📊 Metodologías
+El proyecto fue desarrollado siguiendo la metodología ágil **SCRUM**, utilizando herramientas como **Azure DevOps** para la planificación y gestión de tareas.
+
+
+
+
+

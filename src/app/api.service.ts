@@ -9,7 +9,7 @@ export class ApiService {
 
   //https://api-rest-vo9r.onrender.com/api
   //http://localhost:9001/api
-  private apiUrl = 'http://localhost:9001/api'; //URL de la API
+  private apiUrl = 'https://api-rest-vo9r.onrender.com/api'; //URL de la API
 
   constructor(private http: HttpClient) { }
 
