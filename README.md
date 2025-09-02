@@ -1,5 +1,7 @@
 # 🎓 CampusRide
-
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/b6ecfe10-7867-48a9-904a-fecf2852a6c0" controls width="600"></video>
+</div>
 ###  Descripción
 CampusRide es una solución innovadora de movilidad diseñada para estudiantes universitarios. Ofrecemos un servicio confiable, económico y flexible mediante una plataforma web que conecta a usuarios con conductores de motocicletas, optimizando sus trayectos diarios. Este proyecto tiene como objetivo principal facilitar el acceso al transporte mientras mantiene altos estándares de satisfacción y seguridad.
 
